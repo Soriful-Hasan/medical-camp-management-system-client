@@ -1,15 +1,30 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import DropDown from "../DropDown/DropDown";
+import toast from "react-hot-toast";
+import ToggleDarkMode from "../ToggleDarkMode/ToggleDarkMode";
 
 const Navbar = () => {
+  const { user, userSignOut } = useAuth();
+
+  const handleSignOut = () => {
+    userSignOut()
+      .then((result) => {
+        toast.success("Sign out successfully");
+      })
+      .catch((error) => {
+        toast.error("Something was wrong");
+      });
+  };
   const link = [
     <>
       <li>
-        <a>Submenu 1</a>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <a>Submenu 2</a>
+        <NavLink to={"/items"}>Items</NavLink>
       </li>
     </>,
   ];
@@ -48,10 +63,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{link}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to={"auth/login"} className="btn">
-          Login
-        </Link>
+      <div className="navbar-end ">
+        <div className="flex gap-4">
+          <div className="w-12 rounded-full p-1 cursor-pointer">
+            <DropDown user={user} handleSignOut={handleSignOut}></DropDown>
+          </div>
+          <ToggleDarkMode />
+        </div>
       </div>
     </div>
   );
