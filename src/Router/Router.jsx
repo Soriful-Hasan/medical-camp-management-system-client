@@ -14,6 +14,8 @@ import ManageCamp from "../Dashboard/Admin/ManageCamp/ManageCamp";
 import CampDetails from "../Page/Home/PopularMedicalCamps/CampDetails";
 import AllCamps from "../Page/AllCapms/AllCamps";
 import RegisteredCamps from "../Dashboard/Participant/RegisteredCamps/RegisteredCamps";
+import Payment from "../Dashboard/Participant/Payment/Payment";
+import PaymentHistory from "../Dashboard/Participant/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,7 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     Component: Dashboard,
     children: [
+      //Admin route
       {
         path: "add-camp",
         element: <AddCamp />,
@@ -69,9 +72,19 @@ export const router = createBrowserRouter([
         path: "manage-camp",
         element: <ManageCamp />,
       },
+
+      //Participant route
       {
         path: "registered-camps",
         element: <RegisteredCamps />,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
       },
     ],
   },

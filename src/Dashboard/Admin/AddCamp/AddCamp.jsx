@@ -35,17 +35,17 @@ const AddCamp = () => {
   });
 
   const onSubmit = async (data) => {
-    const imageFile = data.image[0];
-    const imageData = await UploadImage(imageFile);
-    let imageUrl = "";
-    if (imageData.success) {
-      imageUrl = imageData.data.url;
-    }
+    // const imageFile = data.image[0];
+    // const imageData = await UploadImage(imageFile);
+    // let imageUrl = "";
+    // if (imageData.success) {
+    //   imageUrl = imageData.data.url;
+    // }
     const getCamp_fee = data.camp_fee;
     const camp_fee = parseFloat(getCamp_fee);
     const campData = {
       camp_name: data.camp_name,
-      camp_img: imageUrl,
+      camp_img: data.image,
       created_date: data.create_date,
       location: data.location,
       participant_count: 0,
@@ -79,12 +79,26 @@ const AddCamp = () => {
               </p>
             )}
           </div>
-          <div className="">
+          {/* <div className="">
             <input
               type="file"
               className="input"
               {...register("image", { required: "image is required" })}
               accept="image/*"
+            />
+            {errors.image && (
+              <p className="text-red-500 text-sm">{errors.image?.message}</p>
+            )}
+          </div> */}
+          <div className="">
+            <label className="block font-medium">Camp Img *</label>
+            <input
+              className="input"
+              type="text"
+              {...register("image", {
+                required: "Camp img required",
+                minLength: {},
+              })}
             />
             {errors.image && (
               <p className="text-red-500 text-sm">{errors.image?.message}</p>

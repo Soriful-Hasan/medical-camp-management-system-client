@@ -20,7 +20,7 @@ const RegisteredCamps = () => {
       return res.data;
     },
   });
-  console.log(campsData);
+
   if (isPending) {
     return <Loader />;
   }
@@ -35,6 +35,7 @@ const RegisteredCamps = () => {
               <th>Name</th>
               <th>Fee</th>
               <th>Location</th>
+              <th>Payment Status</th>
               <th>Action</th>
             </tr>
           </thead>

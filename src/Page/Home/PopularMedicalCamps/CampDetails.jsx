@@ -23,10 +23,10 @@ const CampDetails = () => {
       return res.data;
     },
     onSuccess: () => {
-      toast.success("Join Camp Successfully");
       queryClient.invalidateQueries({ queryKey: ["details", campDetails._id] });
     },
   });
+
   const { alreadyJoined, isLoading } = useIsJoined(id);
   console.log(alreadyJoined, isLoading);
   if (isPending) {

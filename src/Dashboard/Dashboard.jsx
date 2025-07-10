@@ -4,12 +4,15 @@ import Logo from "../Components/Logo/Logo";
 
 const Dashboard = () => {
   const link = [
-    <div className="mt-6">
+    <div className="mt-6 flex flex-col gap-6">
       <li>
         <NavLink>Dash board</NavLink>
       </li>
       <li>
         <NavLink to={"/dashboard/registered-camps"}>Registered Camps</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/dashboard/payment-history"}>Payment history</NavLink>
       </li>
       <li>
         <NavLink to={"/dashboard/add-camp"}>Add Camp</NavLink>
