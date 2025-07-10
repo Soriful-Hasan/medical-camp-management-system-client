@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "daisyui": "^5.0.46",
+    "date-fns": "^4.1.0",
     "firebase": "^11.10.0",
     "flowbite": "^3.1.2",
     "heroicons": "^2.2.0",

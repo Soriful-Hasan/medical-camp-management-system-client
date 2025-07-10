@@ -86,7 +86,7 @@ const PaymentForm = () => {
           paymentMethod: result.paymentIntent.payment_method_types,
         };
         console.log(paymentData);
-        const historyRes = await axiosSecure.post("/payment/history", {
+        const historyRes = await axiosSecure.post("/payment/save-history", {
           paymentData,
         });
         console.log(historyRes);
