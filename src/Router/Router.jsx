@@ -11,8 +11,9 @@ import App from "../App";
 import Dashboard from "../Dashboard/Dashboard";
 import AddCamp from "../Dashboard/Admin/AddCamp/AddCamp";
 import ManageCamp from "../Dashboard/Admin/ManageCamp/ManageCamp";
-import Items from "../Page/Items/Items";
 import CampDetails from "../Page/Home/PopularMedicalCamps/CampDetails";
+import AllCamps from "../Page/AllCapms/AllCamps";
+import RegisteredCamps from "../Dashboard/Participant/RegisteredCamps/RegisteredCamps";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
         path: "/items",
         element: (
           <ProtectedRoute>
-            <Items />
+            <AllCamps />
           </ProtectedRoute>
         ),
       },
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-camp",
         element: <ManageCamp />,
+      },
+      {
+        path: "registered-camps",
+        element: <RegisteredCamps />,
       },
     ],
   },

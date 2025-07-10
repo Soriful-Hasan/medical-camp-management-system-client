@@ -1,31 +1,29 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import ManageCampTable from "./ManageCampTable";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useQueries, useQuery } from "@tanstack/react-query";
-import Loader from "../../../Components/Loader/Loader";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Loader from "../../../Components/Loader/Loader";
+import RegisteredTable from "./RegisteredTable";
 
-const ManageCamp = () => {
+const RegisteredCamps = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const email = user?.email;
   const {
-    data: campsData,
+    data: campsData = [],
     isPending,
     error,
   } = useQuery({
-    queryKey: ["manageCamps", user?.email],
+    queryKey: ["registeredCamps", user?.email],
     queryFn: async () => {
-      const camps = await axiosSecure.get(
-        `/admin/get-camps?email=${user?.email}`
-      );
-      return camps.data;
+      const res = await axiosSecure.get(`/user/registeredCamps?email=${email}`);
+      return res.data;
     },
   });
-
+  console.log(campsData);
   if (isPending) {
     return <Loader />;
   }
-
   return (
     <div>
       <div className="overflow-x-auto">
@@ -35,18 +33,17 @@ const ManageCamp = () => {
             <tr>
               <th>Serial</th>
               <th>Name</th>
-              <th>Date</th>
+              <th>Fee</th>
               <th>Location</th>
-              <th>Delete</th>
-              <th>Update</th>
+              <th>Action</th>
             </tr>
           </thead>
           {campsData?.map((camp, index) => (
-            <ManageCampTable
+            <RegisteredTable
+              camp={camp}
               key={index}
               index={index}
-              camp={camp}
-            ></ManageCampTable>
+            ></RegisteredTable>
           ))}
         </table>
       </div>
@@ -54,4 +51,4 @@ const ManageCamp = () => {
   );
 };
 
-export default ManageCamp;
+export default RegisteredCamps;

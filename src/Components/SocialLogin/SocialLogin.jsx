@@ -16,41 +16,33 @@ const SocialLogin = ({ data }) => {
   const navigate = useNavigate();
   const goState = redirects || "/";
   console.log(goState);
-  const handleSocialLogin = async () => {
-    try {
-      await signInWithGoogle();
-      toast.success("Sign up successfully");
-      // const name = user?.displayName;
-      // const email = user?.email;
-      // const imageUrl = user?.photoURL;
-
-      // console.log({ name, email, imageUrl });
-      // const userInfo = {
-      //   name: name,
-      //   email: email,
-      //   photoURL: imageUrl,
-      //   role: "participant",
-      // };
-      // axios
-      //   .post("/userInfo", { userInfo })
-      //   .then((res) => console.log(res))
-      //   .catch((error) => console.log(error));
-
-      navigate(goState);
-    } catch (error) {
-      console.log(error);
-      toast.error("something went wrong");
-    }
+  const handleSocialLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        toast.success("login successfully");
+        const name = res.user?.displayName;
+        const email = res.user?.email;
+        const imageUrl = res.user?.photoURL;
+        console.log({ name, email, imageUrl });
+        const userInfo = {
+          name: name,
+          email: email,
+          photoURL: imageUrl,
+          role: "participant",
+        };
+        axios
+          .post("/userInfo", { userInfo })
+          .then((res) => console.log(res))
+          .catch((error) => console.log(error));
+        navigate(goState);
+        toast.success("Sign up successfully");
+      })
+      .catch((error) => {
+        toast.error("something went wrong");
+      });
   };
-  // signInWithGoogle()
-  //   .then((res) => {
-  //     toast.success(`${data} up successfully`);
-  //     navigate(goState);
-  //     setLoading(false);
-  //   })
-  //   .catch((error) => {
-  //     toast.error(`Something was wrong`);
-  //   });
+
+  
   return (
     <div className="mt-10">
       <button

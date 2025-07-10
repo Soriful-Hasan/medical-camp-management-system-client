@@ -41,12 +41,15 @@ const AddCamp = () => {
     if (imageData.success) {
       imageUrl = imageData.data.url;
     }
+    const getCamp_fee = data.camp_fee;
+    const camp_fee = parseFloat(getCamp_fee);
     const campData = {
       camp_name: data.camp_name,
       camp_img: imageUrl,
       created_date: data.create_date,
       location: data.location,
       participant_count: 0,
+      camp_fee: camp_fee,
       professional_name: data.professional_name,
       camp_description: data.camp_description,
       created_by: user.email,

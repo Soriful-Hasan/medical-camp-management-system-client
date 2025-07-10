@@ -9,10 +9,19 @@ const Dashboard = () => {
         <NavLink>Dash board</NavLink>
       </li>
       <li>
+        <NavLink to={"/dashboard/registered-camps"}>Registered Camps</NavLink>
+      </li>
+      <li>
         <NavLink to={"/dashboard/add-camp"}>Add Camp</NavLink>
       </li>
       <li>
-        <NavLink to={"/dashboard/manage-camp"}>Manage Camp</NavLink>
+        <NavLink to={"/dashboard/manage-camp"}>Manage Camps</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/dashboard/register-camps"}>Registered Camps</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/dashboard/profile"}>Profile</NavLink>
       </li>
     </div>,
   ];
