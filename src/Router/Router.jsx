@@ -16,6 +16,10 @@ import AllCamps from "../Page/AllCapms/AllCamps";
 import RegisteredCamps from "../Dashboard/Participant/RegisteredCamps/RegisteredCamps";
 import Payment from "../Dashboard/Participant/Payment/Payment";
 import PaymentHistory from "../Dashboard/Participant/PaymentHistory/PaymentHistory";
+import AdminProtected from "../ProtectedRoute/AdminProtected";
+import ForbiddenPage from "../components/ForbiddenPage/ForbiddenPage";
+import ParticipantProtected from "../ProtectedRoute/ParticipantProtected";
+import ManageRegisteredCamp from "../Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +46,10 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "/forbidden",
+        element: <ForbiddenPage />,
+      },
     ],
   },
 
@@ -61,30 +69,74 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: Dashboard,
+    element: (
+      <ProtectedRoute>
+        <Dashboard></Dashboard>
+      </ProtectedRoute>
+    ),
     children: [
       //Admin route
       {
         path: "add-camp",
-        element: <AddCamp />,
+        element: (
+          <ProtectedRoute>
+            <AdminProtected>
+              <AddCamp />
+            </AdminProtected>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "manage-camp",
-        element: <ManageCamp />,
+        element: (
+          <ProtectedRoute>
+            <AdminProtected>
+              <ManageCamp />
+            </AdminProtected>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "manage-registered-camp",
+        element: (
+          <ProtectedRoute>
+            <AdminProtected>
+              <ManageRegisteredCamp />
+            </AdminProtected>
+          </ProtectedRoute>
+        ),
       },
 
       //Participant route
       {
         path: "registered-camps",
-        element: <RegisteredCamps />,
+        element: (
+          <ProtectedRoute>
+            <ParticipantProtected>
+              <RegisteredCamps />
+            </ParticipantProtected>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "payment/:id",
-        element: <Payment />,
+        element: (
+          <ProtectedRoute>
+            <ParticipantProtected>
+              <Payment />
+            </ParticipantProtected>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "payment-history",
-        element: <PaymentHistory />,
+        element: (
+          <ProtectedRoute>
+            <ParticipantProtected>
+              <PaymentHistory />
+            </ParticipantProtected>
+          </ProtectedRoute>
+        ),
       },
     ],
   },

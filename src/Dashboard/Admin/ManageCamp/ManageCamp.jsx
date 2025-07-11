@@ -8,6 +8,7 @@ import useAuth from "../../../hooks/useAuth";
 const ManageCamp = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  // get camp 
   const {
     data: campsData,
     isPending,

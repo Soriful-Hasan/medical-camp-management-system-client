@@ -2,12 +2,14 @@ import axios from "axios";
 import useAuth from "./useAuth";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import { Navigate, useNavigate } from "react-router";
 
 const axiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_url}`,
 });
 const useAxiosSecure = () => {
-  const { user, signOut, loading } = useAuth();
+  const { user, userSignOut, loading } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     if (!loading && user?.accessToken) {
       // request interceptor
@@ -21,8 +23,9 @@ const useAxiosSecure = () => {
       const responseInterCeptor = axiosInstance.interceptors.response.use(
         (res) => res,
         (err) => {
-          if (err?.response?.status === 401 || err?.response?.status === 403) {
-            signOut()
+          console.log(err);
+          if (err?.response?.status === 401) {
+            userSignOut()
               .then(() => {
                 Swal.fire({
                   title: "Logged out due to token issue",
@@ -31,6 +34,9 @@ const useAxiosSecure = () => {
                 });
               })
               .catch(console.error);
+          }
+          if (err?.response?.status === 403) {
+            navigate("/forbidden", { replace: true });
           }
           return Promise.reject(err);
         }
@@ -41,7 +47,7 @@ const useAxiosSecure = () => {
         axiosInstance.interceptors.response.eject(responseInterCeptor);
       };
     }
-  }, [loading, signOut, user]);
+  }, [loading, userSignOut, user, navigate]);
   return axiosInstance;
 };
 

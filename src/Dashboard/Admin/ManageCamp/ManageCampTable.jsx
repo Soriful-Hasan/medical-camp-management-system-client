@@ -1,6 +1,7 @@
 import React from "react";
 
 const ManageCampTable = ({ camp, index }) => {
+  
   return (
     <tbody>
       <tr>

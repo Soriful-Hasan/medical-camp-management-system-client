@@ -1,21 +1,18 @@
 import React from "react";
-import useUseRole from "../hooks/useUseRole";
+
 import { Navigate, useLocation } from "react-router";
 import Loader from "../Components/Loader/Loader";
+import useUserRole from "../hooks/useUserRole";
 
 const AdminProtected = ({ children }) => {
-  const [role, isLoading] = useUseRole();
+  const { role, isLoading } = useUserRole();
   const location = useLocation();
   if (isLoading) {
     return <Loader />;
   }
   if (role !== "admin") {
     return (
-      <Navigate
-        to="/unauthorized"
-        state={{ from: location }}
-        replace
-      ></Navigate>
+      <Navigate to="/forbidden" state={{ from: location }} replace></Navigate>
     );
   }
   return children;

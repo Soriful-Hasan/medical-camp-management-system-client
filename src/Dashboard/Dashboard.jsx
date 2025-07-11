@@ -1,34 +1,49 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router";
 import Logo from "../Components/Logo/Logo";
-import useUseRole from "../hooks/useUseRole";
+import useUserRole from "../hooks/useUserRole";
 
 const Dashboard = () => {
-  const { role, isLoading, user } = useUseRole();
+  const { role, isLoading } = useUserRole();
 
-  console.log(role, isLoading, user);
   const link = [
-    <div className="mt-6 flex flex-col gap-6">
+    <nav className="mt-6 flex flex-col gap-6">
       <li>
         <NavLink>Dash board</NavLink>
       </li>
-      <li>
-        <NavLink to={"/dashboard/registered-camps"}>Registered Camps</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/dashboard/payment-history"}>Payment history</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/dashboard/add-camp"}>Add Camp</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/dashboard/manage-camp"}>Manage Camps</NavLink>
-      </li>
+      {role === "participant" && (
+        <>
+          <li>
+            <NavLink to={"/dashboard/registered-camps"}>
+              Registered Camps
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard/payment-history"}>Payment history</NavLink>
+          </li>
+        </>
+      )}
+      {role === "admin" && (
+        <>
+          <li>
+            <NavLink to={"/dashboard/add-camp"}>Add Camp</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard/manage-camp"}>Manage Camps</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard/manage-registered-camp"}>
+              Manage Registered Camp
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard/profile"}>Profile</NavLink>
+          </li>
+        </>
+      )}
+
       <div className="border-b border-gray-300"></div>
-      <li>
-        <NavLink to={"/dashboard/profile"}>Profile</NavLink>
-      </li>
-    </div>,
+    </nav>,
   ];
   return (
     <div className="drawer lg:drawer-open">

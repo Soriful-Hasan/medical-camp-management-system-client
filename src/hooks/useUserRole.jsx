@@ -3,10 +3,11 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
-const useUseRole = () => {
+const useUserRole = () => {
   const { user } = useAuth();
+
   const email = user?.email;
-  const { axiosSecure } = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
   const { data: role, isLoading } = useQuery({
     queryKey: ["userRole", user?.email],
     enabled: !!user?.email,
@@ -16,7 +17,7 @@ const useUseRole = () => {
     },
   });
 
-  return { role, isLoading, user };
+  return { role, isLoading };
 };
 
-export default useUseRole;
+export default useUserRole;

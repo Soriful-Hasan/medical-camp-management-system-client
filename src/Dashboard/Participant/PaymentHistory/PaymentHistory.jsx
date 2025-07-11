@@ -19,7 +19,6 @@ const PaymentHistory = () => {
   if (isPending) {
     return <Loader />;
   }
-  console.log(paymentHistory);
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">

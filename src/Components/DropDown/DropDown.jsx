@@ -25,7 +25,7 @@ const DropDown = ({ user, handleSignOut }) => {
           <MenuItem>
             {({ active }) => (
               <Link
-                to={"dashboard/add-camp"}
+                to={"dashboard"}
                 className={`${
                   active ? "bg-gray-100" : ""
                 } group flex items-center w-full px-4 py-2`}
