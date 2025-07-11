@@ -20,7 +20,6 @@ const AllCamps = () => {
   if (isPending) {
     return <Loader />;
   }
-  console.log(allCamps);
   return (
     <div className="w-11/12 mx-auto">
       <div className="mb-10">

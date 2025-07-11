@@ -28,7 +28,7 @@ const CampDetails = () => {
   });
 
   const { alreadyJoined, isLoading } = useIsJoined(id);
-  console.log(alreadyJoined, isLoading);
+
   if (isPending) {
     return <Loader />;
   }

@@ -1,8 +1,12 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router";
 import Logo from "../Components/Logo/Logo";
+import useUseRole from "../hooks/useUseRole";
 
 const Dashboard = () => {
+  const { role, isLoading, user } = useUseRole();
+
+  console.log(role, isLoading, user);
   const link = [
     <div className="mt-6 flex flex-col gap-6">
       <li>
