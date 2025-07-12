@@ -37,6 +37,7 @@ const RegisteredCamps = () => {
               <th>Location</th>
               <th>Payment Status</th>
               <th>Action</th>
+              <th>FeedBack</th>
             </tr>
           </thead>
           {campsData?.map((camp, index) => (

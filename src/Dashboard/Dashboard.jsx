@@ -37,7 +37,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/dashboard/profile"}>Profile</NavLink>
+            <NavLink to={"/dashboard/admin-profile"}>Profile</NavLink>
           </li>
         </>
       )}

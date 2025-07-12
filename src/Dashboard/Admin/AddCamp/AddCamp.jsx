@@ -108,7 +108,7 @@ const AddCamp = () => {
             <label className="block font-medium">Camp Fee *</label>
             <input
               className="input"
-              type="text"
+              type="number"
               {...register("camp_fee", {
                 required: "Camp name required",
                 minLength: {},

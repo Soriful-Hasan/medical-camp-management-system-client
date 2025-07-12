@@ -9,7 +9,7 @@ const ManageRegisteredCamp = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const {
-    data: registeredCampsData,
+    data: registeredCampsData = [],
     isPending,
     error,
   } = useQuery({
@@ -40,11 +40,10 @@ const ManageRegisteredCamp = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {registeredCampsData?.map((regData, index) => (
-            <RegisteredCampTable key={index} regData={regData} index={index} />
-          ))}
-        </tbody>
+
+        {registeredCampsData?.map((regData, index) => (
+          <RegisteredCampTable key={index} regData={regData} index={index} />
+        ))}
       </table>
     </div>
   );

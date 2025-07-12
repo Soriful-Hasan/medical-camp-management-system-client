@@ -20,6 +20,7 @@ import AdminProtected from "../ProtectedRoute/AdminProtected";
 import ForbiddenPage from "../components/ForbiddenPage/ForbiddenPage";
 import ParticipantProtected from "../ProtectedRoute/ParticipantProtected";
 import ManageRegisteredCamp from "../Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
+import AdminProfile from "../Dashboard/Admin/AdminProfile/AdminProfile";
 
 export const router = createBrowserRouter([
   {
@@ -102,6 +103,16 @@ export const router = createBrowserRouter([
           <ProtectedRoute>
             <AdminProtected>
               <ManageRegisteredCamp />
+            </AdminProtected>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin-profile",
+        element: (
+          <ProtectedRoute>
+            <AdminProtected>
+              <AdminProfile />
             </AdminProtected>
           </ProtectedRoute>
         ),

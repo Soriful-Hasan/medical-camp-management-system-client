@@ -41,7 +41,8 @@ const RegisteredCampTable = ({ regData, index }) => {
     });
   };
 
-  // delete camp
+  // Cancel camp
+
   const { mutate: deleteParticipant } = useMutation({
     mutationFn: async (id) => {
       const res = await axiosSecure.delete(`/admin/register-camp-delete/${id}`);
@@ -80,7 +81,7 @@ const RegisteredCampTable = ({ regData, index }) => {
         <td>{regData.camp_fee}</td>
         <td>{regData.payment_status}</td>
         <td>
-          {regData.conformation_status === "pending" && (
+          {regData.confirmation_status === "pending" && (
             <button
               onClick={() => handleConformed(regData._id)}
               className="cursor-pointer"
@@ -88,13 +89,13 @@ const RegisteredCampTable = ({ regData, index }) => {
               Pending
             </button>
           )}
-          {regData.conformation_status === "confirmed" && (
+          {regData.confirmation_status === "confirmed" && (
             <button>confirmed</button>
           )}
         </td>
 
         {regData.payment_status === "paid" &&
-        regData.conformation_status === "confirmed" ? (
+        regData.confirmation_status === "confirmed" ? (
           <td>Not Cancel</td>
         ) : (
           <td onClick={() => handleDelete(regData._id)}>Cancel</td>
