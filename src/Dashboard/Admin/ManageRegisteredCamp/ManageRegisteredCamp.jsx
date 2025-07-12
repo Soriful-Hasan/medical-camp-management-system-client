@@ -40,9 +40,11 @@ const ManageRegisteredCamp = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {registeredCampsData?.map((regData, index) => (
-          <RegisteredCampTable key={index} regData={regData} index={index} />
-        ))}
+        <tbody>
+          {registeredCampsData?.map((regData, index) => (
+            <RegisteredCampTable key={index} regData={regData} index={index} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
