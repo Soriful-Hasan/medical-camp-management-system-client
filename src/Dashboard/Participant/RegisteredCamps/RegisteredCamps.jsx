@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../Components/Loader/Loader";
@@ -40,13 +40,15 @@ const RegisteredCamps = () => {
               <th>FeedBack</th>
             </tr>
           </thead>
-          {campsData?.map((camp, index) => (
-            <RegisteredTable
-              camp={camp}
-              key={index}
-              index={index}
-            ></RegisteredTable>
-          ))}
+          <tbody>
+            {campsData?.map((camp, index) => (
+              <RegisteredTable
+                camp={camp}
+                key={index}
+                index={index}
+              ></RegisteredTable>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

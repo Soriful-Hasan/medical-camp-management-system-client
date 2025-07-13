@@ -41,7 +41,7 @@ const ManageCampTable = ({ camp, index }) => {
       }
     });
   };
-  
+
   return (
     <>
       <tr>
