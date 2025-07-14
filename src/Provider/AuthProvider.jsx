@@ -18,6 +18,8 @@ const AuthProvider = ({ children }) => {
 
   const provider = new GoogleAuthProvider();
 
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
   const signUp = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -49,6 +51,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     userSignOut,
     updateUserProfile,
+    theme,
+    setTheme,
   };
 
   useEffect(() => {
@@ -58,6 +62,12 @@ const AuthProvider = ({ children }) => {
     });
     return () => unSubscribe();
   }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    console.log({ theme });
+  }, [theme]);
 
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

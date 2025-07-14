@@ -8,14 +8,14 @@ const DropDown = ({ user, handleSignOut }) => {
       {/* Avatar acts as dropdown button */}
       <MenuButton className="focus:outline-none">
         <div className="avatar cursor-pointer">
-          <div className="w-8 rounded-full ring  ring-offset-base-100 ring-offset-2">
+          <div className="w-8 rounded-full  ">
             <img src={user?.photoURL} alt="User Avatar" />
           </div>
         </div>
       </MenuButton>
 
       {/* Dropdown Items */}
-      <MenuItems className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50 text-sm text-gray-700">
+      <MenuItems className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-dark-primary dark:text-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50 text-sm text-gray-700">
         <div className="py-1">
           <div className="p-4">
             <h1>{user?.displayName}</h1>
@@ -51,7 +51,7 @@ const DropDown = ({ user, handleSignOut }) => {
 
           {user ? (
             <>
-              {" "}
+              
               <MenuItem>
                 {({ active }) => (
                   <button

@@ -21,14 +21,16 @@ const AllCamps = () => {
     return <Loader />;
   }
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="mb-10">
-        <h1 className="text-4xl font-bold">All Camps</h1>
-      </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {allCamps?.map((camp, index) => (
-          <CampsCard key={index} camp={camp} />
-        ))}
+    <div className="w-10/12 mx-auto ">
+      <div className="">
+        <div className="mb-10">
+          <h1 className="text-4xl font-bold">All Camps</h1>
+        </div>
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {allCamps?.map((camp, index) => (
+            <CampsCard key={index} camp={camp} />
+          ))}
+        </div>
       </div>
     </div>
   );

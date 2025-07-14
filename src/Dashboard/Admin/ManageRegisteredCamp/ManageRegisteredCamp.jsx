@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Loader from "../../../Components/Loader/Loader";
 import RegisteredCampTable from "./RegisteredCampTable";
+import useCampCount from "../../../hooks/useGetCount/useGetCount";
 
 const ManageRegisteredCamp = () => {
   const axiosSecure = useAxiosSecure();
@@ -32,20 +33,9 @@ const ManageRegisteredCamp = () => {
     },
   });
 
-  // pagination
-  const {
-    data: registeredCampCount,
-    isPending: registerCampCountPending,
-    error: registerCampCountError,
-  } = useQuery({
-    queryKey: ["registerCampCount", user?.email],
-    enabled: !!user?.email,
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/admin/registeredCamp/count`);
-      return res.data;
-    },
-  });
-  const totalRegisterCampCount = registeredCampCount?.totalRegCamps;
+  const { count: totalRegisterCampCount, isPending: registerCampCountPending } =
+    useCampCount("admin/registeredCamp/count", user?.email);
+
 
   let numberOfPages = 0;
   let pages = 0;

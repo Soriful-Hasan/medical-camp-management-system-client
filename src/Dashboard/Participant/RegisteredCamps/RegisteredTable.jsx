@@ -5,7 +5,6 @@ import Feedback from "../Feedback/Feedback";
 const RegisteredTable = ({ camp, index }) => {
   const feedBackRef = useRef();
   const campId = camp._id;
-  console.log(campId);
   return (
     <>
       <tr>

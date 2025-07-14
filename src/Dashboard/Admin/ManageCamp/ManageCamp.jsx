@@ -5,6 +5,7 @@ import { useQueries, useQuery } from "@tanstack/react-query";
 import Loader from "../../../Components/Loader/Loader";
 import useAuth from "../../../hooks/useAuth";
 import { button } from "@material-tailwind/react";
+import useCampCount from "../../../hooks/useGetCount/useGetCount";
 
 const ManageCamp = () => {
   const { user } = useAuth();
@@ -27,22 +28,12 @@ const ManageCamp = () => {
     },
   });
 
-  // get all camps count data
-  const {
-    data: campsCount,
-    isPending: campCountPending,
-    error: campCountError,
-  } = useQuery({
-    queryKey: ["campCount", user?.email],
-    queryFn: async () => {
-      const campsCount = await axiosSecure.get(`/admin/camps/count`);
-      return campsCount.data;
-    },
-  });
+  const { count: totalCampCount, isPending: campCountPending } = useCampCount(
+    "admin/camps/count",
+    user?.email
+  );
 
-  const totalCampCount = campsCount?.totalCamps;
-
-  if (isPending) {
+  if (isPending || campCountPending) {
     return <Loader />;
   }
 
@@ -100,7 +91,7 @@ const ManageCamp = () => {
         <button onClick={handlePrev} className="btn">
           Prev
         </button>
-        {pages.map((page) => (
+        {pages?.map((page) => (
           <button
             onClick={() => setCurrentPage(page)}
             className={`${currentPage === page && `btn bg-amber-300`} btn`}

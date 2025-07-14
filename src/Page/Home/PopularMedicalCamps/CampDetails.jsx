@@ -34,14 +34,16 @@ const CampDetails = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto  p-10 bg-gray-50 ">
-      <div className="flex gap-10">
-        <div className="w-full max-w-3xl">
-          <img
-            className="rounded-xl w-full h-auto object-cover"
-            src={campDetails?.camp_img}
-            alt=""
-          />
+    <div className="w-11/12 mx-auto p-10 ">
+      <div className=" gap-10 place-items-center ">
+        <div className="bg-gray-50 p-10 w-full ">
+          <div className="w-full max-w-3xl ">
+            <img
+              className="rounded-xl w-full h-auto object-cover"
+              src={campDetails?.camp_img}
+              alt=""
+            />
+          </div>
         </div>
         <div className="space-y-10">
           <h1>

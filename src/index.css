@@ -1,3 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* .mona-sans {
+  font-family: "Mona Sans", sans-serif;
+  font-optical-sizing: auto;
+} */
+
+* {
+  font-family: "Mona Sans", sans-serif;
+}
+
+@theme {
+  /* Primary Theme */
+  --color-my-primary: #01A6E7;
+  --color-dark-primary: #1e2939;
+  --color-primary-content: #ffffff;
+
+  /* Secondary Theme */
+  --color-secondary: #003b5c;
+  --color-dark-secondary: #101828;
+  --color-secondary-content: #ffffff;
+
+  /*card light mode*/
+   --color-card-light:'#ffffff'
+  /*card dark mode*/
+
+  /*text color theme light mode*/
+  --color-primary-text: #1a1a1a;
+  --color-secondary-text: #6b7280;
+
+  /*text color dark mode*/
+  --color-dark-primary-text: #e0e0e0;
+  --color-dark-secondary-text: #a3a3a3;
+
+  /* Accent Color */
+  --color-accent: #33cfff;
+  --color-accent-content: #ffffff;
+
+  /* Neutral */
+  --color-neutral: #f5f5f5;
+  --color-neutral-content: #1a1a1a;
+
+  /* Status Colors */
+  --color-info: #2094f3;
+  --color-info-content: #ffffff;
+
+  --color-success: #00c851;
+  --color-success-content: #ffffff;
+
+  --color-warning: #ffbb33;
+  --color-warning-content: #1a1a1a;
+
+  --color-error: #e74c3c;
+  --color-error-content: #ffffff;
+
+  /* Extra Custom Color */
+  --color-mint-500: oklch(0.72 0.11 178); /* your custom mint */
+
+  /* Background for Auth or Special Section */
+  --auth-bg: #f0fbff;
+
+  /* Optional Border Radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* Base Sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border */
+  --border: 1px;
+
+  /* Effects */
+  --depth: 1;
+  --noise: 0;
+}
