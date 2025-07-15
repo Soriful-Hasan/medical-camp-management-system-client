@@ -58,129 +58,137 @@ const AddCamp = () => {
   };
   return (
     <div className="w-8/12 mt-10 mx-auto">
-      <div className="">
+      <div className="px-4 md:px-8 py-6">
+        <div className="">
+          <h1 className="font-bold text-4xl ">Add Medical Camp</h1>
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-10 gap-4 grid grid-cols-1 lg:grid-cols-2"
+          className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
-          <div className="">
+          {/* Camp Name */}
+          <div className="w-full">
             <label className="block font-medium">Camp Name *</label>
             <input
-              className="input"
               type="text"
-              {...register("camp_name", {
-                required: "Camp name required",
-                minLength: {},
-              })}
+              placeholder="Camp Name"
+              {...register("camp_name", { required: "Camp name is required" })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
             />
-            {errors.password && (
-              <p className="text-red-500 text-sm">
-                {errors.camp_name?.message}
-              </p>
-            )}
-          </div>
-          {/* <div className="">
-            <input
-              type="file"
-              className="input"
-              {...register("image", { required: "image is required" })}
-              accept="image/*"
-            />
-            {errors.image && (
-              <p className="text-red-500 text-sm">{errors.image?.message}</p>
-            )}
-          </div> */}
-          <div className="">
-            <label className="block font-medium">Camp Img *</label>
-            <input
-              className="input"
-              type="text"
-              {...register("image", {
-                required: "Camp img required",
-                minLength: {},
-              })}
-            />
-            {errors.image && (
-              <p className="text-red-500 text-sm">{errors.image?.message}</p>
-            )}
-          </div>
-          <div className="">
-            <label className="block font-medium">Camp Fee *</label>
-            <input
-              className="input"
-              type="number"
-              {...register("camp_fee", {
-                required: "Camp name required",
-                minLength: {},
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">{errors.email?.message}</p>
-            )}
-          </div>
-          <div className="">
-            <label className="block font-medium">Date *</label>
-            <input
-              className="input"
-              type="date"
-              {...register("create_date", {
-                required: "Camp name required",
-                minLength: {},
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">
-                {errors.create_date?.message}
-              </p>
-            )}
-          </div>
-          <div className=" ">
-            <label className="block font-medium">Location *</label>
-            <input
-              className="input "
-              type="text"
-              {...register("location", {
-                required: "Camp name required",
-                minLength: {},
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">{errors.location?.message}</p>
-            )}
-          </div>
-          <div className=" ">
-            <label className="block font-medium">Professional Name *</label>
-            <input
-              className="input "
-              type="text"
-              {...register("professional_name", {
-                required: "Camp name required",
-                minLength: {},
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">{errors.email?.message}</p>
-            )}
-          </div>
-          <div className=" col-span-2">
-            <label className="block font-medium">Camp Description *</label>
-            <input
-              className="textarea w-full"
-              type="text"
-              {...register("camp_description", {
-                required: "Camp description required",
-                minLength: {},
-              })}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">
-                {errors.camp_description?.message}
+            {errors.camp_name && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.camp_name.message}
               </p>
             )}
           </div>
 
-          <div className="col-span-2">
-            <button className="btn w-full">Submit Form</button>
+          {/* Image */}
+          <div className="w-full">
+            <label className="block font-medium">Camp Image *</label>
+            <input
+              type="text"
+              placeholder="Image URL"
+              {...register("image", { required: "Image URL is required" })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.image && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.image.message}
+              </p>
+            )}
+          </div>
+
+          {/* Fee */}
+          <div className="w-full">
+            <label className="block font-medium">Camp Fee *</label>
+            <input
+              type="number"
+              placeholder="200$"
+              {...register("camp_fee", { required: "Camp fee is required" })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.camp_fee && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.camp_fee.message}
+              </p>
+            )}
+          </div>
+
+          {/* Date */}
+          <div className="w-full">
+            <label className="block font-medium">Date *</label>
+            <input
+              type="date"
+              {...register("create_date", { required: "Date is required" })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.create_date && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.create_date.message}
+              </p>
+            )}
+          </div>
+
+          {/* Location */}
+          <div className="w-full">
+            <label className="block font-medium">Location *</label>
+            <input
+              type="text"
+              placeholder="Location"
+              {...register("location", { required: "Location is required" })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.location && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.location.message}
+              </p>
+            )}
+          </div>
+
+          {/* Professional Name */}
+          <div className="w-full">
+            <label className="block font-medium">Professional Name *</label>
+            <input
+              type="text"
+              placeholder="Dr. Name"
+              {...register("professional_name", {
+                required: "Professional name is required",
+              })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.professional_name && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.professional_name.message}
+              </p>
+            )}
+          </div>
+
+          {/* Description */}
+          <div className="col-span-1 lg:col-span-2 w-full">
+            <label className="block font-medium">Camp Description *</label>
+            <textarea
+              rows="4"
+              placeholder="Write description here..."
+              {...register("camp_description", {
+                required: "Description is required",
+              })}
+              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            {errors.camp_description && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.camp_description.message}
+              </p>
+            )}
+          </div>
+
+          {/* Submit */}
+          <div className="col-span-1 lg:col-span-2">
+            <button
+              type="submit"
+              className="w-full sm:w-auto bg-my-primary hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>

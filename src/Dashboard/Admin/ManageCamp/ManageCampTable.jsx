@@ -45,7 +45,7 @@ const ManageCampTable = ({ camp, index }) => {
   return (
     <>
       <tr>
-        <th>{index + 1}</th>
+        
         <td>{camp.camp_name}</td>
         <td>{camp.created_date}</td>
         <td>{camp.location}</td>
