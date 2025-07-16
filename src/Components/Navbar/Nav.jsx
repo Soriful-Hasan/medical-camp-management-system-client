@@ -3,11 +3,22 @@ import useAuth from "../../hooks/useAuth";
 import ToggleDarkMode from "../ToggleDarkMode/ToggleDarkMode";
 import Logo from "../Logo/Logo";
 import { NavLink } from "react-router";
+import toast from "react-hot-toast";
 
 const Nav = () => {
-  const { user } = useAuth();
+  const { user, userSignOut } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleSignOut = () => {
+    userSignOut()
+      .then((result) => {
+        toast.success("Sign out successfully");
+      })
+      .catch((error) => {
+        toast.error("Something was wrong");
+      });
+  };
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
       <div className="max-w-10/12  flex flex-wrap items-center justify-between mx-auto p-4">
@@ -19,22 +30,16 @@ const Nav = () => {
           <div className="mr-4">
             <ToggleDarkMode />
           </div>
-          <button
-            type="button"
+          <img
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-          >
-            <span className="sr-only">Open user menu</span>
-            <img
-              className="w-8 h-8 rounded-full"
-              src={user?.photoURL}
-              alt="user"
-            />
-          </button>
+            className="cursor-pointer w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+            src={user?.photoURL}
+            alt="Bordered avatar"
+          />
 
           {/* Dropdown */}
           {isDropdownOpen && (
-            <div className="z-50 absolute  top-16 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+            <div className="z-50   absolute  top-16 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
                   {user?.displayName}
@@ -54,12 +59,21 @@ const Nav = () => {
                 </li>
 
                 <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
-                  >
-                    Sign out
-                  </a>
+                  {user ? (
+                    <a
+                      onClick={handleSignOut}
+                      className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
+                    >
+                      Log out
+                    </a>
+                  ) : (
+                    <NavLink
+                      to={"auth/login"}
+                      className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
+                    >
+                      Log in
+                    </NavLink>
+                  )}
                 </li>
               </ul>
             </div>

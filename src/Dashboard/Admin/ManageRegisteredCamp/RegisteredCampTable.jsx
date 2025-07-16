@@ -73,7 +73,7 @@ const RegisteredCampTable = ({ regData, index }) => {
   };
 
   return (
-    <tbody>
+   
       <tr>
         <th>{index + 1}</th>
         <td>{regData.participant_name}</td>
@@ -101,7 +101,7 @@ const RegisteredCampTable = ({ regData, index }) => {
           <td onClick={() => handleDelete(regData._id)}>Cancel</td>
         )}
       </tr>
-    </tbody>
+   
   );
 };
 

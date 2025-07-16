@@ -2,17 +2,17 @@ import React from "react";
 import { format } from "date-fns";
 const PaymentHistoryTable = ({ history, index }) => {
   console.log(history.amount);
-  const formattedDate = format(new Date(history.paidAt), "PPPpp");
-  console.log(formattedDate);
+  const date = format(new Date(history.paidAt), "MMMM d, yyyy");
+  const time = format(new Date(history.paidAt), "h:mm a");
   return (
-    <tbody>
-      <tr>
-        <th>{index + 1}</th>
-        <td>{history.amount}</td>
-        <td>{history.transactionId}</td>
-        <td>{formattedDate}</td>
-      </tr>
-    </tbody>
+    <tr>
+      <th>{index + 1}</th>
+      <td>${history.amount}</td>
+      <td>{history.transactionId}</td>
+      <td>{history.paymentMethod}</td>
+      <td>{time}</td>
+      <td>{date}</td>
+    </tr>
   );
 };
 

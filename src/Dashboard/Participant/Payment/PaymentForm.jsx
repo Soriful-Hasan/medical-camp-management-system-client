@@ -94,21 +94,25 @@ const PaymentForm = () => {
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className=" p-10 py-10 px-10 m-10 bg-gray-100 shadow-md w-4xl mx-auto"
-    >
-      <CardElement />
+    <div className="min-h-screen ">
+      <div className="flex flex-col dark:text-white justify-center items-center">
+        <form
+          onSubmit={handleSubmit}
+          className=" p-10 py-10 px-10 m-10 dark:text-white bg-gray-100 dark:bg-dark-primary shadow-md w-4xl mx-auto"
+        >
+          <CardElement />
 
-      <button
-        type="submit"
-        disabled={!stripe || participantDetails.payment_status === "paid"}
-        className="btn w-full mt-20"
-      >
-        Pay {participantDetails?.camp_fee}$
-      </button>
-      {cardError && <p className="text-red-500 ">{cardError}</p>}
-    </form>
+          <button
+            type="submit"
+            disabled={!stripe || participantDetails.payment_status === "paid"}
+            className="btn w-full mt-20 bg-my-primary"
+          >
+            Pay {participantDetails?.camp_fee}$
+          </button>
+          {cardError && <p className="text-red-500 ">{cardError}</p>}
+        </form>
+      </div>
+    </div>
   );
 };
 

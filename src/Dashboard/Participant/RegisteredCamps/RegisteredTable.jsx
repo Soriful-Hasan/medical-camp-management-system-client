@@ -10,20 +10,34 @@ const RegisteredTable = ({ camp, index }) => {
       <tr>
         <th>{index + 1}</th>
         <td>{camp.camp_name}</td>
-        <td>{camp.camp_fee}</td>
+        <td>৳{camp.camp_fee}</td>
         <td>{camp.location}</td>
-        <td>{camp.payment_status}</td>
+        <td>
+          {camp.payment_status === "paid" ? (
+            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+              {camp.payment_status}
+            </span>
+          ) : (
+            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+              {camp.payment_status}
+            </span>
+          )}
+        </td>
         <td>
           {camp.confirmation_status === "pending" && (
             <button
               // onClick={() => handleConformed(regData._id)}
               className="cursor-pointer"
             >
-              Pending
+              <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+                Pending
+              </span>
             </button>
           )}
           {camp.confirmation_status === "confirmed" && (
-            <button>confirmed</button>
+            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+              Confirmed
+            </span>
           )}
         </td>
 
@@ -43,14 +57,25 @@ const RegisteredTable = ({ camp, index }) => {
         <td>
           {camp.payment_status === "paid" ? (
             <>
-              <Link disabled className="btn">
-                Paid
+              <Link>
+                <button
+                  type="button"
+                  class="text-white bg-my-primary dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled
+                >
+                  Paid
+                </button>
               </Link>
             </>
           ) : (
             <>
-              <Link to={`/dashboard/payment/${camp._id}`} className="btn">
-                Pay
+              <Link to={`/dashboard/payment/${camp._id}`}>
+                <button
+                  type="button"
+                  class="text-black  cursor-pointer hover:text-white border border-my-primary hover:bg-my-primary focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-my-primary dark:text-white dark:hover:text-white dark:hover:bg-my-primary "
+                >
+                  Pay
+                </button>
               </Link>
             </>
           )}

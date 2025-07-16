@@ -185,7 +185,7 @@ const AddCamp = () => {
           <div className="col-span-1 lg:col-span-2">
             <button
               type="submit"
-              className="w-full sm:w-auto bg-my-primary hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="w-full cursor-pointer sm:w-auto bg-my-primary hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Submit
             </button>

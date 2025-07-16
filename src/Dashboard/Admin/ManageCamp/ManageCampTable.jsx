@@ -3,8 +3,11 @@ import UpdateCampModal from "./UpdateCampModal";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { MdDeleteForever } from "react-icons/md";
+import { BiSolidEdit } from "react-icons/bi";
+import Loader from "../../../Components/Loader/Loader";
 
-const ManageCampTable = ({ camp, index }) => {
+const ManageCampTable = ({ camp, index, campCountPending, isPending }) => {
   const modalRef = useRef();
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
@@ -41,33 +44,30 @@ const ManageCampTable = ({ camp, index }) => {
       }
     });
   };
-
+  // if (isPending || campCountPending) {
+  //   return <Loader />;
+  // }
   return (
-    <>
-      <tr>
-        
-        <td>{camp.camp_name}</td>
-        <td>{camp.created_date}</td>
-        <td>{camp.location}</td>
-        <td>
-          <button
-            onClick={() => handleDelete(camp._id)}
-            className="btn btn-error"
-          >
-            Delete
-          </button>
-        </td>
-        <td className="text-green-500 cursor-pointer">
-          <button
-            className="btn btn-success"
-            onClick={() => modalRef.current.showModal()}
-          >
-            Update
-          </button>
-        </td>
-      </tr>
+    <tr>
+      <td>{camp.camp_name}</td>
+      <td>{camp.created_date}</td>
+      <td>{camp.location}</td>
+      <td>{camp.participant_count}</td>
+      <td>৳{camp.camp_fee}</td>
+      <td>{camp.professional_name}</td>
+      <td>
+        <MdDeleteForever
+          size={25}
+          className="cursor-pointer"
+          color="red"
+          onClick={() => handleDelete(camp._id)}
+        />
+      </td>
+      <td className=" cursor-pointer">
+        <BiSolidEdit size={25} onClick={() => modalRef.current.showModal()} />
+      </td>
       <UpdateCampModal camp={camp} modalRef={modalRef}></UpdateCampModal>
-    </>
+    </tr>
   );
 };
 
