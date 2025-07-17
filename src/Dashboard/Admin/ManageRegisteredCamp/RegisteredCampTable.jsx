@@ -59,7 +59,7 @@ const RegisteredCampTable = ({ regData, index }) => {
   const handleDelete = (participantId) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "Do you want to confirm this camp registration?",
+      text: "Do you want to cancel this camp registration request?",
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -73,35 +73,55 @@ const RegisteredCampTable = ({ regData, index }) => {
   };
 
   return (
-   
-      <tr>
-        <th>{index + 1}</th>
-        <td>{regData.participant_name}</td>
-        <td>{regData.camp_name}</td>
-        <td>{regData.camp_fee}</td>
-        <td>{regData.payment_status}</td>
-        <td>
-          {regData.confirmation_status === "pending" && (
-            <button
-              onClick={() => handleConformed(regData._id)}
-              className="cursor-pointer"
-            >
-              Pending
-            </button>
-          )}
-          {regData.confirmation_status === "confirmed" && (
-            <button>confirmed</button>
-          )}
-        </td>
-
-        {regData.payment_status === "paid" &&
-        regData.confirmation_status === "confirmed" ? (
-          <td>Not Cancel</td>
+    <tr>
+      <th>{index + 1}</th>
+      <td>{regData.participant_name}</td>
+      <td>{regData.camp_name}</td>
+      <td>{regData.camp_fee}৳</td>
+      <td>
+        {regData.payment_status === "paid" ? (
+          <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            Paid
+          </span>
         ) : (
-          <td onClick={() => handleDelete(regData._id)}>Cancel</td>
+          <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+            Unpaid
+          </span>
         )}
-      </tr>
-   
+      </td>
+      <td>
+        {regData.confirmation_status === "pending" && (
+          <button
+            onClick={() => handleConformed(regData._id)}
+            className="cursor-pointer"
+          >
+            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-gray-700 dark:text-red-400 border border-red-400">
+              Pending
+            </span>
+          </button>
+        )}
+        {regData.confirmation_status === "confirmed" && (
+          <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            Confirmed
+          </span>
+        )}
+      </td>
+
+      {regData.payment_status === "paid" &&
+      regData.confirmation_status === "confirmed" ? (
+        <td>
+          <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            Approved
+          </span>
+        </td>
+      ) : (
+        <td onClick={() => handleDelete(regData._id)}>
+          <span class="cursor-pointer bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-gray-700 dark:text-red-400 border border-red-400">
+            Cancel
+          </span>
+        </td>
+      )}
+    </tr>
   );
 };
 

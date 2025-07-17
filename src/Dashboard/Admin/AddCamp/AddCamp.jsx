@@ -187,7 +187,7 @@ const AddCamp = () => {
               type="submit"
               className="w-full cursor-pointer sm:w-auto bg-my-primary hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
-              Submit
+              Add Camp
             </button>
           </div>
         </form>

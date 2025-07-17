@@ -45,13 +45,18 @@ const RegisteredTable = ({ camp, index }) => {
           {camp.payment_status === "paid" && (
             <button
               onClick={() => feedBackRef.current.showModal()}
-              className="cursor-pointer"
+              className="px-3 cursor-pointer py-2 text-xs font-medium text-center inline-flex items-center text-white bg-my-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Feedback
             </button>
           )}
           {camp.payment_status === "unpaid" && (
-            <button className="cursor-pointer">N/A</button>
+            <button
+              disabled
+              className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-200 rounded-lg cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Feedback
+            </button>
           )}
         </td>
         <td>
@@ -60,7 +65,7 @@ const RegisteredTable = ({ camp, index }) => {
               <Link>
                 <button
                   type="button"
-                  class="text-white bg-my-primary dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  class="text-white bg-blue-200 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   disabled
                 >
                   Paid

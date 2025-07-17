@@ -17,7 +17,7 @@ const PaymentForm = () => {
   console.log(id);
   // get payment details
   const {
-    data: participantDetails = {},
+    data: campDetails = {},
     isPending,
     error,
   } = useQuery({
@@ -27,7 +27,8 @@ const PaymentForm = () => {
       return res.data;
     },
   });
-
+  console.log(campDetails);
+  console.log(campDetails.camp_name);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -52,8 +53,8 @@ const PaymentForm = () => {
 
     // create payment intent
     const res = await axiosSecure.post("/create-payment-intent", {
-      amount: participantDetails?.camp_fee,
-      campId: participantDetails._id,
+      amount: campDetails?.camp_fee,
+      campId: campDetails._id,
     });
     const clientSecret = res.data.client_secret;
     console.log(clientSecret);
@@ -79,7 +80,11 @@ const PaymentForm = () => {
         console.log();
 
         const paymentData = {
-          participantId: participantDetails._id,
+          participantId: campDetails._id,
+          camp_name: campDetails.camp_name,
+          payment_status: "paid",
+          confirmation_status: campDetails.confirmation_status,
+          camp_fee: campDetails.camp_fee,
           email: user?.email,
           amount: result.paymentIntent.amount,
           transactionId: result.paymentIntent.id,
@@ -89,7 +94,6 @@ const PaymentForm = () => {
         const historyRes = await axiosSecure.post("/payment/save-history", {
           paymentData,
         });
-        console.log(historyRes);
       }
     }
   };
@@ -104,10 +108,10 @@ const PaymentForm = () => {
 
           <button
             type="submit"
-            disabled={!stripe || participantDetails.payment_status === "paid"}
+            disabled={!stripe || campDetails.payment_status === "paid"}
             className="btn w-full mt-20 bg-my-primary"
           >
-            Pay {participantDetails?.camp_fee}$
+            Pay {campDetails?.camp_fee}$
           </button>
           {cardError && <p className="text-red-500 ">{cardError}</p>}
         </form>

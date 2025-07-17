@@ -36,7 +36,7 @@ const PaymentHistory = () => {
 
   console.log(paymentCount);
   let numberOfPages = 0;
-  let pages = 0;
+  let pages = [];
   if (paymentCount) {
     numberOfPages = Math.ceil(paymentCount / itemPerPage);
     pages = [...Array(numberOfPages).keys()];
@@ -59,36 +59,52 @@ const PaymentHistory = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-  if (isPending || paymentPending) {
+  if (paymentPending) {
     return <Loader />;
   }
   return (
     <div className="mt-4">
-      <SearchBar
-        onSearch={setSearchText}
-        placeholder="Search by transaction id"
-      />
+      <SearchBar onSearch={setSearchText} placeholder="Search by camp name" />
       <div className="overflow-x-auto mt-4 m-4">
         <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-800">
               <th>Serial</th>
+              <th>Camp Name</th>
               <th>Amount</th>
               <th>Transaction Id</th>
+              <th>Payment Status</th>
+              <th>Confirmation Status</th>
               <th>Payment method</th>
               <th>Time</th>
               <th>Date</th>
             </tr>
           </thead>
           <tbody>
-            {paymentHistory?.map((history, index) => (
-              <PaymentHistoryTable
-                history={history}
-                index={index}
-                key={index}
-              />
-            ))}
+            {isPending ? (
+              <tr>
+                <td colSpan="100%" className="text-center py-4">
+                  Loading...
+                </td>
+              </tr>
+            ) : paymentHistory?.length > 0 ? (
+              paymentHistory?.map((history, index) => (
+                <PaymentHistoryTable
+                  history={history}
+                  index={index}
+                  key={index}
+                />
+              ))
+            ) : searchText ? (
+              <td colSpan="100%" className="text-center text-red-500 py-4">
+                No matching search results found.
+              </td>
+            ) : (
+              <td colSpan="100%" className="text-center text-red-500 py-4">
+                No available payment story
+              </td>
+            )}
           </tbody>
         </table>
       </div>

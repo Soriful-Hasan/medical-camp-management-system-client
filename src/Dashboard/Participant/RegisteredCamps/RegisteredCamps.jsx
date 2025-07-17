@@ -47,7 +47,7 @@ const RegisteredCamps = () => {
 
   // pagination condition
   let numberOfPages = 0;
-  let pages = 0;
+  let pages = [];
   if (campCount) {
     numberOfPages = Math.ceil(campCount / itemPerPage);
     pages = [...Array(numberOfPages).keys()];

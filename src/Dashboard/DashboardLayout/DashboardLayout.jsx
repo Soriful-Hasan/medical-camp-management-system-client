@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router";
-import Logo from "../Components/Logo/Logo";
-import useUserRole from "../hooks/useUserRole";
+import Logo from "../../Components/Logo/Logo";
+import useUserRole from "../../hooks/useUserRole";
 import {
   FaHome,
   FaUserShield,
@@ -69,6 +69,19 @@ const Dashboard = () => {
               >
                 <FaMoneyCheckAlt />
                 Payment History
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/participantProfile"
+                className={({ isActive }) =>
+                  `${linkClass} ${
+                    isActive ? activeClass : "text-gray-800 dark:text-white"
+                  }`
+                }
+              >
+                <FaUserCircle />
+                Participant Profile
               </NavLink>
             </li>
           </>

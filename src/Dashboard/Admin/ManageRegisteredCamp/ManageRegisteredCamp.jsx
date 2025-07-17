@@ -43,7 +43,7 @@ const ManageRegisteredCamp = () => {
     useCampCount("admin/registeredCamp/count", user?.email);
 
   let numberOfPages = 0;
-  let pages = 0;
+  let pages = [];
   if (totalRegisterCampCount) {
     numberOfPages = Math.ceil(totalRegisterCampCount / itemPerPage);
     pages = [...Array(numberOfPages).keys()];
@@ -87,8 +87,8 @@ const ManageRegisteredCamp = () => {
               <th>Location</th>
               <th>Camp Fee</th>
               <th>Payment Status</th>
-              <th>Confirmation Status</th>
-              <th>Action</th>
+              <th>Confirmation Request</th>
+              <th>Cancel</th>
             </tr>
           </thead>
           <tbody>

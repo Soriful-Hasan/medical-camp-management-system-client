@@ -8,7 +8,7 @@ import Register from "../Auth/Register";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import App from "../App";
-import Dashboard from "../Dashboard/Dashboard";
+import Dashboard from "../Dashboard/DashboardLayout/DashboardLayout";
 import AddCamp from "../Dashboard/Admin/AddCamp/AddCamp";
 import ManageCamp from "../Dashboard/Admin/ManageCamp/ManageCamp";
 import CampDetails from "../Page/Home/PopularMedicalCamps/CampDetails";
@@ -21,6 +21,8 @@ import ForbiddenPage from "../components/ForbiddenPage/ForbiddenPage";
 import ParticipantProtected from "../ProtectedRoute/ParticipantProtected";
 import ManageRegisteredCamp from "../Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
 import AdminProfile from "../Dashboard/Admin/AdminProfile/AdminProfile";
+import ParticipantProfile from "../Dashboard/Participant/ParticipantProfile/ParticipantProfile";
+import DashboardRedirect from "../Dashboard/DashboardLayout/DashboardRedirect/DashboardRedirect";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +78,10 @@ export const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
+      {
+        index: true,
+        element: <DashboardRedirect />,
+      },
       //Admin route
       {
         path: "add-camp",
@@ -125,6 +131,16 @@ export const router = createBrowserRouter([
           <ProtectedRoute>
             <ParticipantProtected>
               <RegisteredCamps />
+            </ParticipantProtected>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "participantProfile",
+        element: (
+          <ProtectedRoute>
+            <ParticipantProtected>
+              <ParticipantProfile />
             </ParticipantProtected>
           </ProtectedRoute>
         ),

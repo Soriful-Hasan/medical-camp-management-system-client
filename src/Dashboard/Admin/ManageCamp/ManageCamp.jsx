@@ -49,7 +49,7 @@ const ManageCamp = () => {
 
   // pagination for table
   let numberOfPages = 0;
-  let pages = 0;
+  let pages = [];
   if (totalCampCount) {
     numberOfPages = Math.ceil(totalCampCount / itemPerPage);
     pages = [...Array(numberOfPages).keys()];
