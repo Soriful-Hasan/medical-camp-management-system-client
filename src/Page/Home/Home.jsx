@@ -5,6 +5,7 @@ import TimeLine from "./TimeLine/TimeLine";
 import UserRating from "./UserRating/UserRating";
 import ChooseUs from "./WhyChooseUs/ChooseUs";
 import FAQ from "./FAQ/FAQ";
+import MeetOurDoctor from "./MeetOurDoctor/MeetOurDoctor";
 
 const Home = () => {
   return (
@@ -16,9 +17,13 @@ const Home = () => {
         <PopularMedicalCamps />
         {/* <TimeLine /> */}
       </section>
+      <section>
+        <MeetOurDoctor></MeetOurDoctor>
+      </section>
       <section className=" my-10 bg-my-primary/6">
         <ChooseUs />
       </section>
+
       <section className="  py-4 mb-10">
         <UserRating />
       </section>

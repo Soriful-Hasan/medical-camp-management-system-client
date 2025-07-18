@@ -1,15 +1,43 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
+  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const onSubmit = (data) => {
-    console.log(data);
+    emailjs
+      .send(`${serviceID}`, `${templateID}`, data, {
+        publicKey: `${publicKey}`,
+      })
+      .then(() => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Send Email Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset();
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: "Something was wrong",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
   return (
     <div>
