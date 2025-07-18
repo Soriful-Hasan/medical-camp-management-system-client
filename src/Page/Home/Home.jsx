@@ -20,7 +20,7 @@ const Home = () => {
       <section>
         <MeetOurDoctor></MeetOurDoctor>
       </section>
-      <section className=" my-10 bg-my-primary/6">
+      <section className=" my-10 bg-my-primary/4">
         <ChooseUs />
       </section>
 

@@ -4,12 +4,12 @@ import ChooseImage from "./ChooseImage";
 
 const ChooseUs = () => {
   return (
-    <div className="flex  max-w-10/12 mx-auto flex-row-reverse justify-between  gap-16">
-      <div className="flex-1 ">
-        <ChooseCard />
-      </div>
+    <div className="flex flex-col lg:flex-row  max-w-10/12 mx-auto  justify-between  gap-16">
       <div className="flex-1 ">
         <ChooseImage />
+      </div>
+      <div className="flex-1 ">
+        <ChooseCard />
       </div>
     </div>
   );

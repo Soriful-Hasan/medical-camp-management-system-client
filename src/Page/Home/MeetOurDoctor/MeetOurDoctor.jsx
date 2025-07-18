@@ -69,58 +69,60 @@ const MeetOurDoctor = () => {
   ];
 
   return (
-    <section class="py-20 px-4">
-      <div class="container mx-auto max-w-7xl">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
+    <section className="py-20 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
             Meet Our Doctor Team
           </h2>
-          <div class="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
-          <p class="text-gray-600 text-lg dark:text-gray-300">
+          <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 text-lg dark:text-gray-300">
             We're a dynamic group of individuals who are passionate about what
             we do and dedicated to delivering the best results for our clients.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamData?.map((doctor) => (
             <>
-              <div class="group">
-                <div class="relative overflow-hidden rounded-xl mb-4">
+              <div className="group">
+                <div className="relative overflow-hidden rounded-xl mb-4">
                   <img
                     src={doctor.image}
                     alt="Team member"
-                    class="w-full aspect-[3/4] object-cover object-center transform group-hover:scale-105 transition duration-300 ease-in-out"
+                    className="w-full aspect-[3/4] object-cover object-center transform group-hover:scale-105 transition duration-300 ease-in-out"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                    <div class="flex space-x-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
+                    <div className="flex space-x-4">
                       <a
                         href="#"
-                        class="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
+                        className="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
                       >
-                        <i class="fab fa-linkedin-in"></i>
+                        <i className="fab fa-linkedin-in"></i>
                       </a>
                       <a
                         href="#"
-                        class="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
+                        className="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
                       >
-                        <i class="fab fa-twitter"></i>
+                        <i className="fab fa-twitter"></i>
                       </a>
                       <a
                         href="#"
-                        class="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
+                        className="bg-white text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors duration-200"
                       >
-                        <i class="fas fa-envelope"></i>
+                        <i className="fas fa-envelope"></i>
                       </a>
                     </div>
                   </div>
                 </div>
-                <div class="text-center">
-                  <h3 class="text-xl font-bold dark:text-white text-gray-800">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold dark:text-white text-gray-800">
                     {doctor.name}
                   </h3>
-                  <p class="text-indigo-600 font-medium">{doctor.position}</p>
-                  <p class="text-gray-600 mt-2 dark:text-gray-300">
+                  <p className="text-indigo-600 font-medium">
+                    {doctor.position}
+                  </p>
+                  <p className="text-gray-600 mt-2 dark:text-gray-300">
                     {doctor.experience}
                   </p>
                 </div>
@@ -129,13 +131,13 @@ const MeetOurDoctor = () => {
           ))}
         </div>
 
-        <div class="mt-20 text-center">
-          <div class="inline-block bg-gradient-to-r  from-indigo-600 to-purple-600 p-px rounded-lg">
+        <div className="mt-20 text-center">
+          <div className="inline-block bg-gradient-to-r  from-indigo-600 to-purple-600 p-px rounded-lg">
             <a
               href="#"
-              class="block bg-white dark:bg-gray-900 hover:bg-gray-50 transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-indigo-600"
+              className="block bg-white dark:bg-gray-900 hover:bg-gray-50 transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-indigo-600"
             >
-              Join Our Team <span class="ml-2">→</span>
+              Join Our Team <span className="ml-2">→</span>
             </a>
           </div>
         </div>
