@@ -20,9 +20,10 @@ import AdminProtected from "../ProtectedRoute/AdminProtected";
 import ForbiddenPage from "../components/ForbiddenPage/ForbiddenPage";
 import ParticipantProtected from "../ProtectedRoute/ParticipantProtected";
 import ManageRegisteredCamp from "../Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
-import AdminProfile from "../Dashboard/Admin/AdminProfile/AdminProfile";
-import ParticipantProfile from "../Dashboard/Participant/ParticipantProfile/ParticipantProfile";
 import DashboardRedirect from "../Dashboard/DashboardLayout/DashboardRedirect/DashboardRedirect";
+import UpdateProfile from "../Dashboard/UpdateProfile/UpdateProfile";
+import ContactUs from "../Page/Home/ContactUs/ContactUs";
+import AboutUs from "../Page/Home/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
         path: "/forbidden",
         element: <ForbiddenPage />,
       },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
     ],
   },
 
@@ -81,6 +90,15 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardRedirect />,
+      },
+
+      {
+        path: "profile",
+        element: (
+          <ProtectedRoute>
+            <UpdateProfile />
+          </ProtectedRoute>
+        ),
       },
       //Admin route
       {
@@ -113,16 +131,6 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "admin-profile",
-        element: (
-          <ProtectedRoute>
-            <AdminProtected>
-              <AdminProfile />
-            </AdminProtected>
-          </ProtectedRoute>
-        ),
-      },
 
       //Participant route
       {
@@ -135,16 +143,7 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "participantProfile",
-        element: (
-          <ProtectedRoute>
-            <ParticipantProtected>
-              <ParticipantProfile />
-            </ParticipantProtected>
-          </ProtectedRoute>
-        ),
-      },
+
       {
         path: "payment/:id",
         element: (

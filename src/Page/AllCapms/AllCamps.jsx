@@ -26,7 +26,7 @@ const AllCamps = () => {
         <div className="mb-10">
           <h1 className="text-4xl font-bold">All Camps</h1>
         </div>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {allCamps?.map((camp, index) => (
             <CampsCard key={index} camp={camp} />
           ))}

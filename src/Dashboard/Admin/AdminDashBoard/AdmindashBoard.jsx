@@ -9,6 +9,7 @@ import {
   FaCheckCircle,
   FaClock,
 } from "react-icons/fa";
+import DashboardBarChart from "./AdminBarChart";
 const AdminDashBoard = () => {
   const axiosSecure = useAxiosSecure();
 
@@ -43,7 +44,7 @@ const AdminDashBoard = () => {
         {/* Total Revenue */}
         <StatCard
           title="Total Revenue"
-          value={`$${totalRevenue || 0}`}
+          value={`${totalRevenue || 0}`}
           percentage={revenueChange || 0}
           icon={FaDollarSign}
           iconBg="bg-blue-100"
@@ -86,6 +87,8 @@ const AdminDashBoard = () => {
           iconColor="text-red-600"
         />
       </div>
+
+      <DashboardBarChart data={stats}></DashboardBarChart>
     </main>
   );
 };

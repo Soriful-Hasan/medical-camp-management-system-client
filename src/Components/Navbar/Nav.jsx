@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import ToggleDarkMode from "../ToggleDarkMode/ToggleDarkMode";
 import Logo from "../Logo/Logo";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import toast from "react-hot-toast";
 
 const Nav = () => {
-  const { user, userSignOut } = useAuth();
+  const { user, userSignOut, isLoading } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,7 +20,7 @@ const Nav = () => {
       });
   };
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
+    <nav className="bg-white border-gray-200 dark:bg-my-secondary ">
       <div className="max-w-10/12  flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
 
@@ -30,13 +30,23 @@ const Nav = () => {
           <div className="mr-4">
             <ToggleDarkMode />
           </div>
-          <img
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="cursor-pointer w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-            src={user?.photoURL}
-            alt="Bordered avatar"
-          />
-
+          {isLoading && <span>loading...</span>}
+          {!isLoading && user && (
+            <img
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="cursor-pointer w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+              src={user?.photoURL}
+              alt="Bordered avatar"
+            />
+          )}
+          {!isLoading && !user && (
+            <Link
+              to={"/auth/login"}
+              className="text-white bg-my-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Log in
+            </Link>
+          )}
           {/* Dropdown */}
           {isDropdownOpen && (
             <div className="z-50   absolute  top-16 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
@@ -78,7 +88,6 @@ const Nav = () => {
               </ul>
             </div>
           )}
-
           {/* Hamburger Menu Button (Mobile) */}
           <button
             type="button"
@@ -141,7 +150,7 @@ const Nav = () => {
             </li>
             <li>
               <NavLink
-                to="/services"
+                to="/about"
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded md:p-0 ${
                     isActive
@@ -150,23 +159,10 @@ const Nav = () => {
                   }`
                 }
               >
-                Services
+                About Us
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/pricing"
-                className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
-                    isActive
-                      ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
-                  }`
-                }
-              >
-                Pricing
-              </NavLink>
-            </li>
+
             <li>
               <NavLink
                 to="/contact"

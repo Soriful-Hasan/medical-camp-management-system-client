@@ -22,7 +22,7 @@ const PopularMedicalCamps = () => {
   }
 
   return (
-    <div className="mb-10 max-w-10/12 mx-auto">
+    <div className="mb-10 ">
       <div className="mb-10 mt-10 text-center space-y-2">
         <h1 className=" text-3xl md:text-4xl font-bold">Popular Camps</h1>
         <p className="text-gray-500 text-center max-w-xl mx-auto mb-6">

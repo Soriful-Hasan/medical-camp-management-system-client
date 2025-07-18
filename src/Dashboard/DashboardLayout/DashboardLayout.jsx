@@ -71,19 +71,6 @@ const Dashboard = () => {
                 Payment History
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/dashboard/participantProfile"
-                className={({ isActive }) =>
-                  `${linkClass} ${
-                    isActive ? activeClass : "text-gray-800 dark:text-white"
-                  }`
-                }
-              >
-                <FaUserCircle />
-                Participant Profile
-              </NavLink>
-            </li>
           </>
         )}
 
@@ -128,21 +115,21 @@ const Dashboard = () => {
                 Manage Registered Camp
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/dashboard/admin-profile"
-                className={({ isActive }) =>
-                  `${linkClass} ${
-                    isActive ? activeClass : "text-gray-800 dark:text-white"
-                  }`
-                }
-              >
-                <FaUserCircle />
-                Profile
-              </NavLink>
-            </li>
           </>
         )}
+        <li>
+          <NavLink
+            to="profile"
+            className={({ isActive }) =>
+              `${linkClass} ${
+                isActive ? activeClass : "text-gray-800 dark:text-white"
+              }`
+            }
+          >
+            <FaUserCircle />
+            Profile
+          </NavLink>
+        </li>
       </ul>
     </nav>,
   ];

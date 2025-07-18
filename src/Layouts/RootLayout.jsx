@@ -7,7 +7,7 @@ import Nav from "../components/Navbar/Nav";
 
 const RootLayout = () => {
   return (
-    <div className="">
+    <div className="dark:bg-[#121212]">
       <section className=" dark:bg-dark-secondary">
         {/* <Navbar /> */}
         <Nav />

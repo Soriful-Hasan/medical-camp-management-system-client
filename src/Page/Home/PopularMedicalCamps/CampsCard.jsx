@@ -20,7 +20,7 @@ const CampsCard = ({ camp }) => {
   } = camp;
   return (
     <div>
-      <div className="max-w-sm h-122 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm h-122 hover:shadow-md transition-shadow bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-my-secondary dark:border-gray-700">
         <img
           className="rounded-t-lg w-full h-48 object-cover"
           src={camp_img}
