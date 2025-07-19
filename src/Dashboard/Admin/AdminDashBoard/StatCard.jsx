@@ -2,7 +2,7 @@ import React from "react";
 
 const StatCard = ({ title, value, percentage, icon, iconBg, iconColor }) => {
   return (
-    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-dark-primary rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600 dark:text-white">

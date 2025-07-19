@@ -91,7 +91,7 @@ const RegisteredCamps = () => {
               <th>Fee</th>
               <th>Location</th>
               <th>Payment Status</th>
-              <th>Action</th>
+              <th>Confirmation Status</th>
               <th>FeedBack</th>
               <th>Pay</th>
             </tr>

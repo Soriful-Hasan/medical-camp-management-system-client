@@ -2,6 +2,7 @@ import React from "react";
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaHandHoldingMedical } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
+import { Link } from "react-router";
 const ChooseCard = () => {
   const cardInfo = [
     {
@@ -21,9 +22,12 @@ const ChooseCard = () => {
     },
   ];
   return (
-    <div className="flex flex-col gap-6 mb-10 mt-10  space-y-2">
+    <div className="flex flex-col  gap-6 mb-10 mt-10  space-y-2">
       {cardInfo?.map((info) => (
-        <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <div
+          className="w-full p-6 hover:shadow-md transition-shadow bg-white border cursor-pointer
+         border-gray-200 rounded-sm shadow-sm dark:bg-gray-800 dark:border-gray-700"
+        >
           <div className="">{info.icon}</div>
 
           <a>
@@ -34,7 +38,11 @@ const ChooseCard = () => {
           <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
             {info.des}
           </p>
-          <a className="inline-flex font-medium items-center text-blue-600 hover:underline">
+          <Link
+            onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
+            to={"/about"}
+            className="inline-flex font-medium items-center text-blue-600 hover:underline"
+          >
             See our guideline
             <svg
               className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
@@ -51,7 +59,7 @@ const ChooseCard = () => {
                 d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       ))}
     </div>

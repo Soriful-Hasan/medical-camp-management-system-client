@@ -130,17 +130,6 @@ const MeetOurDoctor = () => {
             </>
           ))}
         </div>
-
-        <div className="mt-20 text-center">
-          <div className="inline-block bg-gradient-to-r  from-indigo-600 to-purple-600 p-px rounded-lg">
-            <a
-              href="#"
-              className="block bg-white dark:bg-gray-900 hover:bg-gray-50 transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-indigo-600"
-            >
-              Join Our Team <span className="ml-2">→</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ const CampsCard = ({ camp }) => {
     professional_name,
   } = camp;
   return (
-    <a href="#" className="block rounded-lg p-4 shadow-xs shadow-indigo-100">
+    <div className="block rounded-lg hover:shadow-md dark:bg-dark-primary transition-shadow cursor-pointer p-4 shadow-xs shadow-indigo-100">
       <div className="relative">
         <img
           alt=""
@@ -98,7 +98,7 @@ const CampsCard = ({ camp }) => {
           See Camp
         </Link>
       </div>
-    </a>
+    </div>
   );
 };
 

@@ -60,11 +60,11 @@ const AddCamp = () => {
     <div className="w-8/12 mt-10 mx-auto">
       <div className="px-4 md:px-8 py-6">
         <div className="">
-          <h1 className="font-bold text-4xl ">Add Medical Camp</h1>
+          <h1 className="font-bold text-2xl lg:text-4xl ">Add Medical Camp</h1>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6"
+          className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
           {/* Camp Name */}
           <div className="w-full">
@@ -73,7 +73,7 @@ const AddCamp = () => {
               type="text"
               placeholder="Camp Name"
               {...register("camp_name", { required: "Camp name is required" })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.camp_name && (
               <p className="text-red-500 text-sm mt-1">
@@ -84,12 +84,12 @@ const AddCamp = () => {
 
           {/* Image */}
           <div className="w-full">
-            <label className="block font-medium">Camp Image *</label>
+            <label className="block font-medium ">Camp Image *</label>
             <input
               type="text"
               placeholder="Image URL"
               {...register("image", { required: "Image URL is required" })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.image && (
               <p className="text-red-500 text-sm mt-1">
@@ -105,7 +105,7 @@ const AddCamp = () => {
               type="number"
               placeholder="200$"
               {...register("camp_fee", { required: "Camp fee is required" })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.camp_fee && (
               <p className="text-red-500 text-sm mt-1">
@@ -120,7 +120,7 @@ const AddCamp = () => {
             <input
               type="date"
               {...register("create_date", { required: "Date is required" })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.create_date && (
               <p className="text-red-500 text-sm mt-1">
@@ -136,7 +136,7 @@ const AddCamp = () => {
               type="text"
               placeholder="Location"
               {...register("location", { required: "Location is required" })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.location && (
               <p className="text-red-500 text-sm mt-1">
@@ -154,7 +154,7 @@ const AddCamp = () => {
               {...register("professional_name", {
                 required: "Professional name is required",
               })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.professional_name && (
               <p className="text-red-500 text-sm mt-1">
@@ -172,7 +172,7 @@ const AddCamp = () => {
               {...register("camp_description", {
                 required: "Description is required",
               })}
-              className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />
             {errors.camp_description && (
               <p className="text-red-500 text-sm mt-1">

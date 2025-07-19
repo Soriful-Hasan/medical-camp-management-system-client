@@ -55,7 +55,7 @@ const RatingSlider = () => {
       >
         {ratings?.map((rating, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white dark:bg-my-secondary  m-2 rounded-md p-6 shadow-md h-full flex flex-col justify-between">
+            <div className="bg-white  hover:shadow-md cursor-pointer transition-shadow dark:bg-my-secondary  m-2 rounded-md p-6 shadow-sm h-full flex flex-col justify-between">
               <div>
                 <span className="text-3xl text-teal-400">“</span>
               </div>

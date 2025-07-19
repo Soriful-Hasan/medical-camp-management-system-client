@@ -28,7 +28,7 @@ const Header = () => {
     },
   ];
   return (
-    <section className="h-[80vh] w-full  bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <section className="h-[80vh] w-full pt-10 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -39,13 +39,14 @@ const Header = () => {
       >
         {banners.map((banner) => (
           <SwiperSlide key={banner.id}>
-            <div className="h-full grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto px-6 gap-10 md:px-12 items-center">
+            <div className="h-full  pt-10 pb-10 md:pt-0 md:pb-10  flex  flex-col-reverse md:flex-row max-w-10/12 mx-auto px-6 gap-10 md:px-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                className="flex-1"
               >
-                <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-4">
+                <h2 className="text-4xl lg:text-5xl font-bold dark:text-white mb-4">
                   {banner.title}
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
@@ -59,11 +60,11 @@ const Header = () => {
                   Learn More
                 </motion.button>
               </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+                className="flex-1"
               >
                 <img
                   src={banner.image}

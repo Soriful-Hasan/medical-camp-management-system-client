@@ -5,8 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import Loader from "../../../Components/Loader/Loader";
 import AnalyticsCard from "./AnalyticsCard";
 import ParticipantChart from "./ParticipantChart";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
+
 const ParticipantDashBoard = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
@@ -37,13 +36,13 @@ const ParticipantDashBoard = () => {
   } = parAnalyticsData;
 
   return (
-    <div className="m-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+    <div className="m-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
         <AnalyticsCard
           title={"Total Joined Camps"}
           value={totalJoinedCamps || 0}
           iconBg="bg-blue-100"
-          icon=""
+          icon="TbCoinTakaFilled "
           iconColor="text-blue-600"
         />
         <AnalyticsCard
@@ -63,6 +62,7 @@ const ParticipantDashBoard = () => {
         <AnalyticsCard
           title={"Total pending payments"}
           value={totalPendingPayments || 0}
+          s
           icon="faUsers"
           iconBg="bg-purple-100"
           iconColor="text-purple-600"

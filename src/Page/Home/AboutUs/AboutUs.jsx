@@ -29,14 +29,12 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="w-10/12 mx-auto mb-10">
-      <div className="place-items-center  pt-12 ">
-        <h1 className=" text-3xl font-bold">About Us</h1>
-        <p className="md:w-3xl w-full text-center mt-2">
-          Bringing communities together with accessible medical care, our
-          mission is to simplify medical camp management through modern
-          technology.
-        </p>
+    <div className="w-10/12 mx-auto mb-10 pt-10">
+      <div className="text-center max-w-3xl mx-auto mb-16 mt-16">
+        <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
+          About Us
+        </h2>
+        <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
       </div>
       <div className="  mt-10 rounded-xl">
         {aboutData?.map((about) => (

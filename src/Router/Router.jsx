@@ -24,6 +24,7 @@ import DashboardRedirect from "../Dashboard/DashboardLayout/DashboardRedirect/Da
 import UpdateProfile from "../Dashboard/UpdateProfile/UpdateProfile";
 import ContactUs from "../Page/Home/ContactUs/ContactUs";
 import AboutUs from "../Page/Home/AboutUs/AboutUs";
+import ProfileRedirect from "../Dashboard/DashboardLayout/DashboardRedirect/ProfileRedirect";
 
 export const router = createBrowserRouter([
   {
@@ -91,15 +92,18 @@ export const router = createBrowserRouter([
         index: true,
         element: <DashboardRedirect />,
       },
-
       {
         path: "profile",
-        element: (
-          <ProtectedRoute>
-            <UpdateProfile />
-          </ProtectedRoute>
-        ),
+        element: <ProfileRedirect />,
       },
+      // {
+      //   path: "profile",
+      //   element: (
+      //     <ProtectedRoute>
+      //       <UpdateProfile />
+      //     </ProtectedRoute>
+      //   ),
+      // },
       //Admin route
       {
         path: "add-camp",

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import UpdateCampModal from "./UpdateCampModal";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -11,6 +11,7 @@ const ManageCampTable = ({ camp, index, campCountPending, isPending }) => {
   const modalRef = useRef();
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
+  const [isOpen, setIsOpen] = useState(false);
 
   // delete camp
   const { mutate: deleteCamp } = useMutation({
@@ -64,9 +65,13 @@ const ManageCampTable = ({ camp, index, campCountPending, isPending }) => {
         />
       </td>
       <td className=" cursor-pointer">
-        <BiSolidEdit size={25} onClick={() => modalRef.current.showModal()} />
+        <BiSolidEdit size={25} onClick={() => setIsOpen(!isOpen)} />
       </td>
-      <UpdateCampModal camp={camp} modalRef={modalRef}></UpdateCampModal>
+      <UpdateCampModal
+        camp={camp}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      ></UpdateCampModal>
     </tr>
   );
 };

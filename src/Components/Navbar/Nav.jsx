@@ -4,9 +4,10 @@ import ToggleDarkMode from "../ToggleDarkMode/ToggleDarkMode";
 import Logo from "../Logo/Logo";
 import { Link, NavLink } from "react-router";
 import toast from "react-hot-toast";
+import DropDown from "../DropDown/DropDown";
 
 const Nav = () => {
-  const { user, userSignOut, isLoading } = useAuth();
+  const { user, userSignOut, loading } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,7 +21,7 @@ const Nav = () => {
       });
   };
   return (
-    <nav className="bg-my-primary/5 border-gray-200 dark:bg-my-secondary ">
+    <nav className="fixed top-0 left-0 w-full z-50  bg-my-primary/5 border-gray-200 dark:bg-my-secondary backdrop-blur-sm  ">
       <div className="lg:max-w-10/12  flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
 
@@ -30,25 +31,33 @@ const Nav = () => {
           <div className="mr-4">
             <ToggleDarkMode />
           </div>
-          {isLoading && <span>loading...</span>}
-          {!isLoading && user && (
-            <img
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="cursor-pointer w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-              src={user?.photoURL}
-              alt="Bordered avatar"
-            />
+
+          {loading ? (
+            <>
+              <span className="loading loading-ring loading-xl"></span>
+            </>
+          ) : user ? (
+            <>
+              <DropDown handleSignOut={handleSignOut} />
+            </>
+          ) : (
+            <>
+              <Link
+                to={"/auth/login"}
+                className="text-white  bg-my-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Log in
+              </Link>
+            </>
           )}
+
+          {/* {!isLoading && user && }
           {!isLoading && !user && (
-            <Link
-              to={"/auth/login"}
-              className="text-white bg-my-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Log in
-            </Link>
-          )}
+            
+          )} */}
+
           {/* Dropdown */}
-          {isDropdownOpen && (
+          {/* {isDropdownOpen && (
             <div className="z-50   absolute  top-16 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
@@ -87,7 +96,7 @@ const Nav = () => {
                 </li>
               </ul>
             </div>
-          )}
+          )} */}
           {/* Hamburger Menu Button (Mobile) */}
           <button
             type="button"

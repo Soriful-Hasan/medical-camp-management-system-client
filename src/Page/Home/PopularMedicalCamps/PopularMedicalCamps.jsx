@@ -42,7 +42,7 @@ const PopularMedicalCamps = () => {
         ))}
       </div>
       <div className="text-center mt-20">
-        <div className="  inline-block bg-gradient-to-r  from-indigo-600 to-purple-600 p-px rounded-lg">
+        <div className="  inline-block bg-gradient-to-r  border border-my-primary p-px rounded-lg">
           <Link
             to={"/items"}
             className="block bg-white dark:bg-gray-900 hover:bg-gray-50 transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-indigo-600"

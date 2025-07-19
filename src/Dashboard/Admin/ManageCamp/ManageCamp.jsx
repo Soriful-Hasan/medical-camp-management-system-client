@@ -15,7 +15,6 @@ const ManageCamp = () => {
   const [itemPerPage, setItemPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const [searchText, setSearchText] = useState("");
-
   //get camp
   const {
     data: campsData,

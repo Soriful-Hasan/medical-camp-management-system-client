@@ -38,7 +38,7 @@ const ParticipantChart = ({ data }) => {
     },
   ];
   return (
-    <div className="w-full h-[400px] dark:text-black bg-white dark:bg-dark-secondary rounded-xl shadow-md p-4 mt-6">
+    <div className="w-full h-[400px] dark:text-black bg-white dark:bg-dark-primary rounded-xl shadow-md p-4 mt-6">
       <h2 className="text-xl dark:text-white font-semibold text-gray-800 mb-4">
         Dashboard Overview
       </h2>

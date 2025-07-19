@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../Components/Loader/Loader";
@@ -9,11 +9,13 @@ import toast from "react-hot-toast";
 import { FaUserCheck } from "react-icons/fa";
 import { FaUserMd } from "react-icons/fa";
 import { BsFillCalendarDateFill } from "react-icons/bs";
+import Modal from "../../AllCapms/CampJoinModal";
 
 const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
+  const [isOpen, setIsOpen] = useState(false);
 
   const {
     data: campDetails,
@@ -37,7 +39,7 @@ const CampDetails = () => {
   }
 
   return (
-    <div className="w-10/12  mx-auto place-items-center">
+    <div className="w-10/12  mx-auto place-items-center pt-20">
       <div className="gap-10 mt-6">
         <div className=" rounded-2xl p-2 md:p-10 w-full bg-my-primary/5">
           <div className="w-full max-w-3xl relative">
@@ -79,16 +81,19 @@ const CampDetails = () => {
             <h1>{campDetails?.created_date}</h1>
           </div>
 
-          <div className="">
-            <button
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-              className=" font-semibold py-3 rounded-full bg-my-primary/6 cursor-pointer w-full"
-              disabled={alreadyJoined || isLoading}
-            >
-              {alreadyJoined ? "Already Joined" : "Join Camp"}
-            </button>
-          </div>
-          <CampJoinModal campDetails={campDetails} />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className=" font-semibold py-3 mb-10 rounded-full bg-my-primary/6 cursor-pointer w-full"
+            disabled={alreadyJoined || isLoading}
+          >
+            {alreadyJoined ? "Already Joined" : "Join Camp"}
+          </button>
+          <Modal
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            campDetails={campDetails}
+          />
+       
         </div>
       </div>
     </div>

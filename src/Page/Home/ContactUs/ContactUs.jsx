@@ -40,7 +40,7 @@ const ContactUs = () => {
       });
   };
   return (
-    <div>
+    <div className="pt-10">
       <div
         id="contact-us"
         className="overflow-hidden  py-16 px-4  sm:px-6 lg:px-8 lg:py-24"
@@ -112,13 +112,11 @@ const ContactUs = () => {
               fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"
             ></rect>
           </svg>
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-4xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 mt-16">
+            <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
               Contact Us
             </h2>
-            <p className="mt-4 text-lg leading-6 text-gray-500 dark:text-slate-400">
-              Please use the form below to contact us. Thank you!
-            </p>
+            <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
           </div>
           <div className="mt-12">
             <form

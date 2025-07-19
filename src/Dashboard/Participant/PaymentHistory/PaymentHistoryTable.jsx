@@ -23,10 +23,7 @@ const PaymentHistoryTable = ({ history, index }) => {
       </td>
       <td>
         {history.confirmation_status === "pending" && (
-          <button
-            // onClick={() => handleConformed(regData._id)}
-            className="cursor-pointer"
-          >
+          <button className="cursor-pointer">
             <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
               Pending
             </span>
