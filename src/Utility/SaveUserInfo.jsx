@@ -8,7 +8,7 @@ const SaveUserInfo = () => {
     try {
       const res = await axios.post("/userInfo", userInfo);
     } catch (error) {
-      console.log(error);
+      // {}
     }
   };
 

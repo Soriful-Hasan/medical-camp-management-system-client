@@ -23,7 +23,6 @@ const useAxiosSecure = () => {
       const responseInterCeptor = axiosInstance.interceptors.response.use(
         (res) => res,
         (err) => {
-          console.log(err);
           if (err?.response?.status === 401) {
             userSignOut()
               .then(() => {

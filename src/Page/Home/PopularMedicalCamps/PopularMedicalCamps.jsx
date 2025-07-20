@@ -34,7 +34,7 @@ const PopularMedicalCamps = () => {
           do and dedicated to delivering the best results for our clients.
         </p>
       </div>
-      {popularCamps.length === 0 && (
+      {popularCamps?.length === 0 && (
         <div className=" flex justify-center mt-20 items-center">
           <img src="not_found.svg" width={400} alt="" />
         </div>

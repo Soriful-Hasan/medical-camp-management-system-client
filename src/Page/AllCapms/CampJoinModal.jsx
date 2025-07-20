@@ -82,7 +82,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   <label className="block font-medium">Camp Name *</label>
                   <input
                     value={campDetails.camp_name}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("camp_name", {
                       required: "Camp name required",
@@ -102,7 +102,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   <label className="block font-medium">Camp Fees *</label>
                   <input
                     value={campDetails.camp_fee}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("camp_fee", {
                       required: "Camp fees required",
@@ -122,7 +122,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   <label className="block font-medium">Camp location *</label>
                   <input
                     value={campDetails.location}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("location", {
                       required: "Camp location required",
@@ -144,7 +144,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   </label>
                   <input
                     value={campDetails.professional_name}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("professional_name", {
                       required: "Professional name required",
@@ -167,7 +167,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   </label>
                   <input
                     value={user?.displayName}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("participant_name", {
                       required: "Participant name required",
@@ -190,7 +190,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   </label>
                   <input
                     value={user?.email}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("participant_email", {
                       required: "Participant email required",
@@ -209,7 +209,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                 <div className="w-full">
                   <label className="block font-medium">Your Age *</label>
                   <input
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="number"
                     placeholder="22"
                     {...register("participant_age", {
@@ -231,10 +231,6 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                     placeholder="+88018*********"
                     {...register("phone_number", {
                       required: "Phone number required",
-                      pattern: {
-                        value: /^\+?[1-9]\d{1,14}$/,
-                        message: "Invalid phone number",
-                      },
                     })}
                   />
                   {errors.phone_number && (
@@ -247,7 +243,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   <label className="block font-medium">Select Gender *</label>
                   <select
                     {...register("gender", { required: "Gender is required" })}
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -267,15 +263,11 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                     Emergency Phone Number *
                   </label>
                   <input
-                     className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     type="tel"
                     placeholder="+88018*********"
                     {...register("emergency_number", {
                       required: "Emergency phone required",
-                      pattern: {
-                        value: /^\+?[1-9]\d{1,14}$/,
-                        message: "Invalid phone number",
-                      },
                     })}
                   />
                   {errors.emergency_number && (

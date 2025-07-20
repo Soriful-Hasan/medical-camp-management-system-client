@@ -68,7 +68,7 @@ const AllCamps = () => {
           />
           <DropDown onApply={handleApplyFilter} />
         </div>
-        {allCamps.length === 0 && (
+        {allCamps?.length === 0 && (
           <div className=" flex justify-center mt-20 items-center">
             <img src="not_found.svg" width={400} alt="" />
           </div>

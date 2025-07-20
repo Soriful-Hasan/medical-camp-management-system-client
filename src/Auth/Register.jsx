@@ -77,7 +77,6 @@ const Register = () => {
       navigate(goState);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       toast.error("something went wrong");
       setLoading(false);
     }
