@@ -7,23 +7,20 @@ import useAxios from "../../hooks/useAxios";
 
 const SocialLogin = ({ data }) => {
   const { signInWithGoogle, setLoading, user } = useAuth();
-  console.log(user);
+
   const axios = useAxios();
 
   const [searchParams] = useSearchParams();
 
   const redirects = searchParams.get("redirects");
   const navigate = useNavigate();
-  const goState = redirects || "/";
-  console.log(goState);
+  const goState = localStorage.getItem("route") || "/";
   const handleSocialLogin = () => {
     signInWithGoogle()
       .then((res) => {
-        toast.success("login successfully");
         const name = res.user?.displayName;
         const email = res.user?.email;
         const imageUrl = res.user?.photoURL;
-        console.log({ name, email, imageUrl });
         const userInfo = {
           name: name,
           email: email,
@@ -32,10 +29,11 @@ const SocialLogin = ({ data }) => {
         };
         axios
           .post("/userInfo", { userInfo })
-          .then((res) => console.log(res))
-          .catch((error) => console.log(error));
+          .then((res) => {})
+          .catch((error) => {});
+        localStorage.removeItem("route");
         navigate(goState);
-        toast.success("Sign up successfully");
+        toast.success(`${data} successfully`);
       })
       .catch((error) => {
         toast.error("something went wrong");

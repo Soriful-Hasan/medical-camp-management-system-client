@@ -141,7 +141,7 @@ const ContactUs = () => {
                     {...register("name", {
                       required: "Name is required",
                     })}
-                    className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                   />
                   {errors.name && (
                     <p className="text-red-500 text-sm mt-1">
@@ -165,7 +165,7 @@ const ContactUs = () => {
                     type="email"
                     placeholder="Email"
                     autocomplete="email"
-                    className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     {...register("email", {
                       required: "Email is required",
                     })}
@@ -194,7 +194,7 @@ const ContactUs = () => {
                     {...register("message", {
                       required: "Message is required",
                     })}
-                    className="mt-2 block w-full p-2.5 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                   ></textarea>
                   {errors.message && (
                     <p className="text-red-500 text-sm mt-1">

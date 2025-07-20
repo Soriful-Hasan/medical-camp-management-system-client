@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
   const updateUserProfile = (upDateInfo) => {
+    console.log(upDateInfo);
     setLoading(true);
     return updateProfile(auth.currentUser, upDateInfo);
   };
@@ -66,7 +67,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    console.log({ theme });
   }, [theme]);
 
   return (

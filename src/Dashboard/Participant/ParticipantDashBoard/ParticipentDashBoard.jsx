@@ -5,6 +5,13 @@ import useAuth from "../../../hooks/useAuth";
 import Loader from "../../../Components/Loader/Loader";
 import AnalyticsCard from "./AnalyticsCard";
 import ParticipantChart from "./ParticipantChart";
+import {
+  FaDollarSign,
+  FaUsers,
+  FaCampground,
+  FaCheckCircle,
+  FaClock,
+} from "react-icons/fa";
 
 const ParticipantDashBoard = () => {
   const axiosSecure = useAxiosSecure();
@@ -18,7 +25,6 @@ const ParticipantDashBoard = () => {
     queryKey: ["participantStats", email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user/analytics?email=${email}`);
-      console.log(res);
       return res.data;
     },
     enabled: !!email,
@@ -37,24 +43,24 @@ const ParticipantDashBoard = () => {
 
   return (
     <div className="m-6 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 ">
         <AnalyticsCard
           title={"Total Joined Camps"}
           value={totalJoinedCamps || 0}
           iconBg="bg-blue-100"
-          icon="TbCoinTakaFilled "
+          icon={FaDollarSign}
           iconColor="text-blue-600"
         />
         <AnalyticsCard
           title={"Total paid amount"}
           value={totalPaidAmount || 0}
           iconBg="bg-green-100"
-          icon="faUsers"
+          icon={FaUsers}
           iconColor="text-blue-600"
         />
         <AnalyticsCard
           title={"Total paid payments"}
-          icon="faUsers"
+          icon={FaCheckCircle}
           value={totalPaidPayments || 0}
           iconBg="bg-orange-100"
           iconColor="text-blue-600"
@@ -62,8 +68,7 @@ const ParticipantDashBoard = () => {
         <AnalyticsCard
           title={"Total pending payments"}
           value={totalPendingPayments || 0}
-          s
-          icon="faUsers"
+          icon={FaClock}
           iconBg="bg-purple-100"
           iconColor="text-purple-600"
         />

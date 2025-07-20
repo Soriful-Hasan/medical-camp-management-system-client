@@ -96,15 +96,7 @@ export const router = createBrowserRouter([
         path: "profile",
         element: <ProfileRedirect />,
       },
-      // {
-      //   path: "profile",
-      //   element: (
-      //     <ProtectedRoute>
-      //       <UpdateProfile />
-      //     </ProtectedRoute>
-      //   ),
-      // },
-      //Admin route
+
       {
         path: "add-camp",
         element: (

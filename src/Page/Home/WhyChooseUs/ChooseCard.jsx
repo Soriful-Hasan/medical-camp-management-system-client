@@ -25,7 +25,7 @@ const ChooseCard = () => {
     <div className="flex flex-col  gap-6 mb-10 mt-10  space-y-2">
       {cardInfo?.map((info) => (
         <div
-          className="w-full p-6 hover:shadow-md transition-shadow bg-white border cursor-pointer
+          className="w-full p-6 hover:shadow-md transition-shadow  border 
          border-gray-200 rounded-sm shadow-sm dark:bg-gray-800 dark:border-gray-700"
         >
           <div className="">{info.icon}</div>
@@ -39,9 +39,9 @@ const ChooseCard = () => {
             {info.des}
           </p>
           <Link
-            onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             to={"/about"}
-            className="inline-flex font-medium items-center text-blue-600 hover:underline"
+            className="inline-flex font-medium items-center text-my-primary hover:underline"
           >
             See our guideline
             <svg

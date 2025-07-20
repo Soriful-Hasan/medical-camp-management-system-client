@@ -4,7 +4,7 @@ import Question from "./Question";
 const FAQ = () => {
   return (
     <div>
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
           Frequently Asked Question (FAQ)
         </h2>
@@ -15,7 +15,14 @@ const FAQ = () => {
           here to help you every step of the way.
         </p>
       </div>
-      <Question />
+      <div className="flex flex-col lg:flex-row lg:gap-4 ">
+        <div className="flex-1">
+          <img src="/faqImage.svg" alt="" />
+        </div>
+        <div className="flex-1">
+          <Question />
+        </div>
+      </div>
     </div>
   );
 };

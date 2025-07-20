@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router";
+import { NavLink, Outlet, useNavigate } from "react-router";
 import Logo from "../../Components/Logo/Logo";
 import useUserRole from "../../hooks/useUserRole";
 import {
@@ -12,8 +12,14 @@ import {
   FaTasks,
 } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
+import Loader from "../../components/Loader/Loader";
 const Dashboard = () => {
   const { role, isLoading } = useUserRole();
+  const { state } = useNavigate();
+
+  if (isLoading) {
+    return <Loader />;
+  }
   const linkClass =
     "flex items-center gap-2 px-4 py-2 rounded-md font-medium hover:bg-my-primary hover:text-white dark:hover:bg-gray-700 transition-all duration-200";
   const activeClass = "bg-my-primary text-white ";
@@ -154,7 +160,7 @@ const Dashboard = () => {
           <div className="mx-2 flex-1 px-2 lg:hidden">Dash Board</div>
         </div>
         {/* Page content here */}
-        <Outlet></Outlet>
+        {state == "loading" ? <Loader></Loader> : <Outlet></Outlet>}
         {/* Page content here */}
       </div>
       <div className="drawer-side">

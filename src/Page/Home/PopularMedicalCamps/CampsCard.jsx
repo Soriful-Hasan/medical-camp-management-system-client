@@ -7,6 +7,8 @@ import {
   FaUsers,
   FaUserCheck,
 } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
+import { format } from "date-fns";
 
 const CampsCard = ({ camp }) => {
   const {
@@ -21,8 +23,10 @@ const CampsCard = ({ camp }) => {
     participant_count,
     professional_name,
   } = camp;
+
+  const time = format(new Date(createdAt), "h:mm a");
   return (
-    <div className="block rounded-lg hover:shadow-md dark:bg-dark-primary transition-shadow cursor-pointer p-4 shadow-xs shadow-indigo-100">
+    <div className="block rounded-lg hover:shadow-md dark:bg-dark-primary transition-shadow  p-4 shadow-xs shadow-indigo-100">
       <div className="relative">
         <img
           alt=""
@@ -40,7 +44,10 @@ const CampsCard = ({ camp }) => {
       <div className="mt-2">
         <dl>
           <div className="">
-            <span className="text-sm text-gray-500">৳{camp_fee}</span>
+            <span className="text-md dark:text-gray-300  text-gray-500">
+              {" "}
+              ৳{camp_fee}
+            </span>
           </div>
 
           <div>
@@ -71,7 +78,14 @@ const CampsCard = ({ camp }) => {
               <p className="font-medium">{location}</p>
             </div>
           </div>
+          <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+            <FaClock className="text-my-primary" />
+            <div className="mt-1.5 sm:mt-0">
+              <p className="text-gray-500">Created Time</p>
 
+              <p className="font-medium">{time}</p>
+            </div>
+          </div>
           <div className="sm:inline-flex  sm:shrink-0 sm:items-center sm:gap-2">
             <FaUserMd className="text-my-primary" />
             <div className="mt-1.5 sm:mt-0">
@@ -81,17 +95,10 @@ const CampsCard = ({ camp }) => {
           </div>
         </div>
       </div>
-      {/* <div className="">
-        <Link
-          to={`/camp-details/${_id}`}
-          class="inline-flex items-center mt-4 font-semibold text-my-primary lg:mb-0 hover:text-neutral-600"
-          title="read more"
-        >
-          See Camp »
-        </Link>
-      </div> */}
+
       <div class="mt-5">
         <Link
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           to={`/camp-details/${_id}`}
           class="inline-flex items-center cursor-pointer rounded-md border border-transparent bg-my-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-blue-600"
         >

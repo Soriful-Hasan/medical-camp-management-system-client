@@ -4,31 +4,33 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router";
 const Header = () => {
   const banners = [
     {
       id: 1,
       title: "Empowering Healthcare Camps",
       description:
-        "Join our medical camps for free checkups and expert consultations.",
+        "Join our mission to bring quality healthcare to every corner of the community.Organize and manage medical camps with ease and confidence.From registration to reports — everything in one seamless platform.",
       image: "/medical-camp1.jpg",
     },
     {
       id: 2,
       title: "Community Wellness Events",
-      description: "Promoting better health and wellness in your neighborhood.",
+      description:
+        "Say goodbye to paperwork and confusion during medical camps.With real-time participant tracking and payment integration,our system makes every camp smooth, smart, and successful.",
       image: "/medical-camp2.jpg",
     },
     {
       id: 3,
       title: "Accessible Healthcare for All",
       description:
-        "Bringing quality healthcare to your doorstep through free camps.",
+        "Bridge the gap between doctors, organizers, and patients efficiently.Manage schedules, feedback, and reports with just a few clicks.It’s time to digitize care with our advanced MCMS platform.",
       image: "/medical-camp3.jpg",
     },
   ];
   return (
-    <section className="h-[80vh] w-full pt-10 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <section className="h-auto md:h-[80vh] w-full pt-10 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -57,7 +59,7 @@ const Header = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-my-primary hover:bg-blue-700 text-white px-6 py-3 rounded-md shadow-md"
                 >
-                  Learn More
+                  <Link to="/about">Learn More</Link>
                 </motion.button>
               </motion.div>
               <motion.div

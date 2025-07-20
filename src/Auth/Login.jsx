@@ -25,11 +25,10 @@ const Login = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const redirects = searchParams.get("redirects");
-  console.log({ redirects });
+
   const navigate = useNavigate();
   const goState = redirects || "/";
   // const goState = location.state?.pathname || "/";
-  console.log(goState);
 
   const onSubmit = (data) => {
     const email = data.email;
@@ -40,7 +39,7 @@ const Login = () => {
         navigate(goState);
       })
       .catch((error) => {
-        toast.success(`Something was wrong`);
+        toast.error(`Email or password not valid`);
       });
   };
 
@@ -146,7 +145,12 @@ const Login = () => {
         <div className="flex justify-center mt-6">
           <Link to={"/auth/register"}>
             Don't have an account?{" "}
-            <span className="text-my-primary">Sign up</span>
+            <span
+              onClick={() => localStorage.setItem("route", goState)}
+              className="text-my-primary"
+            >
+              Sign up
+            </span>
           </Link>
         </div>
       </div>

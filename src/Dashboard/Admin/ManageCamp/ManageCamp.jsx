@@ -35,7 +35,6 @@ const ManageCamp = () => {
       return camps.data;
     },
   });
-  console.log(campsData);
   // get camp count
   const { count: totalCampCount, isPending: campCountPending } = useCampCount(
     "admin/camps/count",
@@ -56,7 +55,6 @@ const ManageCamp = () => {
 
   const handleItemPerPage = (e) => {
     const val = parseInt(e.target.value);
-    console.log(val);
     setItemPerPage(val);
     setCurrentPage(0);
   };

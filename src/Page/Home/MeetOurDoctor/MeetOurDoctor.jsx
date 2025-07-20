@@ -119,7 +119,7 @@ const MeetOurDoctor = () => {
                   <h3 className="text-xl font-bold dark:text-white text-gray-800">
                     {doctor.name}
                   </h3>
-                  <p className="text-indigo-600 font-medium">
+                  <p className="text-my-primary font-medium">
                     {doctor.position}
                   </p>
                   <p className="text-gray-600 mt-2 dark:text-gray-300">

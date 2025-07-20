@@ -1,21 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 const ErrorPage = () => {
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="space-y-6 flex flex-col">
-        {/* <DotLottieReact
-          src="https://lottie.host/ce33a3dd-443a-4ee4-b007-3d0c72690339/B3A7lCLLVr.lottie"
-          loop
-          autoplay
-          
-        /> */}
+        <img width={400} className="p-10 md:p-0" src="page_error.svg" alt="" />
         <div class="max-w-md w-full space-y-8 text-center">
           <div class="mt-2">
-            <a
-              href="/"
-              class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <Link
+              to="/"
+              class="bg-my-primary inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <svg
                 class="mr-2 -ml-1 h-5 w-5"
@@ -31,7 +26,7 @@ const ErrorPage = () => {
                 />
               </svg>
               Go back home
-            </a>
+            </Link>
           </div>
         </div>
 

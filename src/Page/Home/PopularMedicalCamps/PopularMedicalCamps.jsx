@@ -5,7 +5,6 @@ import Loader from "../../../Components/Loader/Loader";
 import CampsCard from "./CampsCard";
 import { Link } from "react-router";
 
-
 const PopularMedicalCamps = () => {
   const axiosSecure = useAxiosSecure();
   const {
@@ -35,7 +34,11 @@ const PopularMedicalCamps = () => {
           do and dedicated to delivering the best results for our clients.
         </p>
       </div>
-
+      {popularCamps.length === 0 && (
+        <div className=" flex justify-center mt-20 items-center">
+          <img src="not_found.svg" width={400} alt="" />
+        </div>
+      )}
       <div className=" grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {popularCamps?.map((camp, index) => (
           <CampsCard key={index} camp={camp} />
@@ -44,8 +47,9 @@ const PopularMedicalCamps = () => {
       <div className="text-center mt-20">
         <div className="  inline-block bg-gradient-to-r  border border-my-primary p-px rounded-lg">
           <Link
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             to={"/items"}
-            className="block bg-white dark:bg-gray-900 hover:bg-gray-50 transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-indigo-600"
+            className="block bg-white dark:bg-gray-900 hover:bg-my-primary hover:text-white transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-my-primary"
           >
             See All Camps <span className="ml-2">→</span>
           </Link>

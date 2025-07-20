@@ -25,12 +25,10 @@ const ManageCampTable = ({ camp, index, campCountPending, isPending }) => {
     },
     onError: (error) => {
       Swal.fire("Error!", "Failed to delete the camp.", "error");
-      console.log(error);
     },
   });
 
   const handleDelete = (campId) => {
-    console.log(campId);
     Swal.fire({
       title: "Are you sure?",
       text: "This camp will be permanently deleted!",

@@ -38,7 +38,10 @@ const AboutUs = () => {
       </div>
       <div className="  mt-10 rounded-xl">
         {aboutData?.map((about) => (
-          <div className="bg-my-primary/4 flex-col lg:flex-row p-4 mt-4 flex  rounded-md">
+          <div
+            className="bg-white  dark:bg-dark-primary
+            flex-col lg:flex-row p-4 mt-4 flex  rounded-md"
+          >
             <div className="flex-1">
               <img src={about.image} className="w-xl rounded-2xl" alt="" />
             </div>

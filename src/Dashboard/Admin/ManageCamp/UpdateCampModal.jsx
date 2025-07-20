@@ -44,7 +44,6 @@ const UpdateCampModal = ({ camp, isOpen, setIsOpen }) => {
   const onSubmit = (data) => {
     const campId = camp._id;
     mutate({ id: campId, data });
-    console.log(data);
   };
 
   return (

@@ -28,9 +28,8 @@ const Register = () => {
   const [searchParams] = useSearchParams();
   const redirects = searchParams.get("redirects");
   const navigate = useNavigate();
-  const goState = redirects || "/";
+  const goState = localStorage.getItem("route") || "/";
 
-  console.log(goState);
   const onSubmit = async (data) => {
     const email = data.email;
     const pass = data.password;
@@ -38,7 +37,7 @@ const Register = () => {
     const name = data.name;
 
     if (pass.length < 6) {
-      return toast.error("Password must have 6 character");
+      return toast.error("Password must have 6 characters");
     }
     if (!pass.match(/[A-Z]/g)) {
       return toast.error("Password must have 1 uppercase case latter");
@@ -72,9 +71,9 @@ const Register = () => {
 
       axios
         .post("/userInfo", { userInfo })
-        .then((res) => console.log(res))
-        .catch((error) => console.log(error));
-
+        .then((res) => {})
+        .catch((error) => {});
+      localStorage.removeItem("route");
       navigate(goState);
       setLoading(false);
     } catch (error) {
@@ -82,25 +81,6 @@ const Register = () => {
       toast.error("something went wrong");
       setLoading(false);
     }
-
-    // signUp(email, pass)
-    //   .then((res) => {
-    //     updateUserProfile(updateProfileData)
-    //       .then((res) => console.log(res))
-    //       .catch((error) => console.log(error)),
-    //       toast.success("Sign up successfully");
-    //     //add user data on user collection
-    //     // await SaveUserInfo(userInfo)
-    //     // axios
-    //     //   .post("/userInfo", { userInfo })
-    //     //   .then((res) => console.log(res))
-    //     //   .catch((error) => console.log(error));
-    //     navigate(goState);
-    //     setLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     toast.error("Something was wrong");
-    //   });
   };
 
   return (
@@ -247,7 +227,7 @@ const Register = () => {
             <span class="flex-grow bg-gray-200 rounded h-1"></span>
           </h3>
         </div>
-        <SocialLogin data={"Login"} />
+        <SocialLogin data={"Register"} />
         <div className="flex justify-center mt-6">
           <Link to={"/auth/login"}>
             Already have an account?{" "}

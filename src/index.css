@@ -12,7 +12,9 @@
 * {
   font-family: "Mona Sans", sans-serif;
 }
-
+.__PrivateStripeElement{
+  color: white !important;
+}
 @theme {
   /* Primary Theme */
   --color-my-primary: #01A6E7;

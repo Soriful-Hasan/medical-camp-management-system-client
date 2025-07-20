@@ -46,16 +46,13 @@ const UpdateProfile = () => {
         name,
         photoURL: updateProfileDataDB.photoURL,
       });
-      console.log(dbRes);
 
       const res = await updateUserProfile(updateProfileData);
-      console.log(res);
       setLoading(false);
 
       toast.success("Profile Updated successfully");
     } catch (error) {
       toast.error("Profile update failed!");
-      console.log(error);
     }
   };
 

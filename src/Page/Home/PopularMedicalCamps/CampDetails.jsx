@@ -12,6 +12,8 @@ import { BsFillCalendarDateFill } from "react-icons/bs";
 import Modal from "../../AllCapms/CampJoinModal";
 import { ImLocation } from "react-icons/im";
 import { TbCoinTakaFilled } from "react-icons/tb";
+import { format } from "date-fns";
+import { FaClock } from "react-icons/fa";
 const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
@@ -38,7 +40,7 @@ const CampDetails = () => {
   if (isPending) {
     return <Loader />;
   }
-
+  const time = format(new Date(campDetails?.createdAt), "h:mm a");
   return (
     <div className="w-10/12  mx-auto place-items-center pt-20">
       <div className="gap-10 mt-6">
@@ -68,6 +70,22 @@ const CampDetails = () => {
         <div className="space-y-10  mt-10  ">
           <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
             <div className="flex items-center gap-2">
+              <BsFillCalendarDateFill />
+              <h1>Create Date</h1>
+            </div>
+
+            <h1>{campDetails?.created_date}</h1>
+          </div>
+          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
+            <div className="flex items-center gap-2">
+              <FaClock />
+              <h1>Create Time</h1>
+            </div>
+
+            <h1>{time}</h1>
+          </div>
+          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
+            <div className="flex items-center gap-2">
               <FaUserMd />
               <h1>Professional Name</h1>
             </div>
@@ -84,14 +102,6 @@ const CampDetails = () => {
               <ImLocation /> <h1>Location0</h1>
             </div>
             <h1>{campDetails?.location}</h1>
-          </div>
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <BsFillCalendarDateFill />
-              <h1>Create Date</h1>
-            </div>
-
-            <h1>{campDetails?.created_date}</h1>
           </div>
 
           <button

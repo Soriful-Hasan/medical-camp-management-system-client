@@ -8,6 +8,7 @@ import { rating } from "@material-tailwind/react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxios from "../../../hooks/useAxios";
+import { IoMdStar } from "react-icons/io";
 
 const RatingSlider = () => {
   const axios = useAxios();
@@ -27,7 +28,44 @@ const RatingSlider = () => {
   });
 
   return (
-    <div className="max-w-10/12 mx-auto  px-4 py-16 text-center">
+    <div className="grid grid-cols-1 md:grid-col-2   lg:grid-cols-3 gap-4 max-w-10/12 mx-auto">
+      {ratings?.map((rating) => (
+        <div className="border rounded-sm p-4 hover:shadow   dark:bg-dark-primary  bg-white dark:border-gray-600 border-gray-100">
+          <div className=" p-4 line-clamp-6">
+            <p className="text-gray-600 text-sm dark:text-white">
+              {rating.feedback}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 ">
+            <div className="avatar">
+              <div className="w-12 rounded-full">
+                <img src={rating.photo} alt="" />
+              </div>
+            </div>
+            <div className="flex justify-between  w-full">
+              <div className="">
+                <h1 className="text-xl ">{rating.name}</h1>
+                <p className="text-gray-600 text-sm dark:text-white">User</p>
+              </div>
+              <div className="flex">
+                <IoMdStar color="#FE6F61" />
+                <IoMdStar color="#FE6F61" />
+                <IoMdStar color="#FE6F61" />
+                <IoMdStar color="#FE6F61" />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default RatingSlider;
+
+{
+  /* <div className="max-w-10/12 mx-auto  px-4 md:py-16 text-center">
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={40}
@@ -55,7 +93,7 @@ const RatingSlider = () => {
       >
         {ratings?.map((rating, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white  hover:shadow-md cursor-pointer transition-shadow dark:bg-my-secondary  m-2 rounded-md p-6 shadow-sm h-full flex flex-col justify-between">
+            <div className="bg-gray-50/20 w-full  min-h-[300px] md:min-h-[360px] hover:shadow-md cursor-pointer transition-shadow dark:bg-my-secondary m-2 rounded-md p-6 shadow-sm flex flex-col justify-between max-w-sm mx-auto md:max-w-none">
               <div>
                 <span className="text-3xl text-teal-400">“</span>
               </div>
@@ -64,7 +102,7 @@ const RatingSlider = () => {
               </p>
               <div className="border-t  border-dotted my-4"></div>
               <div className="flex items-center justify-between">
-                <div className="  pt-4 flex items-center gap-4">
+                <div className="pt-4 flex items-center gap-4">
                   <div className="w-10 h-10 ">
                     <img
                       className="bg-teal-900 rounded-full"
@@ -132,16 +170,11 @@ const RatingSlider = () => {
         >
           ←
         </button>
-        <div className="custom-pagination  flex  gap-2" />
         <button
           ref={nextRef}
           className="w-8 h-8 cursor-pointer rounded-full bg-gray-200 hover:bg-my-primary hover:text-white flex items-center justify-center"
         >
           →
         </button>
-      </div>
-    </div>
-  );
-};
-
-export default RatingSlider;
+      </div> */
+}

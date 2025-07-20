@@ -1,7 +1,6 @@
 import React from "react";
 import { format } from "date-fns";
 const PaymentHistoryTable = ({ history, index }) => {
-  console.log(history.amount);
   const date = format(new Date(history.paidAt), "MMMM d, yyyy");
   const time = format(new Date(history.paidAt), "h:mm a");
   return (

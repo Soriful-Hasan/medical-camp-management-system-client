@@ -14,7 +14,6 @@ const ManageRegisteredCamp = () => {
   const [searchText, setSearchText] = useState("");
 
   const { user } = useAuth();
-  console.log(searchText);
   // get registered camp data
   const {
     data: registeredCampsData = [],
@@ -49,11 +48,9 @@ const ManageRegisteredCamp = () => {
     pages = [...Array(numberOfPages).keys()];
   }
 
-  console.log(numberOfPages, pages);
 
   const handleItemPerPage = (e) => {
     const val = parseInt(e.target.value);
-    console.log(val);
     setItemPerPage(val);
     setCurrentPage(0);
   };

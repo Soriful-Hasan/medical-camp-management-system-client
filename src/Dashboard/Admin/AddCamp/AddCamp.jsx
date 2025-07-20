@@ -30,8 +30,9 @@ const AddCamp = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["campData"] });
       toast.success("add camp successfully");
+      
     },
-    onError: (error) => console.error("Error:", error),
+    onError: (error) => {},
   });
 
   const onSubmit = async (data) => {

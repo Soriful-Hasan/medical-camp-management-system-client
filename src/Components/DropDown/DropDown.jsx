@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { RiDashboardFill } from "react-icons/ri";
 const DropDown = ({ handleSignOut }) => {
   const { user, loading } = useAuth();
-  console.log(loading);
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       {/* Avatar acts as dropdown button */}

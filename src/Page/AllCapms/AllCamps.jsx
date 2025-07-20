@@ -14,7 +14,6 @@ const AllCamps = () => {
   const [selectOption, setSelectOption] = useState("");
   const [searchText, setSearchText] = useState("");
   const [layout, setLayout] = useState(true);
-  console.log(layout);
   const {
     data: allCamps,
     isPending,
@@ -69,6 +68,11 @@ const AllCamps = () => {
           />
           <DropDown onApply={handleApplyFilter} />
         </div>
+        {allCamps.length === 0 && (
+          <div className=" flex justify-center mt-20 items-center">
+            <img src="not_found.svg" width={400} alt="" />
+          </div>
+        )}
         {layout ? (
           <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {allCamps?.map((camp, index) => (

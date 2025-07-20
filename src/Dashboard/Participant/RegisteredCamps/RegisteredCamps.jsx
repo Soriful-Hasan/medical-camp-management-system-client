@@ -55,7 +55,6 @@ const RegisteredCamps = () => {
 
   const handleItemPerPage = (e) => {
     const val = parseInt(e.target.value);
-    console.log(val);
     setItemPerPage(val);
     setCurrentPage(0);
   };

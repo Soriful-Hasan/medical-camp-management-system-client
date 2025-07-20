@@ -34,7 +34,6 @@ const PaymentHistory = () => {
     email
   );
 
-  console.log(paymentCount);
   let numberOfPages = 0;
   let pages = [];
   if (paymentCount) {
@@ -44,7 +43,6 @@ const PaymentHistory = () => {
 
   const handleItemPerPage = (e) => {
     const val = parseInt(e.target.value);
-    console.log(val);
     setItemPerPage(val);
     setCurrentPage(0);
   };

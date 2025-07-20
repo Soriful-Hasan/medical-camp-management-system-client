@@ -25,7 +25,6 @@ const AdminDashBoard = () => {
       return res.data;
     },
   });
-  console.log(stats);
   const {
     totalRevenue,
     totalParticipants,
@@ -40,7 +39,7 @@ const AdminDashBoard = () => {
   } = stats;
   return (
     <main className="p-6">
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
         {/* Total Revenue */}
         <StatCard
           title="Total Revenue"
@@ -64,7 +63,7 @@ const AdminDashBoard = () => {
           title="Total Camps"
           value={totalCamps || 0}
           percentage={campChange || 0}
-          icon="fas fa-campground"
+          icon={FaCampground}
           iconBg="bg-orange-100"
           iconColor="text-orange-600"
         />
@@ -73,7 +72,7 @@ const AdminDashBoard = () => {
           title="Total Paid Payments"
           value={totalPaidPayments || 0}
           percentage={paidChange || 0}
-          icon="fas fa-check-circle"
+          icon={FaCheckCircle}
           iconBg="bg-purple-100"
           iconColor="text-purple-600"
         />
@@ -82,7 +81,7 @@ const AdminDashBoard = () => {
           title="Total Pending Payments"
           value={totalPendingPayments || 0}
           percentage={pendingChange || 0}
-          icon="fas fa-clock"
+          icon={FaClock}
           iconBg="bg-red-100"
           iconColor="text-red-600"
         />

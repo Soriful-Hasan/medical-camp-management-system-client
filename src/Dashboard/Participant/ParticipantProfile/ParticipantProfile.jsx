@@ -47,22 +47,19 @@ const ParticipantProfile = () => {
           photoURL: updateProfileDataDB.photoURL,
         }
       );
-      console.log(dbRes);
 
       const res = await updateUserProfile(updateProfileData);
-      console.log(res);
       setLoading(false);
 
       toast.success("Profile Updated successfully");
     } catch (error) {
       toast.error("Profile update failed!");
-      console.log(error);
     }
   };
 
   return (
     <div className="p-4">
-      <div class="md:w-2xl w-full   md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-gray-50 dark:bg-dark-primary dark:text-white shadow-sm rounded-lg text-gray-900">
+      <div class="md:w-2xl w-full   md:mx-auto lg:mx-auto xl:mx-auto md:mt-16 white dark:bg-dark-primary dark:text-white shadow-sm rounded-lg text-gray-900">
         <div class="rounded-t-lg h-32 overflow-hidden">
           <img
             class="object-cover object-top w-full"
@@ -84,7 +81,7 @@ const ParticipantProfile = () => {
           <h2 class="font-semibold mt-6">{user?.displayName}</h2>
           <p class="text-gray-500 dark:text-gray-300">{user?.email}</p>
         </div>
-        <div className="border-t border-gray-200"></div>
+        <div className="border-t dark:border-gray-700 border-gray-200"></div>
         <div className="mb-8">
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -100,7 +97,7 @@ const ParticipantProfile = () => {
                 name="name"
                 {...register("name", { required: "Name is required" })}
                 aria-describedby="helper-text-explanation"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                 defaultValue={user?.displayName}
               />
               {errors.name && (
@@ -121,7 +118,7 @@ const ParticipantProfile = () => {
                   required: "Profile image is required",
                 })}
                 accept="image/*"
-                className="block w-full mt-1 border border-gray-300 rounded-md bg-gray-50 text-sm 
+                className="block w-full mt-1 border border-gray-300 rounded-md bg-white shadow-sm text-sm 
                       file:bg-blue-100 file:text-black file:border-none 
                       file:px-4 file:py-2 file:rounded file:cursor-pointer"
               />
