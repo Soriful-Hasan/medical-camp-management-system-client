@@ -10,7 +10,8 @@ import { FaUserCheck } from "react-icons/fa";
 import { FaUserMd } from "react-icons/fa";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import Modal from "../../AllCapms/CampJoinModal";
-
+import { ImLocation } from "react-icons/im";
+import { TbCoinTakaFilled } from "react-icons/tb";
 const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
@@ -74,6 +75,18 @@ const CampDetails = () => {
           </div>
           <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
             <div className="flex items-center gap-2">
+              <TbCoinTakaFilled /> <h1>Camp Fees</h1>
+            </div>
+            <h1>{campDetails?.camp_fee}৳</h1>
+          </div>
+          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
+            <div className="flex items-center gap-2">
+              <ImLocation /> <h1>Location0</h1>
+            </div>
+            <h1>{campDetails?.location}</h1>
+          </div>
+          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
+            <div className="flex items-center gap-2">
               <BsFillCalendarDateFill />
               <h1>Create Date</h1>
             </div>
@@ -93,7 +106,6 @@ const CampDetails = () => {
             setIsOpen={setIsOpen}
             campDetails={campDetails}
           />
-       
         </div>
       </div>
     </div>

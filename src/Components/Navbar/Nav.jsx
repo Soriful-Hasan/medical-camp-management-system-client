@@ -8,7 +8,6 @@ import DropDown from "../DropDown/DropDown";
 
 const Nav = () => {
   const { user, userSignOut, loading } = useAuth();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -44,60 +43,13 @@ const Nav = () => {
             <>
               <Link
                 to={"/auth/login"}
-                className="text-white  bg-my-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="px-4 py-2 rounded-md cursor-pointer bg-my-primary  text-white"
               >
                 Log in
               </Link>
             </>
           )}
 
-          {/* {!isLoading && user && }
-          {!isLoading && !user && (
-            
-          )} */}
-
-          {/* Dropdown */}
-          {/* {isDropdownOpen && (
-            <div className="z-50   absolute  top-16 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
-              <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900 dark:text-white">
-                  {user?.displayName}
-                </span>
-                <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                  {user?.email}
-                </span>
-              </div>
-              <ul className="py-2">
-                <li>
-                  <NavLink
-                    to={"dashboard"}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
-                  >
-                    Dashboard
-                  </NavLink>
-                </li>
-
-                <li>
-                  {user ? (
-                    <a
-                      onClick={handleSignOut}
-                      className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
-                    >
-                      Log out
-                    </a>
-                  ) : (
-                    <NavLink
-                      to={"auth/login"}
-                      className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600"
-                    >
-                      Log in
-                    </NavLink>
-                  )}
-                </li>
-              </ul>
-            </div>
-          )} */}
-          {/* Hamburger Menu Button (Mobile) */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -103,7 +103,7 @@ const AddCamp = () => {
             <label className="block font-medium">Camp Fee *</label>
             <input
               type="number"
-              placeholder="200$"
+              placeholder="200৳"
               {...register("camp_fee", { required: "Camp fee is required" })}
               className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
             />

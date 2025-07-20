@@ -92,6 +92,7 @@ const RegisteredCamps = () => {
               <th>Location</th>
               <th>Payment Status</th>
               <th>Confirmation Status</th>
+              <th>Cancel Registration</th>
               <th>FeedBack</th>
               <th>Pay</th>
             </tr>

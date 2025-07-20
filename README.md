@@ -1,12 +1,36 @@
-# React + Vite
+# 🏥 Medical Camp Management System (MediEase)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN-stack application built to streamline the process of organizing and participating in medical camps.
 
-Currently, two official plugins are available:
+## 📄 Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The **Medical Camp Management System (MediEase)** is a full-stack web application that helps organizers manage medical camps and participants register for them easily. It features secure authentication, online payments, dashboards, and feedback systems. This platform enhances efficiency, transparency, and communication in organizing health-focused events.
 
-## Expanding the ESLint configuration
+## 👨‍⚕️ Organizer Credentials
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Username (Email):** organizer@gmail.com
+- **Password:** organizer123
+
+## 🔗 Live Site
+
+👉 [Visit Live Site](https://your-live-site-url.com)
+
+## 📌 Features
+
+- 🔐 **Secure Authentication**: User roles include organizers and participants with protected routes and JWT-based auth.
+- 📅 **Camp Management**: Organizers can create, edit, and delete medical camps with complete details.
+- 🧾 **Online Registration**: Participants can register for camps and manage their bookings from their dashboard.
+- 💳 **Secure Payments**: Integrated **Stripe** payment system for paid camps.
+- 📊 **Analytics Dashboard**: Visual insights for organizers — total revenue, participants, active/past camps, etc.
+- 📝 **Feedback System**: Participants can submit feedback and ratings after attending a camp.
+- 🔍 **Camp Listings**: All available and past medical camps are displayed with filters and search functionality.
+- 📱 **Responsive UI**: Fully responsive layout using Tailwind CSS and DaisyUI.
+- 🎨 **Interactive Animations**: Smooth user experience with Framer Motion animations.
+- 🛠️ **Tech Stack**: React.js, Node.js, Express.js, MongoDB, Firebase Auth, Stripe, JWT, and more.
+
+## 🛠️ Technologies Used
+
+- Frontend: React.js, Tailwind CSS, DaisyUI, Axios, React Router, Framer Motion
+- Backend: Node.js, Express.js, MongoDB, Stripe, JWT
+- Authentication: Firebase
+- Deployment: Vercel (Frontend), Render (Backend)
