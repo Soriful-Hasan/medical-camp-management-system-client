@@ -24,6 +24,7 @@ const CampDetails = () => {
     data: campDetails,
     isPending,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["details", id],
     queryFn: async () => {
@@ -113,6 +114,7 @@ const CampDetails = () => {
           </button>
           <Modal
             isOpen={isOpen}
+            refetch={refetch}
             setIsOpen={setIsOpen}
             campDetails={campDetails}
           />

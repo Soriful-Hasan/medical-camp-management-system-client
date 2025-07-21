@@ -30,6 +30,7 @@ const AboutUs = () => {
 
   return (
     <div className="w-10/12 mx-auto mb-10 pt-10">
+      <title>About Us</title>
       <div className="text-center max-w-3xl mx-auto mb-16 mt-16">
         <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
           About Us

@@ -133,6 +133,7 @@ const Dashboard = () => {
   ];
   return (
     <div className="drawer lg:drawer-open">
+      <title>Dashboard</title>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         <div className="navbar bg-base-300 w-full lg:hidden">

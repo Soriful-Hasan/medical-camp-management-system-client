@@ -1,4 +1,4 @@
-# 🏥 Medical Camp Management System (MediEase)
+# 🏥 MediEase -Medical Camp Management System
 
 Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN-stack application built to streamline the process of organizing and participating in medical camps.
 
@@ -8,12 +8,12 @@ The **Medical Camp Management System (MediEase)** is a full-stack web applicatio
 
 ## 👨‍⚕️ Organizer Credentials
 
-- **Username (Email):** organizer@gmail.com
-- **Password:** organizer123
+- **Username (Email):** hasan@admin.com
+- **Password:** Hsan1122
 
 ## 🔗 Live Site
 
-👉 [Visit Live Site](https://your-live-site-url.com)
+👉 [Visit Live Site](https://mediease-f28e1.web.app/)
 
 ## 📌 Features
 

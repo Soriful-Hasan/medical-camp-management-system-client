@@ -84,9 +84,15 @@ const Register = () => {
 
   return (
     <div className="w-full dark:bg-dark-primary  min-h-screen flex justify-center items-center ">
+      <title>Register</title>
       <div className="w-full md:w-sm m-4">
         <div className="space-y-2 mb-8 ">
-          <h1 className="text-4xl dark:text-white font-bold">Register</h1>
+          <Link
+            to={"/"}
+            className="cursor-pointer text-4xl dark:text-white font-bold"
+          >
+            Register
+          </Link>
           <p className="text-secondary-text dark:text-gray-200">
             Enter your information to register your account
           </p>

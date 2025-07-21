@@ -37,11 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/items",
-        element: (
-          <ProtectedRoute>
-            <AllCamps />
-          </ProtectedRoute>
-        ),
+        element: <AllCamps />,
       },
       {
         path: "/camp-details/:id",

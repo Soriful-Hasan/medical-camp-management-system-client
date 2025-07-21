@@ -11,6 +11,7 @@ const RegisteredCampTable = ({ regData, index }) => {
   const { mutate } = useMutation({
     mutationFn: async (id) => {
       const res = await axiosSecure.patch(`/admin/camp-confirm/${id}`);
+      console.log(res);
       return res.data;
     },
     onSuccess: () => {

@@ -41,6 +41,7 @@ const ContactUs = () => {
   };
   return (
     <div className="pt-10">
+      <title>Contact</title>
       <div
         id="contact-us"
         className="overflow-hidden  py-16 px-4  sm:px-6 lg:px-8 lg:py-24"

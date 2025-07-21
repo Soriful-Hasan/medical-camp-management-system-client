@@ -45,9 +45,15 @@ const Login = () => {
 
   return (
     <div className="w-full dark:bg-dark-primary  dark:text-white text-black min-h-screen flex justify-center items-center">
+      <title>Login</title>
       <div className="w-full m-4 md:w-sm">
         <div className="space-y-2 mb-8">
-          <h1 className="text-4xl dark:text-white font-bold">Login</h1>
+          <Link
+            to={"/"}
+            className="text-4xl cursor-pointer dark:text-white font-bold"
+          >
+            Login
+          </Link>
           <p className="text-secondary-text dark:text-gray-200">
             Enter your credentials to login to your account
           </p>

@@ -12,7 +12,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
-const Modal = ({ setIsOpen, isOpen, campDetails }) => {
+const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -20,6 +20,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
     register,
     handleSubmit,
     watch,
+
     formState: { errors },
   } = useForm();
 
@@ -29,6 +30,8 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
       return res.data;
     },
     onSuccess: () => {
+      refetch();
+      setIsOpen(false);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -36,10 +39,10 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
         showConfirmButton: false,
         timer: 1500,
       });
+      queryClient.setQueryData("isJoined", campDetails._id, user?.email);
       queryClient.invalidateQueries({
         queryKey: ["isJoined", campDetails._id, user?.email],
       });
-      setIsOpen(false);
     },
     onError: (error) => {
       Swal.fire({
@@ -243,7 +246,7 @@ const Modal = ({ setIsOpen, isOpen, campDetails }) => {
                   <label className="block font-medium">Select Gender *</label>
                   <select
                     {...register("gender", { required: "Gender is required" })}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block dark:bg-dark-primary w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
                     defaultValue=""
                   >
                     <option value="" disabled>
