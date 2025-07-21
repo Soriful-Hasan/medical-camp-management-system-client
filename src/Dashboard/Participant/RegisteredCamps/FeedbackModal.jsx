@@ -23,8 +23,9 @@ const FeedbackModal = ({ campId, isOpen, setIsOpen }) => {
       return res.data;
     },
     onSuccess: () => {
+      setIsOpen(false);
       Swal.fire("Success!", "Your feedback has been submitted.", "success");
-      queryClient.invalidateQueries(["feedbacks"]); // optional: update feedback list
+      queryClient.invalidateQueries(["feedbacks"]); 
     },
     onError: () => {
       Swal.fire("Oops!", "Failed to submit feedback.", "error");
