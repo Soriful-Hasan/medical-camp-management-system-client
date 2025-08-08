@@ -83,22 +83,15 @@ Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN
 
 ---
 
-## 📦 Dependencies
+## 🛠 Setup Instructions
 
-### Frontend:
-- React
-- React Router DOM
-- Tailwind CSS
-- DaisyUI
-- Axios
-- Firebase
-- SweetAlert2
+### 🔄 Clone Repositories
 
-### Backend:
-- Express.js
-- MongoDB
-- CORS
-- Dotenv
-- JSON Web Token (JWT)
+#### Client
 
----
+```bash
+git clone https://github.com/Soriful-Hasan/medical-camp-management-system-client.git
+cd findit-client
+npm install
+npm run dev
+```
