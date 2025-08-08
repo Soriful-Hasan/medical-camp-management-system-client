@@ -2,6 +2,9 @@
 
 Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN-stack application built to streamline the process of organizing and participating in medical camps.
 
+![MediEase Screenshot](https://i.imgur.com/yNLyMUS.png)
+
+
 ## 📄 Project Description
 
 The **Medical Camp Management System (MediEase)** is a full-stack web application that helps organizers manage medical camps and participants register for them easily. It features secure authentication, online payments, dashboards, and feedback systems. This platform enhances efficiency, transparency, and communication in organizing health-focused events.
