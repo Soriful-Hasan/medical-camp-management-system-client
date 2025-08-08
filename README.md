@@ -33,7 +33,7 @@ The **Medical Camp Management System (MediEase)** is a full-stack web applicatio
 - Frontend: React.js, Tailwind CSS, DaisyUI, Axios, React Router, Framer Motion
 - Backend: Node.js, Express.js, MongoDB, Stripe, JWT
 - Authentication: Firebase
-- Deployment: Vercel (Frontend), Render (Backend)
+- Deployment: Vercel (Backend), Netlify (Frontend)
 
 ### 📦 Major Dependencies
 - React
