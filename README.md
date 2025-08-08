@@ -34,3 +34,20 @@ The **Medical Camp Management System (MediEase)** is a full-stack web applicatio
 - Backend: Node.js, Express.js, MongoDB, Stripe, JWT
 - Authentication: Firebase
 - Deployment: Vercel (Frontend), Render (Backend)
+
+### 📦 Major Dependencies
+- React
+- React Router DOM
+- Axios
+- Express
+- Mongoose
+- Firebase
+- Stripe
+- Framer Motion
+
+## 🛠️ Getting Started
+
+### 📁 Clone the Repository
+```bash
+git clone [https://github.com/yourusername/mediease.git](https://github.com/Soriful-Hasan/medical-camp-management-system-client)
+cd mediease
