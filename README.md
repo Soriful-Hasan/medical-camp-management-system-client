@@ -83,17 +83,22 @@ Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN
 
 ---
 
-## 🛠️ Major Dependencies
+## 📦 Dependencies
 
-```bash
-React
-React Router DOM
-Axios
-Express
-Mongoose
-Firebase
-Stripe
-Framer Motion
-jsonwebtoken
-cors
-dotenv
+### Frontend:
+- React
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+- Axios
+- Firebase
+- SweetAlert2
+
+### Backend:
+- Express.js
+- MongoDB
+- CORS
+- Dotenv
+- JSON Web Token (JWT)
+
+---
