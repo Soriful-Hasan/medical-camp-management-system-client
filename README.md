@@ -91,7 +91,7 @@ Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN
 
 ```bash
 git clone https://github.com/Soriful-Hasan/medical-camp-management-system-client.git
-cd findit-client
+cd medical-camp
 npm install
 npm run dev
 ```
