@@ -83,15 +83,13 @@ Welcome to the **Medical Camp Management System (MediEase)** – a complete MERN
 
 ---
 
-## 🛠 Setup Instructions
+## ⚙️ Setup Instructions
 
-### 🔄 Clone Repositories
-
-#### Client
+### 🔧 Client-side
 
 ```bash
+# Clone client repo
 git clone https://github.com/Soriful-Hasan/medical-camp-management-system-client.git
-cd medical-camp
+cd medical-camp-management-system-client
 npm install
 npm run dev
-```
