@@ -70,16 +70,11 @@ const MeetOurDoctor = () => {
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#1e2939] dark:to-gray-800 relative overflow-hidden">
-      
-
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Enhanced Header */}
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-block mb-6">
-            <span
-              className="text-sm font-semibold px-4 py-2 rounded-full text-white tracking-wider uppercase"
-              style={{ backgroundColor: "#01A6E7" }}
-            >
+            <span className="text-sm font-semibold px-4 py-2 rounded-full text-white tracking-wider uppercase bg-[#01A6E7]">
               Expert Medical Team
             </span>
           </div>
@@ -92,18 +87,9 @@ const MeetOurDoctor = () => {
           </h2>
 
           <div className="flex items-center justify-center mb-8">
-            <div
-              className="h-1 w-16 rounded-full"
-              style={{ backgroundColor: "#01A6E7" }}
-            ></div>
-            <div
-              className="w-3 h-3 rounded-full mx-4"
-              style={{ backgroundColor: "#01A6E7" }}
-            ></div>
-            <div
-              className="h-1 w-16 rounded-full"
-              style={{ backgroundColor: "#01A6E7" }}
-            ></div>
+            <div className="h-1 w-16 rounded-full bg-[#01A6E7]"></div>
+            <div className="w-3 h-3 rounded-full mx-4 bg-[#01A6E7]"></div>
+            <div className="h-1 w-16 rounded-full bg-[#01A6E7]"></div>
           </div>
 
           <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -129,10 +115,7 @@ const MeetOurDoctor = () => {
               className="group bg-white dark:bg-[#1e2939] rounded-3xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-[#01A6E7]/30 relative overflow-hidden"
             >
               {/* Card Decorative Elements */}
-              <div
-                className="absolute top-0 right-0 w-20 h-20 opacity-5 rounded-bl-full"
-                style={{ backgroundColor: "#01A6E7" }}
-              ></div>
+              <div className="absolute top-0 right-0 w-20 h-20 opacity-5 rounded-bl-full bg-[#01A6E7]"></div>
 
               {/* Doctor Image */}
               <div className="relative overflow-hidden rounded-2xl mb-6">
@@ -145,10 +128,8 @@ const MeetOurDoctor = () => {
                 {/* Overlay with social icons */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
                   <div className="flex space-x-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <button
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-                      style={{ backgroundColor: "#01A6E7" }}
-                    >
+                    <button className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 bg-[#01A6E7]">
+                      {/* Facebook Icon */}
                       <svg
                         className="w-4 h-4"
                         fill="currentColor"
@@ -157,10 +138,8 @@ const MeetOurDoctor = () => {
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                       </svg>
                     </button>
-                    <button
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-                      style={{ backgroundColor: "#01A6E7" }}
-                    >
+                    <button className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 bg-[#01A6E7]">
+                      {/* Twitter Icon */}
                       <svg
                         className="w-4 h-4"
                         fill="currentColor"
@@ -169,10 +148,8 @@ const MeetOurDoctor = () => {
                         <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                       </svg>
                     </button>
-                    <button
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
-                      style={{ backgroundColor: "#01A6E7" }}
-                    >
+                    <button className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 bg-[#01A6E7]">
+                      {/* Instagram Icon */}
                       <svg
                         className="w-4 h-4"
                         fill="currentColor"
@@ -186,10 +163,7 @@ const MeetOurDoctor = () => {
 
                 {/* Experience Badge */}
                 <div className="absolute top-3 left-3">
-                  <span
-                    className="px-3 py-1 text-xs font-bold text-white rounded-full"
-                    style={{ backgroundColor: "#01A6E7" }}
-                  >
+                  <span className="px-3 py-1 text-xs font-bold text-white rounded-full bg-[#01A6E7]">
                     {doctor.experience}
                   </span>
                 </div>
@@ -201,10 +175,7 @@ const MeetOurDoctor = () => {
                   {doctor.name}
                 </h3>
 
-                <div
-                  className="w-12 h-1 rounded-full mx-auto transition-all duration-300 group-hover:w-16"
-                  style={{ backgroundColor: "#01A6E7" }}
-                ></div>
+                <div className="w-12 h-1 rounded-full mx-auto transition-all duration-300 group-hover:w-16 bg-[#01A6E7]"></div>
 
                 <p className="font-semibold text-[#01A6E7] text-sm">
                   {doctor.title}
@@ -223,10 +194,7 @@ const MeetOurDoctor = () => {
               </div>
 
               {/* Bottom accent line */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                style={{ backgroundColor: "#01A6E7" }}
-              ></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left bg-[#01A6E7]"></div>
             </div>
           ))}
         </div>
@@ -234,10 +202,7 @@ const MeetOurDoctor = () => {
         {/* Statistics Section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div
-              className="text-3xl md:text-4xl font-bold mb-2"
-              style={{ color: "#01A6E7" }}
-            >
+            <div className="text-3xl md:text-4xl font-bold mb-2 text-[#01A6E7]">
               150+
             </div>
             <p className="text-gray-600 dark:text-gray-300 font-medium">
@@ -245,10 +210,7 @@ const MeetOurDoctor = () => {
             </p>
           </div>
           <div className="text-center">
-            <div
-              className="text-3xl md:text-4xl font-bold mb-2"
-              style={{ color: "#01A6E7" }}
-            >
+            <div className="text-3xl md:text-4xl font-bold mb-2 text-[#01A6E7]">
               8+
             </div>
             <p className="text-gray-600 dark:text-gray-300 font-medium">
@@ -256,10 +218,7 @@ const MeetOurDoctor = () => {
             </p>
           </div>
           <div className="text-center">
-            <div
-              className="text-3xl md:text-4xl font-bold mb-2"
-              style={{ color: "#01A6E7" }}
-            >
+            <div className="text-3xl md:text-4xl font-bold mb-2 text-[#01A6E7]">
               50+
             </div>
             <p className="text-gray-600 dark:text-gray-300 font-medium">
@@ -267,10 +226,7 @@ const MeetOurDoctor = () => {
             </p>
           </div>
           <div className="text-center">
-            <div
-              className="text-3xl md:text-4xl font-bold mb-2"
-              style={{ color: "#01A6E7" }}
-            >
+            <div className="text-3xl md:text-4xl font-bold mb-2 text-[#01A6E7]">
               10+
             </div>
             <p className="text-gray-600 dark:text-gray-300 font-medium">

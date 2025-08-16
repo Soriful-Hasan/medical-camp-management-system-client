@@ -6,6 +6,8 @@ import UserRating from "./UserRating/UserRating";
 import ChooseUs from "./WhyChooseUs/ChooseUs";
 import FAQ from "./FAQ/FAQ";
 import MeetOurDoctor from "./MeetOurDoctor/MeetOurDoctor";
+import Rating from "./UserRating/Rating";
+import WhyChooseUs from "./WhyChooseUs/WhyChoseUs";
 
 const Home = () => {
   return (
@@ -13,7 +15,7 @@ const Home = () => {
       <section className=" dark:bg-dark-secondary">
         <Header></Header>
       </section>
-      
+
       <section className="max-w-10/12 mx-auto">
         <PopularMedicalCamps />
       </section>
@@ -23,11 +25,11 @@ const Home = () => {
       </section>
 
       <section className=" my-10 ">
-        <ChooseUs />
+        <WhyChooseUs />
       </section>
 
       <section className="py-4 mb-10">
-        <UserRating />
+        <Rating />
       </section>
 
       <section className="max-w-10/12 mx-auto mb-10">

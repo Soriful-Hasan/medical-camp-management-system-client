@@ -28,10 +28,7 @@ const PopularMedicalCamps = () => {
       <div className="text-center max-w-4xl mx-auto mb-16 relative">
         {/* Background decoration */}
         <div className="inline-block mb-6">
-          <span
-            className="text-sm font-semibold px-4 py-2 rounded-full text-white tracking-wider uppercase"
-            style={{ backgroundColor: "#01A6E7" }}
-          >
+          <span className="text-sm font-semibold px-4 py-2 rounded-full text-white tracking-wider uppercase bg-[#01A6E7]">
             Healthcare Services
           </span>
         </div>
@@ -44,18 +41,9 @@ const PopularMedicalCamps = () => {
         </h2>
 
         <div className="flex items-center justify-center mb-8">
-          <div
-            className="h-1 w-16 rounded-full"
-            style={{ backgroundColor: "#01A6E7" }}
-          ></div>
-          <div
-            className="w-3 h-3 rounded-full mx-4"
-            style={{ backgroundColor: "#01A6E7" }}
-          ></div>
-          <div
-            className="h-1 w-16 rounded-full"
-            style={{ backgroundColor: "#01A6E7" }}
-          ></div>
+          <div className="h-1 w-16 rounded-full bg-[#01A6E7]"></div>
+          <div className="w-3 h-3 rounded-full mx-4 bg-[#01A6E7]"></div>
+          <div className="h-1 w-16 rounded-full bg-[#01A6E7]"></div>
         </div>
 
         <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
@@ -83,10 +71,7 @@ const PopularMedicalCamps = () => {
               alt="No camps found"
               className="opacity-80"
             />
-            <div
-              className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-2 rounded-full opacity-20 blur-sm"
-              style={{ backgroundColor: "#01A6E7" }}
-            ></div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-2 rounded-full opacity-20 blur-sm bg-[#01A6E7]"></div>
           </div>
           <div className="text-center mt-8">
             <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
@@ -117,31 +102,11 @@ const PopularMedicalCamps = () => {
       {popularCamps?.length > 0 && (
         <div className="text-center mt-20">
           <div className="relative inline-block group">
-           
-
             {/* Main button */}
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to={"/items"}
-              className="relative block bg-white dark:bg-[#1e2939] border-2 rounded-xl px-10 py-4 font-semibold text-lg transition-all duration-300 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl"
-              style={{
-                borderColor: "#01A6E7",
-                color: "#01A6E7",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "#01A6E7";
-                e.target.style.color = "white";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "";
-                e.target.style.color = "#01A6E7";
-                // Handle dark mode background
-                if (document.documentElement.classList.contains("dark")) {
-                  e.target.style.backgroundColor = "#1e2939";
-                } else {
-                  e.target.style.backgroundColor = "white";
-                }
-              }}
+              className="relative block bg-white dark:bg-[#1e2939] border-2 border-[#01A6E7] text-[#01A6E7] rounded-xl px-10 py-4 font-semibold text-lg transition-all duration-300 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl hover:bg-[#01A6E7] hover:text-white"
             >
               <span className="flex items-center justify-center">
                 <svg
@@ -172,32 +137,21 @@ const PopularMedicalCamps = () => {
                   ></path>
                 </svg>
               </span>
-
-            
             </Link>
           </div>
 
           {/* Additional info below button */}
           <div className="mt-6 flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center">
-              <div
-                className="w-2 h-2 rounded-full mr-2"
-                style={{ backgroundColor: "#01A6E7" }}
-              ></div>
+              <div className="w-2 h-2 rounded-full mr-2 bg-[#01A6E7]"></div>
               <span>Expert Doctors</span>
             </div>
             <div className="flex items-center">
-              <div
-                className="w-2 h-2 rounded-full mr-2"
-                style={{ backgroundColor: "#01A6E7" }}
-              ></div>
+              <div className="w-2 h-2 rounded-full mr-2 bg-[#01A6E7]"></div>
               <span>Free Consultation</span>
             </div>
             <div className="flex items-center">
-              <div
-                className="w-2 h-2 rounded-full mr-2"
-                style={{ backgroundColor: "#01A6E7" }}
-              ></div>
+              <div className="w-2 h-2 rounded-full mr-2 bg-[#01A6E7]"></div>
               <span>Community Care</span>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const AboutUs = () => {
   const aboutData = [
@@ -37,10 +38,7 @@ const AboutUs = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
           About Us
         </h2>
-        <div
-          className="h-1 w-20 mx-auto mb-6 rounded-full"
-          style={{ backgroundColor: "#01A6E7" }}
-        ></div>
+        <div className="h-1 w-20 mx-auto mb-6 rounded-full bg-[#01A6E7]"></div>
         <p className="text-gray-600 dark:text-gray-300 text-lg">
           Transforming healthcare accessibility through innovative technology
         </p>
@@ -51,7 +49,7 @@ const AboutUs = () => {
         {aboutData?.map((about, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-[#1e2939] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col lg:flex-row p-6 rounded-xl border border-gray-100 dark:border-gray-700"
+            className="bg-white dark:bg-[#1e2939]  hover:shadow-xl transition-all duration-300 flex flex-col lg:flex-row p-6 rounded-xl border border-gray-100 dark:border-gray-700"
           >
             {/* Image Section */}
             <div className="flex-1 lg:pr-6">
@@ -68,10 +66,7 @@ const AboutUs = () => {
             {/* Content Section */}
             <div className="flex-1 lg:pl-6 mt-6 lg:mt-0">
               <div className="h-full flex flex-col justify-center">
-                <h3
-                  className="text-xl lg:text-2xl font-bold mb-4 leading-tight"
-                  style={{ color: "#01A6E7" }}
-                >
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 leading-tight text-[#01A6E7]">
                   {about.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base lg:text-lg">
@@ -80,10 +75,7 @@ const AboutUs = () => {
 
                 {/* Optional: Add a subtle accent */}
                 <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-600">
-                  <div
-                    className="w-12 h-1 rounded-full"
-                    style={{ backgroundColor: "#01A6E7" }}
-                  ></div>
+                  <div className="w-12 h-1 rounded-full bg-[#01A6E7]"></div>
                 </div>
               </div>
             </div>
@@ -101,14 +93,12 @@ const AboutUs = () => {
             Join us in our mission to make healthcare accessible to everyone.
             Together, we can build healthier communities.
           </p>
-          <button
-            className="px-8 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
-            style={{ backgroundColor: "#01A6E7" }}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = "#0291CC")}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "#01A6E7")}
+          <Link
+            to={"/"}
+            className="px-8 cursor-pointer py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 bg-[#01A6E7] hover:bg-[#0291CC]"
           >
             Get Started Today
-          </button>
+          </Link>
         </div>
       </div>
     </div>
