@@ -10,7 +10,7 @@ const AboutUs = () => {
     },
     {
       title: "Why Choose Us – Secure, Reliable & User-Friendly",
-      des: "Our platform empowers organizers to create, monitor, and manage medical camps efficiently. From registration to scheduling, payment tracking to reporting — every step is handled digitally. Participants can easily find camps, register in seconds, and get real-time updates. With our user-friendly dashboard and data-driven features, managing camps has never been easier. We prioritize data security and privacy, ensuring that all user information is encrypted and safe. Our responsive design ensures smooth experiences across all devices — mobile, tablet, or desktop. The system is built for scale, so whether you're managing one camp or a hundred, performance remains consistent. We’re trusted by health professionals and communities alike for our simplicity and reliability.",
+      des: "Our platform empowers organizers to create, monitor, and manage medical camps efficiently. From registration to scheduling, payment tracking to reporting — every step is handled digitally. Participants can easily find camps, register in seconds, and get real-time updates. With our user-friendly dashboard and data-driven features, managing camps has never been easier. We prioritize data security and privacy, ensuring that all user information is encrypted and safe. Our responsive design ensures smooth experiences across all devices — mobile, tablet, or desktop. The system is built for scale, so whether you're managing one camp or a hundred, performance remains consistent. We're trusted by health professionals and communities alike for our simplicity and reliability.",
       image:
         "https://images.pexels.com/photos/6285378/pexels-photo-6285378.jpeg",
     },
@@ -22,7 +22,7 @@ const AboutUs = () => {
     },
     {
       title: "Our Vision – A Healthier Tomorrow Through Innovation",
-      des: "We envision a future where no one is deprived of basic healthcare due to lack of resources or poor management. Through this system, we aim to build a sustainable network of healthcare providers, volunteers, and organizations working together. By bringing transparency, speed, and structure to medical camp management, we are taking one step closer to a healthier, better-connected society. Our long-term goal is to digitize and optimize every aspect of healthcare outreach. From pre-camp planning to post-camp feedback, our platform covers it all. We’re committed to continuous improvement based on user feedback and evolving healthcare needs. Innovation is at the heart of what we do — because the future of healthcare starts with smart technology today.",
+      des: "We envision a future where no one is deprived of basic healthcare due to lack of resources or poor management. Through this system, we aim to build a sustainable network of healthcare providers, volunteers, and organizations working together. By bringing transparency, speed, and structure to medical camp management, we are taking one step closer to a healthier, better-connected society. Our long-term goal is to digitize and optimize every aspect of healthcare outreach. From pre-camp planning to post-camp feedback, our platform covers it all. We're committed to continuous improvement based on user feedback and evolving healthcare needs. Innovation is at the heart of what we do — because the future of healthcare starts with smart technology today.",
       image:
         "https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg",
     },
@@ -31,27 +31,85 @@ const AboutUs = () => {
   return (
     <div className="w-10/12 mx-auto mb-10 pt-10">
       <title>About Us</title>
+
+      {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-16 mt-16">
-        <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
           About Us
         </h2>
-        <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+        <div
+          className="h-1 w-20 mx-auto mb-6 rounded-full"
+          style={{ backgroundColor: "#01A6E7" }}
+        ></div>
+        <p className="text-gray-600 dark:text-gray-300 text-lg">
+          Transforming healthcare accessibility through innovative technology
+        </p>
       </div>
-      <div className="  mt-10 rounded-xl">
-        {aboutData?.map((about) => (
+
+      {/* Content Cards */}
+      <div className="mt-10 space-y-8">
+        {aboutData?.map((about, index) => (
           <div
-            className="bg-white  dark:bg-dark-primary
-            flex-col lg:flex-row p-4 mt-4 flex  rounded-md"
+            key={index}
+            className="bg-white dark:bg-[#1e2939] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col lg:flex-row p-6 rounded-xl border border-gray-100 dark:border-gray-700"
           >
-            <div className="flex-1">
-              <img src={about.image} className="w-xl rounded-2xl" alt="" />
+            {/* Image Section */}
+            <div className="flex-1 lg:pr-6">
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src={about.image}
+                  className="w-full h-64 lg:h-80 object-cover transition-transform duration-300 hover:scale-105"
+                  alt={about.title}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
             </div>
-            <div className="flex-1 lg:mt-0 lg:ml-4 xl:ml-0 mt-4 xl:mt-4">
-              <h1 className="text-xl font-semibold ">{about.title}</h1>
-              <p className="mt-2 mb-8 xl:w-xl">{about.des}</p>
+
+            {/* Content Section */}
+            <div className="flex-1 lg:pl-6 mt-6 lg:mt-0">
+              <div className="h-full flex flex-col justify-center">
+                <h3
+                  className="text-xl lg:text-2xl font-bold mb-4 leading-tight"
+                  style={{ color: "#01A6E7" }}
+                >
+                  {about.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base lg:text-lg">
+                  {about.des}
+                </p>
+
+                {/* Optional: Add a subtle accent */}
+                <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <div
+                    className="w-12 h-1 rounded-full"
+                    style={{ backgroundColor: "#01A6E7" }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Call to Action Section */}
+      <div className="mt-16 text-center">
+        <div className="bg-gradient-to-r from-[#01A6E7]/10 to-[#01A6E7]/5 dark:from-[#01A6E7]/20 dark:to-[#01A6E7]/10 p-8 rounded-xl border border-[#01A6E7]/20">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Ready to Make a Difference?
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            Join us in our mission to make healthcare accessible to everyone.
+            Together, we can build healthier communities.
+          </p>
+          <button
+            className="px-8 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+            style={{ backgroundColor: "#01A6E7" }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#0291CC")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "#01A6E7")}
+          >
+            Get Started Today
+          </button>
+        </div>
       </div>
     </div>
   );

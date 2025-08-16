@@ -13,20 +13,23 @@ const Home = () => {
       <section className=" dark:bg-dark-secondary">
         <Header></Header>
       </section>
+      
       <section className="max-w-10/12 mx-auto">
         <PopularMedicalCamps />
-        {/* <TimeLine /> */}
       </section>
+
       <section>
         <MeetOurDoctor></MeetOurDoctor>
       </section>
+
       <section className=" my-10 ">
         <ChooseUs />
       </section>
 
-      <section className="  py-4 mb-10">
+      <section className="py-4 mb-10">
         <UserRating />
       </section>
+
       <section className="max-w-10/12 mx-auto mb-10">
         <FAQ />
       </section>
