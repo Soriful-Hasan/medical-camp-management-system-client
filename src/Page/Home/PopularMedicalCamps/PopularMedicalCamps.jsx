@@ -23,38 +23,186 @@ const PopularMedicalCamps = () => {
   }
 
   return (
-    <div className="mb-10 mt-10">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl dark:text-white md:text-4xl font-bold mb-4 bg-gradient-to-r text-black bg-clip-text ">
-          Popular Medical Camp
+    <div className="mb-16 mt-16 px-4 sm:px-6 lg:px-8">
+      {/* Header Section with Enhanced Design */}
+      <div className="text-center max-w-4xl mx-auto mb-16 relative">
+        {/* Background decoration */}
+        <div className="inline-block mb-6">
+          <span
+            className="text-sm font-semibold px-4 py-2 rounded-full text-white tracking-wider uppercase"
+            style={{ backgroundColor: "#01A6E7" }}
+          >
+            Healthcare Services
+          </span>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          Popular
+          <span className="block text-4xl md:text-6xl bg-gradient-to-r from-[#01A6E7] to-[#0291CC] bg-clip-text text-transparent font-extrabold">
+            Medical Camps
+          </span>
         </h2>
-        <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
-        <p className="text-gray-600 text-lg dark:text-gray-300">
-          We're a dynamic group of individuals who are passionate about what we
-          do and dedicated to delivering the best results for our clients.
+
+        <div className="flex items-center justify-center mb-8">
+          <div
+            className="h-1 w-16 rounded-full"
+            style={{ backgroundColor: "#01A6E7" }}
+          ></div>
+          <div
+            className="w-3 h-3 rounded-full mx-4"
+            style={{ backgroundColor: "#01A6E7" }}
+          ></div>
+          <div
+            className="h-1 w-16 rounded-full"
+            style={{ backgroundColor: "#01A6E7" }}
+          ></div>
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+          Discover our most sought-after medical camps providing
+          <span className="font-semibold text-[#01A6E7]">
+            {" "}
+            quality healthcare{" "}
+          </span>
+          to communities across the region with
+          <span className="font-semibold text-[#01A6E7]">
+            {" "}
+            expert medical professionals
+          </span>
+          .
         </p>
       </div>
+
+      {/* No Results Found */}
       {popularCamps?.length === 0 && (
-        <div className=" flex justify-center mt-20 items-center">
-          <img src="not_found.svg" width={400} alt="" />
+        <div className="flex flex-col justify-center items-center py-16">
+          <div className="relative">
+            <img
+              src="not_found.svg"
+              width={350}
+              alt="No camps found"
+              className="opacity-80"
+            />
+            <div
+              className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-2 rounded-full opacity-20 blur-sm"
+              style={{ backgroundColor: "#01A6E7" }}
+            ></div>
+          </div>
+          <div className="text-center mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              No Popular Camps Available
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400">
+              Check back soon for upcoming medical camps in your area.
+            </p>
+          </div>
         </div>
       )}
-      <div className=" grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {popularCamps?.map((camp, index) => (
-          <CampsCard key={index} camp={camp} />
-        ))}
-      </div>
-      <div className="text-center mt-20">
-        <div className="  inline-block bg-gradient-to-r  border border-my-primary p-px rounded-lg">
-          <Link
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            to={"/items"}
-            className="block bg-white dark:bg-gray-900 hover:bg-my-primary hover:text-white transition-colors duration-200 rounded-lg px-8 py-4 font-medium text-my-primary"
-          >
-            See All Camps <span className="ml-2">→</span>
-          </Link>
+
+      {/* Cards Grid with Enhanced Layout */}
+      {popularCamps?.length > 0 && (
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 mb-16">
+          {popularCamps?.map((camp, index) => (
+            <div
+              key={index}
+              className="transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl"
+            >
+              <CampsCard camp={camp} />
+            </div>
+          ))}
         </div>
-      </div>
+      )}
+
+      {/* Enhanced Call-to-Action Button */}
+      {popularCamps?.length > 0 && (
+        <div className="text-center mt-20">
+          <div className="relative inline-block group">
+           
+
+            {/* Main button */}
+            <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              to={"/items"}
+              className="relative block bg-white dark:bg-[#1e2939] border-2 rounded-xl px-10 py-4 font-semibold text-lg transition-all duration-300 group-hover:transform group-hover:-translate-y-1 group-hover:shadow-xl"
+              style={{
+                borderColor: "#01A6E7",
+                color: "#01A6E7",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = "#01A6E7";
+                e.target.style.color = "white";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "";
+                e.target.style.color = "#01A6E7";
+                // Handle dark mode background
+                if (document.documentElement.classList.contains("dark")) {
+                  e.target.style.backgroundColor = "#1e2939";
+                } else {
+                  e.target.style.backgroundColor = "white";
+                }
+              }}
+            >
+              <span className="flex items-center justify-center">
+                <svg
+                  className="w-5 h-5 mr-3 transition-transform group-hover:rotate-12"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 11H5m14 0l-4-4m4 4l-4 4"
+                  ></path>
+                </svg>
+                Explore All Medical Camps
+                <svg
+                  className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 7l5 5-5 5M6 12h12"
+                  ></path>
+                </svg>
+              </span>
+
+            
+            </Link>
+          </div>
+
+          {/* Additional info below button */}
+          <div className="mt-6 flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center">
+              <div
+                className="w-2 h-2 rounded-full mr-2"
+                style={{ backgroundColor: "#01A6E7" }}
+              ></div>
+              <span>Expert Doctors</span>
+            </div>
+            <div className="flex items-center">
+              <div
+                className="w-2 h-2 rounded-full mr-2"
+                style={{ backgroundColor: "#01A6E7" }}
+              ></div>
+              <span>Free Consultation</span>
+            </div>
+            <div className="flex items-center">
+              <div
+                className="w-2 h-2 rounded-full mr-2"
+                style={{ backgroundColor: "#01A6E7" }}
+              ></div>
+              <span>Community Care</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
