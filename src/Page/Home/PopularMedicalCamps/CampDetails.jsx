@@ -6,14 +6,19 @@ import Loader from "../../../Components/Loader/Loader";
 import CampJoinModal from "../../AllCapms/CampJoinModal";
 import useIsJoined from "../../../hooks/useIsJoined";
 import toast from "react-hot-toast";
-import { FaUserCheck } from "react-icons/fa";
-import { FaUserMd } from "react-icons/fa";
+import {
+  FaUserCheck,
+  FaUserMd,
+  FaClock,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+} from "react-icons/fa";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import Modal from "../../AllCapms/CampJoinModal";
 import { ImLocation } from "react-icons/im";
 import { TbCoinTakaFilled } from "react-icons/tb";
 import { format } from "date-fns";
-import { FaClock } from "react-icons/fa";
+
 const CampDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
@@ -41,84 +46,227 @@ const CampDetails = () => {
   if (isPending) {
     return <Loader />;
   }
+
   const time = format(new Date(campDetails?.createdAt), "h:mm a");
+
   return (
-    <div className="w-10/12  mx-auto place-items-center pt-20">
-      <div className="gap-10 mt-6">
-        <div className=" rounded-2xl p-2 md:p-10 w-full bg-my-primary/5">
-          <div className="w-full max-w-3xl relative">
-            <img
-              className="rounded-xl w-full h-auto object-cover"
-              src={campDetails?.camp_img}
-              alt=""
-            />
-            <div className="sm:absolute mt-4 sm:mt-0 top-4 left-4 px-5 py-2 rounded-full flex items-center gap-2 text-sm text-white bg-my-primary/70">
-              <p class="flex items-center gap-2">
-                <FaUserCheck />
-                {campDetails?.participant_count} People Joined In
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 pt-20 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden mb-8">
+          <div className="relative">
+            {/* Image with gradient overlay */}
+            <div className="relative h-80 sm:h-96">
+              <img
+                className="w-full h-full object-cover"
+                src={campDetails?.camp_img}
+                alt={campDetails?.camp_name}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+              {/* Participant badge */}
+              <div className="absolute top-6 left-6">
+                <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 text-sm font-semibold text-gray-800 ">
+                  <FaUserCheck className="text-green-500" />
+                  <span>{campDetails?.participant_count} People Joined</span>
+                </div>
+              </div>
+
+              {/* Price badge */}
+              <div className="absolute top-6 right-6">
+                <div className="bg-my-primary backdrop-blur-sm bg-opacity-90 px-4 py-2 rounded-full text-white font-bold ">
+                  ৳{campDetails?.camp_fee}
+                </div>
+              </div>
+            </div>
+
+            {/* Content overlay on image */}
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-2 drop-shadow-lg">
+                {campDetails?.camp_name}
+              </h1>
+              <p className="text-lg opacity-90 drop-shadow max-w-2xl">
+                {campDetails?.camp_description}
               </p>
             </div>
           </div>
-          <div className="py-4 place-items-center  space-y-4 mt-4">
-            <div className=" ">
-              <h1 className="text-2xl font-bold">{campDetails?.camp_name}</h1>
+        </div>
+
+        {/* Details Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* Created Date */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                  <FaCalendarAlt className="text-my-primary text-lg" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                    Create Date
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    When this camp was created
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="font-bold text-lg text-gray-800 dark:text-white">
+                  {campDetails?.created_date}
+                </p>
+              </div>
             </div>
-            <div className="text-center">
-              <h1 className="w-sm text-sm ">{campDetails?.camp_description}</h1>
+          </div>
+
+          {/* Created Time */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
+                  <FaClock className="text-purple-500 text-lg" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                    Create Time
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Time of creation
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="font-bold text-lg text-gray-800 dark:text-white">
+                  {time}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Name */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm  border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                  <FaUserMd className="text-green-500 text-lg" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                    Professional Name
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Lead medical professional
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="font-bold text-lg text-gray-800 dark:text-white">
+                  {campDetails?.professional_name}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Camp Fees */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm  border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center">
+                  <TbCoinTakaFilled className="text-yellow-500 text-lg" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                    Camp Fees
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Registration cost
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="font-bold text-xl text-green-600 dark:text-green-400">
+                  ৳{campDetails?.camp_fee}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="space-y-10  mt-10  ">
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <BsFillCalendarDateFill />
-              <h1>Create Date</h1>
-            </div>
 
-            <h1>{campDetails?.created_date}</h1>
-          </div>
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <FaClock />
-              <h1>Create Time</h1>
+        {/* Location - Full width */}
+        <div className="bg-white shadow-sm dark:bg-gray-800 rounded-2xl p-6  border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow mb-8">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center">
+                <FaMapMarkerAlt className="text-red-500 text-lg" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 dark:text-white">
+                  Location
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Camp venue address
+                </p>
+              </div>
             </div>
+            <div className="text-right">
+              <p className="font-bold text-lg text-gray-800 dark:text-white">
+                {campDetails?.location}
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <h1>{time}</h1>
-          </div>
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <FaUserMd />
-              <h1>Professional Name</h1>
-            </div>
-            <h1>{campDetails?.professional_name}</h1>
-          </div>
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <TbCoinTakaFilled /> <h1>Camp Fees</h1>
-            </div>
-            <h1>{campDetails?.camp_fee}৳</h1>
-          </div>
-          <div class=" flex sm:items-center justify-between border rounded-lg px-1 sm:px-10 py-5 bg-my-primary/6 border-base-200/90 text-lg flex-wrap flex-col sm:flex-row gap-4">
-            <div className="flex items-center gap-2">
-              <ImLocation /> <h1>Location0</h1>
-            </div>
-            <h1>{campDetails?.location}</h1>
-          </div>
-
+        {/* Join Button */}
+        <div className="text-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className=" font-semibold py-3 mb-10 rounded-full bg-my-primary/6 cursor-pointer w-full"
+            className={`
+              w-full sm:w-auto cursor-pointer  px-8 py-4 rounded-md font-semibold text-lg transition-all duration-300 transform hover:scale-105 
+              ${
+                alreadyJoined
+                  ? "bg-gray-400 text-white cursor-not-allowed"
+                  : "bg-gradient-to-r from-my-primary to-blue-600  text-white hover:shadow-xl active:scale-95"
+              }
+            `}
             disabled={alreadyJoined || isLoading}
           >
-            {alreadyJoined ? "Already Joined" : "Join Camp"}
+            {isLoading ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <span>Checking...</span>
+              </div>
+            ) : alreadyJoined ? (
+              <div className="flex items-center justify-center gap-2">
+                <FaUserCheck />
+                <span>Already Joined</span>
+              </div>
+            ) : (
+              <div className="flex items-center cursor-pointer  justify-center gap-2">
+                <span>Join This Camp</span>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </div>
+            )}
           </button>
-          <Modal
-            isOpen={isOpen}
-            refetch={refetch}
-            setIsOpen={setIsOpen}
-            campDetails={campDetails}
-          />
         </div>
+
+        {/* Modal */}
+        <Modal
+          isOpen={isOpen}
+          refetch={refetch}
+          setIsOpen={setIsOpen}
+          campDetails={campDetails}
+        />
       </div>
     </div>
   );

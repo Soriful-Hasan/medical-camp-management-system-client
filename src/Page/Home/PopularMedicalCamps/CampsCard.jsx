@@ -6,6 +6,8 @@ import {
   FaUserMd,
   FaUsers,
   FaUserCheck,
+  FaStar,
+  FaArrowRight,
 } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { format } from "date-fns";
@@ -25,147 +27,129 @@ const CampsCard = ({ camp }) => {
   } = camp;
 
   const time = format(new Date(createdAt), "h:mm a");
+
   return (
-    <div className="block rounded-lg hover:shadow-md dark:bg-dark-primary transition-shadow  p-4 shadow-xs shadow-indigo-100">
-      <div className="relative">
+    <div className="group relative bg-white dark:bg-dark-primary rounded-lg overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
+      {/* Image Container with Gradient Overlay */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
         <img
-          alt=""
+          alt={camp_name}
           src={camp_img}
-          className="h-56 w-full rounded-md object-cover"
+          className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
-        <div className="sm:absolute mt-2 sm:mt-0 top-2 left-2 px-3 py-1 rounded-full flex items-center gap-2 text-sm text-white bg-my-primary/70">
-          <p class="flex items-center gap-2">
-            <FaUserCheck />
-            {participant_count} People Joined In
-          </p>
+
+        {/* Participant Badge */}
+        <div className="absolute top-4 left-4 z-20">
+          <div className="bg-my-primary backdrop-blur-sm bg-opacity-90 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-semibold text-white shadow-lg">
+            <FaUserCheck className="text-xs" />
+            <span>{participant_count} People Joined</span>
+          </div>
+        </div>
+
+        {/* Price Badge */}
+        <div className="absolute top-4 right-4 z-20">
+          <div className="bg-gradient-to-r from-green-500 to-green-600 backdrop-blur-sm bg-opacity-90 px-4 py-2 rounded-full text-white font-bold shadow-lg">
+            ৳{camp_fee}
+          </div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute bottom-4 left-4 right-4 z-20">
+          <h3 className="text-white text-xl font-bold mb-2 line-clamp-2 drop-shadow-lg">
+            {camp_name}
+          </h3>
         </div>
       </div>
 
-      <div className="mt-2">
-        <dl>
-          <div className="">
-            <span className="text-md dark:text-gray-300  text-gray-500">
-              {" "}
-              ৳{camp_fee}
-            </span>
-          </div>
+      {/* Content Section */}
+      <div className="p-6 space-y-4">
+        {/* Description */}
+        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-2">
+          {camp_description}
+        </p>
 
-          <div>
-            <dd className="font-medium">{camp_name}</dd>
-          </div>
-          <div className="">
-            <p className="text-sm text-my-secondary dark:text-gray-300 line-clamp-1">
-              {camp_description}
-            </p>
-          </div>
-        </dl>
-
-        <div className="mt-6 flex flex-wrap items-center gap-8 text-xs">
-          <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-            <FaCalendarAlt size={12} className="text-my-primary" />
-
-            <div className="mt-1.5 sm:mt-0">
-              <p className="text-gray-500">Created Date</p>
-              <p className="font-medium">{created_date}</p>
+        {/* Info Grid */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Date */}
+          <div className="flex items-start gap-3 p-3 rounded-xl bg-blue-50 dark:bg-gray-800 border border-blue-100 dark:border-gray-700">
+            <div className="p-2 rounded-lg bg-my-primary/10">
+              <FaCalendarAlt className="text-my-primary text-sm" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Date
+              </p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-white">
+                {created_date}
+              </p>
             </div>
           </div>
 
-          <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-            <FaMapMarkerAlt className="text-my-primary" />
-            <div className="mt-1.5 sm:mt-0">
-              <p className="text-gray-500">Location</p>
-
-              <p className="font-medium">{location}</p>
+          {/* Time */}
+          <div className="flex items-start gap-3 p-3 rounded-xl bg-purple-50 dark:bg-gray-800 border border-purple-100 dark:border-gray-700">
+            <div className="p-2 rounded-lg bg-purple-500/10">
+              <FaClock className="text-purple-500 text-sm" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Time
+              </p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-white">
+                {time}
+              </p>
             </div>
           </div>
-          <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-            <FaClock className="text-my-primary" />
-            <div className="mt-1.5 sm:mt-0">
-              <p className="text-gray-500">Created Time</p>
 
-              <p className="font-medium">{time}</p>
+          {/* Location */}
+          <div className="flex items-start gap-3 p-3 rounded-xl bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700">
+            <div className="p-2 rounded-lg bg-green-500/10">
+              <FaMapMarkerAlt className="text-green-500 text-sm" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Location
+              </p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-white line-clamp-1">
+                {location}
+              </p>
             </div>
           </div>
-          <div className="sm:inline-flex  sm:shrink-0 sm:items-center sm:gap-2">
-            <FaUserMd className="text-my-primary" />
-            <div className="mt-1.5 sm:mt-0">
-              <p className="text-gray-500">Professional Name</p>
-              <p className="font-medium">{professional_name}</p>
+
+          {/* Professional */}
+          <div className="flex items-start gap-3 p-3 rounded-xl bg-orange-50 dark:bg-gray-800 border border-orange-100 dark:border-gray-700">
+            <div className="p-2 rounded-lg bg-orange-500/10">
+              <FaUserMd className="text-orange-500 text-sm" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                Doctor
+              </p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-white line-clamp-1">
+                {professional_name}
+              </p>
             </div>
           </div>
         </div>
+
+        {/* Action Button */}
+        <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
+          <Link
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            to={`/camp-details/${_id}`}
+            className="group/btn w-full inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-my-primary to-blue-600 hover:from-blue-600 hover:to-my-primary text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-my-primary/25 transform hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>View Camp Details</span>
+            <FaArrowRight className="text-sm transition-transform duration-300 group-hover/btn:translate-x-1" />
+          </Link>
+        </div>
       </div>
 
-      <div class="mt-5">
-        <Link
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to={`/camp-details/${_id}`}
-          class="inline-flex items-center cursor-pointer rounded-md border border-transparent bg-my-primary px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-blue-600"
-        >
-          See Camp
-        </Link>
-      </div>
+      {/* Decorative Elements */}
+      <div className="absolute -top-2 -right-2 w-24 h-24 bg-gradient-to-br from-my-primary/10 to-transparent rounded-full blur-xl"></div>
+      <div className="absolute -bottom-2 -left-2 w-16 h-16 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-lg"></div>
     </div>
   );
 };
 
 export default CampsCard;
-
-{
-  /* <div>
-      <div className="max-w-sm h-122 hover:shadow-md transition-shadow bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-my-secondary dark:border-gray-700">
-        <img
-          className="rounded-t-lg w-full h-48 object-cover"
-          src={camp_img}
-          alt={camp_name}
-        />
-        <div className="p-5 space-y-3">
-          <h5 className="text-2xl line-clamp-1 font-bold tracking-tight text-gray-900 dark:text-white">
-            {camp_name}
-          </h5>
-
-          <p className="text-gray-700 line-clamp-2 dark:text-gray-400 text-sm">
-            {camp_description}
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <FaCalendarAlt className="text-blue-500" /> {created_date}
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <FaMapMarkerAlt className="" /> {location}
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <FaUserMd className="" /> {professional_name}
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <FaUsers className="" /> {participant_count} participants
-          </p>
-
-          {/* Button */
-}
-//       <NavLink
-//         to={`/camp-details/${_id}`}
-//         className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-my-primary rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-//       >
-//         Details
-//         <svg
-//           className="w-4 h-4 ml-2 rtl:rotate-180"
-//           fill="none"
-//           stroke="currentColor"
-//           strokeWidth="2"
-//           viewBox="0 0 24 24"
-//           xmlns="http://www.w3.org/2000/svg"
-//         >
-//           <path
-//             strokeLinecap="round"
-//             strokeLinejoin="round"
-//             d="M17 8l4 4m0 0l-4 4m4-4H3"
-//           />
-//         </svg>
-//       </NavLink>
-//     </div>
-//   </div>
-// </div> */}

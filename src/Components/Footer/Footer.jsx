@@ -1,133 +1,204 @@
 import React from "react";
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import Logo from "../Logo/Logo";
 import { Link } from "react-router";
-import { FaGithub } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-100 dark:border-gray-700 shadow-sm dark:bg-my-secondary ">
-      <div className="w-10/12 mx-auto p-4 md:py-8">
-        <div className="sm:flex  sm:items-center sm:justify-between">
-          <a className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-            <div className="">
-              <Logo />
+    <footer className="bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-700">
+      <div className="max-w-10/12 mx-auto px-4 py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Logo & Description */}
+          <div className="md:col-span-1">
+            <div className="flex items-center mb-4">
+              <div className="">
+                <Logo />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white"></h3>
             </div>
-          </a>
-          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-            <li>
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/items"
-                className="hover:underline me-4 md:me-6"
-              >
-                All Camps
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/about"
-                className="hover:underline me-4 md:me-6"
-              >
-                About
-              </Link>
-            </li>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+              Providing quality healthcare services through organized medical
+              camps. Your health is our priority.
+            </p>
 
-            <li>
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="dashboard"
-                className="hover:underline me-4 md:me-6"
+            {/* Social Media Icons */}
+            <div className="flex space-x-3">
+              <a
+                href="https://x.com/hasan_soriful"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-[#01A6E7] hover:bg-[#0291CC] flex items-center justify-center transition-colors duration-200"
               >
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/contact"
-                className="hover:underline me-4 md:me-6"
+                <Twitter className="w-4 h-4 text-white" />
+              </a>
+              <a
+                href="https://github.com/Soriful-Hasan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-[#01A6E7] hover:bg-[#0291CC] flex items-center justify-center transition-colors duration-200"
               >
-                Contact
+                <Github className="w-4 h-4 text-white" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@codingwithhasan300"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-[#01A6E7] hover:bg-[#0291CC] flex items-center justify-center transition-colors duration-200"
+              >
+                <Youtube className="w-4 h-4 text-white" />
+              </a>
+            </div>
+          </div>
+
+          <div className="md:col-span-1">
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/items"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="text-gray-600 dark:text-gray-400 hover:text-[#01A6E7] dark:hover:text-[#01A6E7] transition-colors duration-200"
+                >
+                  All Camps
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="text-gray-600 dark:text-gray-400 hover:text-[#01A6E7] dark:hover:text-[#01A6E7] transition-colors duration-200"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/dashboard"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="text-gray-600 dark:text-gray-400 hover:text-[#01A6E7] dark:hover:text-[#01A6E7] transition-colors duration-200"
+                >
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="text-gray-600 dark:text-gray-400 hover:text-[#01A6E7] dark:hover:text-[#01A6E7] transition-colors duration-200"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="md:col-span-1">
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              Services (Upcoming)
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <span className="text-gray-600 dark:text-gray-400 opacity-70 cursor-not-allowed">
+                  Health Checkups
+                </span>
+              </li>
+              <li>
+                <span className="text-gray-600 dark:text-gray-400 opacity-70 cursor-not-allowed">
+                  Medical Consultations
+                </span>
+              </li>
+              <li>
+                <span className="text-gray-600 dark:text-gray-400 opacity-70 cursor-not-allowed">
+                  Diagnostic Tests
+                </span>
+              </li>
+              <li>
+                <span className="text-gray-600 dark:text-gray-400 opacity-70 cursor-not-allowed">
+                  Emergency Care
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="md:col-span-1">
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              Contact Info
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <Mail className="w-4 h-4 text-[#01A6E7] mr-3 flex-shrink-0" />
+                <span className="text-gray-600 dark:text-gray-400 text-sm">
+                  support@mediease.com
+                </span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="w-4 h-4 text-[#01A6E7] mr-3 flex-shrink-0" />
+                <span className="text-gray-600 dark:text-gray-400 text-sm">
+                  +880 1700-000000
+                </span>
+              </div>
+              <div className="flex items-start">
+                <MapPin className="w-4 h-4 text-[#01A6E7] mr-3 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-600 dark:text-gray-400 text-sm">
+                  Dhaka, Bangladesh
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 md:mb-0">
+              © 2025
+              <span className="font-semibold text-[#01A6E7]">MediEase™</span>.
+              All Rights Reserved.
+            </p>
+            <div className="flex space-x-6 text-sm">
+              <a
+                href="#"
+                className="text-gray-500 dark:text-gray-400 hover:text-[#01A6E7] transition-colors duration-200"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#"
+                className="text-gray-500 dark:text-gray-400 hover:text-[#01A6E7] transition-colors duration-200"
+              >
+                Terms of Service
+              </a>
+              <Link
+                to={"/contact"}
+                className="text-gray-500 dark:text-gray-400 hover:text-[#01A6E7] transition-colors duration-200"
+              >
+                Support
               </Link>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div class="flex mt-4 space-x-4  lg:justify-center sm:mt-0 ">
-          <a
-            href="https://x.com/hasan_soriful"
-            target="_blank"
-            class="w-9 h-9 rounded-full bg-my-primary flex justify-center items-center hover:bg-indigo-600"
-          >
-            <svg
-              class="text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <g id="Social Media">
-                <path
-                  id="Vector"
-                  d="M11.3214 8.93654L16.4919 3.05554H15.2667L10.7772 8.16193L7.1914 3.05554H3.05566L8.47803 10.7773L3.05566 16.9444H4.28097L9.022 11.5519L12.8088 16.9444H16.9446L11.3211 8.93654H11.3214ZM9.64322 10.8453L9.09382 10.0764L4.72246 3.95809H6.60445L10.1322 8.89578L10.6816 9.66469L15.2672 16.0829H13.3852L9.64322 10.8456V10.8453Z"
-                  fill="currentColor"
-                />
-              </g>
-            </svg>
-          </a>
-          <a
-            href="https://github.com/Soriful-Hasan"
-            target="_blank"
-            class="w-9 h-9 text-white rounded-full bg-my-primary flex justify-center items-center hover:bg-indigo-600"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sorifulhasan/"
-            target="_blank"
-            class="w-9 h-9 rounded-full bg-my-primary flex justify-center items-center hover:bg-indigo-600"
-          >
-            <svg
-              class="w-[1rem] h-[1rem] text-white"
-              viewBox="0 0 13 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.8794 11.5527V3.86835H0.318893V11.5527H2.87967H2.8794ZM1.59968 2.81936C2.4924 2.81936 3.04817 2.2293 3.04817 1.49188C3.03146 0.737661 2.4924 0.164062 1.61666 0.164062C0.74032 0.164062 0.167969 0.737661 0.167969 1.49181C0.167969 2.22923 0.723543 2.8193 1.5829 2.8193H1.59948L1.59968 2.81936ZM4.29668 11.5527H6.85698V7.26187C6.85698 7.03251 6.87369 6.80255 6.94134 6.63873C7.12635 6.17968 7.54764 5.70449 8.25514 5.70449C9.18141 5.70449 9.55217 6.4091 9.55217 7.44222V11.5527H12.1124V7.14672C12.1124 4.78652 10.8494 3.68819 9.16483 3.68819C7.78372 3.68819 7.17715 4.45822 6.84014 4.98267H6.85718V3.86862H4.29681C4.33023 4.5895 4.29661 11.553 4.29661 11.553L4.29668 11.5527Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.youtube.com/@codingwithhasan300"
-            target="_blank"
-            class="w-9 h-9 rounded-full bg-my-primary flex justify-center items-center hover:bg-indigo-600"
-          >
-            <svg
-              class="w-[1.25rem] h-[0.875rem] text-white"
-              viewBox="0 0 16 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M13.9346 1.13529C14.5684 1.30645 15.0665 1.80588 15.2349 2.43896C15.5413 3.58788 15.5413 5.98654 15.5413 5.98654C15.5413 5.98654 15.5413 8.3852 15.2349 9.53412C15.0642 10.1695 14.5661 10.669 13.9346 10.8378C12.7886 11.1449 8.19058 11.1449 8.19058 11.1449C8.19058 11.1449 3.59491 11.1449 2.44657 10.8378C1.81277 10.6666 1.31461 10.1672 1.14622 9.53412C0.839844 8.3852 0.839844 5.98654 0.839844 5.98654C0.839844 5.98654 0.839844 3.58788 1.14622 2.43896C1.31695 1.80353 1.81511 1.30411 2.44657 1.13529C3.59491 0.828125 8.19058 0.828125 8.19058 0.828125C8.19058 0.828125 12.7886 0.828125 13.9346 1.13529ZM10.541 5.98654L6.72178 8.19762V3.77545L10.541 5.98654Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
-        </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2025
-          <a href="https://flowbite.com/" className="hover:underline">
-            MediEase™
-          </a>
-          . All Rights Reserved.
-        </span>
       </div>
     </footer>
   );

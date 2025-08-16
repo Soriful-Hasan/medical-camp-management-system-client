@@ -1,9 +1,6 @@
 import React from "react";
 import PopularMedicalCamps from "./PopularMedicalCamps/PopularMedicalCamps";
 import Header from "../../components/Header/Header";
-import TimeLine from "./TimeLine/TimeLine";
-import UserRating from "./UserRating/UserRating";
-import ChooseUs from "./WhyChooseUs/ChooseUs";
 import FAQ from "./FAQ/FAQ";
 import MeetOurDoctor from "./MeetOurDoctor/MeetOurDoctor";
 import Rating from "./UserRating/Rating";
@@ -20,7 +17,7 @@ const Home = () => {
         <PopularMedicalCamps />
       </section>
 
-      <section>
+      <section className="">
         <MeetOurDoctor></MeetOurDoctor>
       </section>
 
@@ -32,7 +29,7 @@ const Home = () => {
         <Rating />
       </section>
 
-      <section className="max-w-10/12 mx-auto mb-10">
+      <section className=" mx-auto mb-10">
         <FAQ />
       </section>
     </main>

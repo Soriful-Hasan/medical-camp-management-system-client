@@ -25,6 +25,7 @@ import UpdateProfile from "../Dashboard/UpdateProfile/UpdateProfile";
 import ContactUs from "../Page/Home/ContactUs/ContactUs";
 import AboutUs from "../Page/Home/AboutUs/AboutUs";
 import ProfileRedirect from "../Dashboard/DashboardLayout/DashboardRedirect/ProfileRedirect";
+import HealthAwareness from "../Page/HealthAwarness/HealthAwarness";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/items",
         element: <AllCamps />,
+      },
+      {
+        path: "/health-awareness",
+        element: <HealthAwareness />,
       },
       {
         path: "/camp-details/:id",
