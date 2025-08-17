@@ -5,6 +5,7 @@ import FAQ from "./FAQ/FAQ";
 import MeetOurDoctor from "./MeetOurDoctor/MeetOurDoctor";
 import Rating from "./UserRating/Rating";
 import WhyChooseUs from "./WhyChooseUs/WhyChoseUs";
+import CoreValuesSection from "../../components/CoreValuesSection/CoreValuesSection";
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
       <section className=" dark:bg-dark-secondary">
         <Header></Header>
       </section>
-
+      <section>
+        <CoreValuesSection />
+      </section>
       <section className="max-w-10/12 mx-auto">
         <PopularMedicalCamps />
       </section>

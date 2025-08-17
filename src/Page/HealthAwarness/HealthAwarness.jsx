@@ -108,7 +108,7 @@ const HealthAwareness = () => {
   ];
 
   return (
-    <div className=" py-30 bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="py-30 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:via-[#1e2939] dark:to-gray-800">
       {/* Custom CSS for brand colors */}
       <style jsx>{`
         .brand-primary {
@@ -132,15 +132,19 @@ const HealthAwareness = () => {
         .text-brand-dark {
           color: #1e2939;
         }
+        /* Dark mode specific styles */
+        .dark .text-brand-dark {
+          color: #ffffff;
+        }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold  dark:text-white mb-4">
             Health Awareness
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Empowering you with knowledge and tools for better health.
             Prevention is the best medicine.
           </p>
@@ -148,13 +152,13 @@ const HealthAwareness = () => {
 
         {/* Navigation Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-full p-1 shadow-md">
+          <div className="bg-white dark:bg-gray-800 rounded-full p-1 shadow-md dark:shadow-gray-900/50">
             <button
               onClick={() => setActiveTab("tips")}
               className={`px-8 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeTab === "tips"
                   ? "bg-brand-primary text-white shadow-md"
-                  : "text-gray-600 hover:text-brand-primary"
+                  : "text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary"
               }`}
             >
               Health Tips
@@ -164,17 +168,17 @@ const HealthAwareness = () => {
               className={`px-8 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeTab === "preventive"
                   ? "bg-brand-primary text-white shadow-md"
-                  : "text-gray-600 hover:text-brand-primary"
+                  : "text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary"
               }`}
             >
               Preventive Care
             </button>
             <button
               onClick={() => setActiveTab("stats")}
-              className={`px-8 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-8 cursor-pointer py-3 rounded-full font-medium transition-all duration-300 ${
                 activeTab === "stats"
                   ? "bg-brand-primary text-white shadow-md"
-                  : "text-gray-600 hover:text-brand-primary"
+                  : "text-gray-600 dark:text-gray-300 hover:text-brand-primary dark:hover:text-brand-primary"
               }`}
             >
               Health Statistics
@@ -188,7 +192,7 @@ const HealthAwareness = () => {
             {healthTips.map((tip) => (
               <div
                 key={tip.id}
-                className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-gray-900/50 overflow-hidden hover:shadow-2xl dark:hover:shadow-gray-900/70 transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               >
                 <div className={`bg-gradient-to-r ${tip.color} p-6 text-white`}>
                   <div className="flex items-center mb-4">
@@ -201,7 +205,9 @@ const HealthAwareness = () => {
                     {tip.tips.map((tipItem, index) => (
                       <li key={index} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{tipItem}</span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {tipItem}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -217,14 +223,14 @@ const HealthAwareness = () => {
             {preventiveCare.map((care, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-md p-8 hover:shadow-2xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-gray-900/50 p-8 hover:shadow-2xl dark:hover:shadow-gray-900/70 transition-all duration-300 border border-gray-100 dark:border-gray-700"
               >
                 <div className="flex items-center mb-6">
-                  <div className="p-4 bg-brand-primary bg-opacity-10 rounded-full text-brand-primary">
+                  <div className="p-4 bg-brand-primary bg-opacity-10 dark:bg-opacity-20 rounded-full text-brand-primary">
                     {care.icon}
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-2xl font-bold text-brand-dark">
+                    <h3 className="text-2xl font-bold text-brand-dark dark:text-white">
                       {care.title}
                     </h3>
                     <div className="flex items-center mt-1">
@@ -235,12 +241,16 @@ const HealthAwareness = () => {
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg">{care.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                  {care.description}
+                </p>
                 <div className="grid grid-cols-2 gap-4">
                   {care.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center">
                       <div className="w-2 h-2 bg-brand-primary rounded-full mr-3"></div>
-                      <span className="text-gray-700">{benefit}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {benefit}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -255,22 +265,24 @@ const HealthAwareness = () => {
             {healthStats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-gray-900/50 p-8 text-center hover:shadow-2xl dark:hover:shadow-gray-900/70 transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
               >
                 <div className="text-4xl font-bold text-brand-primary mb-2">
                   {stat.value}
                 </div>
-                <h4 className="text-lg font-semibold text-brand-dark mb-2">
+                <h4 className="text-lg font-semibold text-brand-dark dark:text-white mb-2">
                   {stat.label}
                 </h4>
-                <p className="text-gray-600 text-sm">{stat.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {stat.description}
+                </p>
               </div>
             ))}
           </div>
         )}
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-my-primary to-blue-400 rounded-3xl p-8 md:p-12 text-center text-white">
+        <div className="bg-gradient-to-r from-my-primary to-blue-400 dark:from-brand-primary dark:to-blue-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-lg dark:shadow-gray-900/50">
           <h3 className="text-3xl font-bold mb-4">
             Take Charge of Your Health Today
           </h3>
@@ -278,20 +290,18 @@ const HealthAwareness = () => {
             Small steps today lead to big improvements tomorrow. Start your
             health journey now.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          
-          </div>
+         
         </div>
 
         {/* Health Alert Banner */}
-        <div className="mt-12 bg-amber-50 border-l-4 border-amber-400 p-6 rounded-lg">
+        <div className="mt-12 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 dark:border-amber-500 p-6 rounded-lg shadow-sm dark:shadow-gray-900/50">
           <div className="flex items-start">
-            <AlertCircle className="w-6 h-6 text-amber-500 mr-3 mt-0.5" />
+            <AlertCircle className="w-6 h-6 text-amber-500 dark:text-amber-400 mr-3 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-amber-800 mb-1">
+              <h4 className="font-semibold text-amber-800 dark:text-amber-200 mb-1">
                 Health Disclaimer
               </h4>
-              <p className="text-amber-700">
+              <p className="text-amber-700 dark:text-amber-300">
                 This information is for educational purposes only and should not
                 replace professional medical advice. Always consult with
                 healthcare professionals for personalized medical guidance.

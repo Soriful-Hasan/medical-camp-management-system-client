@@ -61,7 +61,7 @@ const PaymentHistory = () => {
     return <Loader />;
   }
   return (
-    <div className="mt-4">
+    <div className="mt-4 ">
       <SearchBar onSearch={setSearchText} placeholder="Search by camp name" />
       <div className="overflow-x-auto mt-4 m-4">
         <table className="table table-zebra">

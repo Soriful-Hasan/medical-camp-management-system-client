@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import ToggleDarkMode from "../ToggleDarkMode/ToggleDarkMode";
 import Logo from "../Logo/Logo";
@@ -9,6 +9,18 @@ import DropDown from "../DropDown/DropDown";
 const Nav = () => {
   const { user, userSignOut, loading } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSignOut = () => {
     userSignOut()
@@ -20,145 +32,326 @@ const Nav = () => {
         toast.error("Something was wrong");
       });
   };
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 dark:border-gray-700  border-gray-200 dark:bg-my-secondary bg-white border-b  ">
-      <div className="lg:max-w-10/12  flex flex-wrap items-center justify-between mx-auto p-4">
-        <Logo />
-
-        {/* Profile Button + Dropdown */}
-
-        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <div className="mr-4">
-            <ToggleDarkMode />
+    <nav
+      className={`
+        fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${
+          scrolled
+            ? "bg-white/95 dark:bg-dark-primary/95 backdrop-blur-md shadow-lg border-b border-gray-200/50 dark:border-gray-700/50"
+            : "bg-white/90 dark:bg-dark-primary/90 backdrop-blur-sm border-b border-gray-200/30 dark:border-gray-700/30"
+        }
+      `}
+    >
+      <div className="max-w-10/12 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+          {/* Logo - Hidden on mobile */}
+          <div className="hidden lg:flex flex-shrink-0">
+            <Logo />
           </div>
 
-          {loading ? (
-            <>
-              <span className="loading loading-ring loading-xl"></span>
-            </>
-          ) : user ? (
-            <>
-              <DropDown handleSignOut={handleSignOut} />
-            </>
-          ) : (
-            <>
-              <Link
-                to={"/auth/login"}
-                className="px-4 py-2 rounded-md cursor-pointer bg-my-primary  text-white"
-              >
-                Log in
-              </Link>
-            </>
-          )}
-
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Nav Links */}
-        <div
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } items-center justify-between w-full md:flex md:w-auto md:order-1`}
-          id="navbar-user"
-        >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4   md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
-            <li>
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:block">
+            <div className="flex items-baseline space-x-1">
               <NavLink
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/"
                 className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
+                  `relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                     isActive
-                      ? " bg-my-primary text-white  md:bg-transparent  md:text-my-primary md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "text-white bg-my-primary shadow-lg"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }`
                 }
               >
                 Home
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-my-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </NavLink>
-            </li>
-            <li>
+
               <NavLink
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/items"
                 className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
+                  `relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                     isActive
-                      ? "bg-my-primary text-white  md:bg-transparent  md:text-my-primary md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "text-white bg-my-primary shadow-lg"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }`
                 }
               >
                 Camps
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-my-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </NavLink>
-            </li>
-            <li>
+
               <NavLink
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/health-awareness"
                 className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
+                  `relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                     isActive
-                      ? "bg-my-primary text-white md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "text-white bg-my-primary shadow-lg"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }`
                 }
               >
                 Health Awareness
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-my-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </NavLink>
-            </li>
-            <li>
+
               <NavLink
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/about"
                 className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
+                  `relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                     isActive
-                      ? "bg-my-primary text-white md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "text-white bg-my-primary shadow-lg"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }`
                 }
               >
                 About Us
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-my-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </NavLink>
-            </li>
 
-            <li>
               <NavLink
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/contact"
                 className={({ isActive }) =>
-                  `block py-2 px-3 rounded md:p-0 ${
+                  `relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                     isActive
-                      ? "bg-my-primary text-white md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                      ? "text-white bg-my-primary shadow-lg"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50"
                   }`
                 }
               >
                 Contact
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-my-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </NavLink>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          {/* Mobile: Left side - Menu button */}
+          <div className="flex md:hidden">
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 w-10 h-10 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-my-primary/50"
+            >
+              <span className="sr-only">Open main menu</span>
+              <div className="relative w-5 h-5">
+                <span
+                  className={`absolute h-0.5 w-full bg-current transform transition-all duration-300 ${
+                    isMenuOpen ? "rotate-45 top-2" : "top-0"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute h-0.5 w-full bg-current transform transition-all duration-300 top-2 ${
+                    isMenuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                ></span>
+                <span
+                  className={`absolute h-0.5 w-full bg-current transform transition-all duration-300 ${
+                    isMenuOpen ? "-rotate-45 top-2" : "top-4"
+                  }`}
+                ></span>
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile: Center - Brand name */}
+          <div className="flex md:hidden flex-1 justify-center">
+            <Link
+              to="/"
+              className="text-lg font-bold text-gray-800 dark:text-white hover:text-my-primary dark:hover:text-my-primary transition-colors duration-200"
+            >
+              MediCamp
+            </Link>
+          </div>
+
+          {/* Right Section - Theme Toggle & Auth */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Theme Toggle - Always visible */}
+            <div className="flex items-center">
+              <ToggleDarkMode />
+            </div>
+
+            {/* Auth Section - Desktop */}
+            <div className="hidden md:block">
+              {loading ? (
+                <div className="flex items-center justify-center w-10 h-10">
+                  <div className="w-6 h-6 border-2 border-my-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              ) : user ? (
+                <DropDown handleSignOut={handleSignOut} />
+              ) : (
+                <Link
+                  to="/auth/login"
+                  className="px-6 py-2 bg-my-primary text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  Log in
+                </Link>
+              )}
+            </div>
+
+            {/* User Avatar/Login - Mobile only */}
+            <div className="flex md:hidden">
+              {loading ? (
+                <div className="flex items-center justify-center w-8 h-8">
+                  <div className="w-5 h-5 border-2 border-my-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              ) : user ? (
+                <div className="w-8 h-8 rounded-full bg-my-primary/20 flex items-center justify-center">
+                  <span className="text-my-primary font-bold text-sm">
+                    {user?.displayName?.charAt(0) ||
+                      user?.email?.charAt(0) ||
+                      "U"}
+                  </span>
+                </div>
+              ) : (
+                <Link
+                  to="/auth/login"
+                  className="px-3 py-1.5 bg-my-primary text-white text-sm font-medium rounded-lg transition-all duration-300 hover:bg-blue-600"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? "max-h-screen opacity-100 pb-4"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-dark-primary/95 backdrop-blur-md rounded-b-2xl border-t border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+            {/* Mobile Navigation Links */}
+            <div className="space-y-1">
+              <NavLink
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                to="/"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-white bg-gradient-to-r from-my-primary to-blue-600 shadow-lg transform scale-105"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:translate-x-2"
+                  }`
+                }
+              >
+                <span className="text-xl mr-3">🏠</span>
+                <span>Home</span>
+              </NavLink>
+
+              <NavLink
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                to="/items"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-white bg-gradient-to-r from-my-primary to-blue-600 shadow-lg transform scale-105"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:translate-x-2"
+                  }`
+                }
+              >
+                <span className="text-xl mr-3">🏕️</span>
+                <span>Camps</span>
+              </NavLink>
+
+              <NavLink
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                to="/health-awareness"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-white bg-gradient-to-r from-my-primary to-blue-600 shadow-lg transform scale-105"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:translate-x-2"
+                  }`
+                }
+              >
+                <span className="text-xl mr-3">❤️</span>
+                <span>Health Awareness</span>
+              </NavLink>
+
+              <NavLink
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                to="/about"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-white bg-gradient-to-r from-my-primary to-blue-600 shadow-lg transform scale-105"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:translate-x-2"
+                  }`
+                }
+              >
+                <span className="text-xl mr-3">ℹ️</span>
+                <span>About Us</span>
+              </NavLink>
+
+              <NavLink
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
+                to="/contact"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-white bg-gradient-to-r from-my-primary to-blue-600 shadow-lg transform scale-105"
+                      : "text-gray-700 dark:text-gray-300 hover:text-my-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:translate-x-2"
+                  }`
+                }
+              >
+                <span className="text-xl mr-3">📞</span>
+                <span>Contact</span>
+              </NavLink>
+            </div>
+
+            {/* Mobile Auth Section */}
+            {user && (
+              <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
+                <div className="px-4 py-2">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Welcome, {user?.displayName || user?.email}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    handleSignOut();
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-3 rounded-xl text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200"
+                >
+                  <span className="text-xl mr-3">🚪</span>
+                  Sign Out
+                </button>
+              </div>
+            )}
+
+            {/* Mobile Menu Footer */}
+            <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
+              <div className="px-4 py-2 text-center">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  MediCamp © 2025
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

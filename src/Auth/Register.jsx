@@ -16,7 +16,8 @@ import useAxios from "../hooks/useAxios";
 import SaveUserInfo from "../Utility/SaveUserInfo";
 
 const Register = () => {
-  const { signUp, updateUserProfile, setLoading } = useAuth();
+  const { signUp, updateUserProfile, setLoading, user } = useAuth();
+
   const axios = useAxios();
   const {
     register,
@@ -56,7 +57,7 @@ const Register = () => {
 
       const updateProfileData = {
         displayName: name,
-        photoURL: imageUrl,
+        photoURL: user.imageURL,
       };
 
       const userInfo = {

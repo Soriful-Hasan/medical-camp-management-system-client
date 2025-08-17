@@ -30,17 +30,16 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="w-10/12 mx-auto mb-10 pt-10">
+    <div className="w-10/12 mx-auto mb-10 py-30">
       <title>About Us</title>
 
       {/* Header Section */}
-      <div className="text-center max-w-3xl mx-auto mb-16 mt-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold  dark:text-white mb-4">
           About Us
         </h2>
-        <div className="h-1 w-20 mx-auto mb-6 rounded-full bg-[#01A6E7]"></div>
-        <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Transforming healthcare accessibility through innovative technology
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          We are dedicated to revolutionizing healthcare access through innovative technology. Our platform simplifies the organization and management of medical camps, ensuring that healthcare reaches those who need it most.
         </p>
       </div>
 
