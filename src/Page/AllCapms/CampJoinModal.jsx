@@ -65,13 +65,21 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="relative z-40"
+        className="relative z-500 "
       >
-        {/* Backdrop and Scrollable Center Container */}
-        <div className="fixed inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-y-auto">
-          <DialogPanel className="w-full max-w-3xl bg-white dark:bg-dark-primary rounded-xl shadow-xl space-y-6 p-6 sm:p-8 md:p-10 lg:p-12 max-h-[90vh] overflow-y-auto">
+        {/* Backdrop + Center Container */}
+        <div className="fixed inset-0 flex items-center justify-center p-2 sm:p-4 md:p-6 mt-10 overflow-y-auto">
+          <DialogPanel
+            className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl 
+                 bg-white dark:bg-dark-primary rounded-xl shadow-xl 
+                 space-y-6 p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto"
+          >
             {/* Title */}
-            <DialogTitle className="text-lg md:text-xl font-bold text-gray-900 sticky top-0 dark:bg-dark-primary dark:text-white bg-white z-10 pb-2">
+            <DialogTitle
+              className="text-base sm:text-lg md:text-xl font-bold text-gray-900 
+                   sticky top-0 dark:bg-dark-primary dark:text-white bg-white 
+                   z-10 pb-2"
+            >
               Join Camp
             </DialogTitle>
 
@@ -79,20 +87,21 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
             <div className="w-full">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="grid grid-cols-1 gap-3 md:gap-4 lg:grid-cols-2"
+                className="grid grid-cols-1 gap-3 md:gap-4 md:grid-cols-2"
               >
-                <div className="w-full ">
+                {/* Camp Name */}
+                <div className="w-full">
                   <label className="block font-medium">Camp Name *</label>
                   <input
                     value={campDetails.camp_name}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("camp_name", {
                       required: "Camp name required",
-                      minLength: {
-                        value: 3,
-                        message: "Camp name must be at least 3 characters",
-                      },
+                      minLength: { value: 3, message: "At least 3 characters" },
                     })}
                   />
                   {errors.camp_name && (
@@ -101,11 +110,16 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Camp Fees */}
                 <div className="w-full">
                   <label className="block font-medium">Camp Fees *</label>
                   <input
                     value={campDetails.camp_fee}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("camp_fee", {
                       required: "Camp fees required",
@@ -121,18 +135,20 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Camp Location */}
                 <div className="w-full">
-                  <label className="block font-medium">Camp location *</label>
+                  <label className="block font-medium">Camp Location *</label>
                   <input
                     value={campDetails.location}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("location", {
                       required: "Camp location required",
-                      minLength: {
-                        value: 3,
-                        message: "Location must be at least 3 characters",
-                      },
+                      minLength: { value: 3, message: "At least 3 characters" },
                     })}
                   />
                   {errors.location && (
@@ -141,21 +157,22 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Professional Name */}
                 <div className="w-full">
                   <label className="block font-medium">
                     Professional Name *
                   </label>
                   <input
                     value={campDetails.professional_name}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("professional_name", {
                       required: "Professional name required",
-                      minLength: {
-                        value: 3,
-                        message:
-                          "Professional name must be at least 3 characters",
-                      },
+                      minLength: { value: 3, message: "At least 3 characters" },
                     })}
                   />
                   {errors.professional_name && (
@@ -164,21 +181,22 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Participant Name */}
                 <div className="w-full">
                   <label className="block font-medium">
                     Participant Name *
                   </label>
                   <input
                     value={user?.displayName}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("participant_name", {
                       required: "Participant name required",
-                      minLength: {
-                        value: 3,
-                        message:
-                          "Participant name must be at least 3 characters",
-                      },
+                      minLength: { value: 3, message: "At least 3 characters" },
                     })}
                   />
                   {errors.participant_name && (
@@ -187,13 +205,18 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Participant Email */}
                 <div className="w-full">
                   <label className="block font-medium">
                     Participant Email *
                   </label>
                   <input
                     value={user?.email}
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="text"
                     {...register("participant_email", {
                       required: "Participant email required",
@@ -209,10 +232,15 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Age */}
                 <div className="w-full">
                   <label className="block font-medium">Your Age *</label>
                   <input
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="number"
                     placeholder="22"
                     {...register("participant_age", {
@@ -226,10 +254,15 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Phone Number */}
                 <div className="w-full">
                   <label className="block font-medium">Phone Number *</label>
                   <input
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="tel"
                     placeholder="+88018*********"
                     {...register("phone_number", {
@@ -242,11 +275,16 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
-                <div>
+
+                {/* Gender */}
+                <div className="w-full">
                   <label className="block font-medium">Select Gender *</label>
                   <select
                     {...register("gender", { required: "Gender is required" })}
-                    className="block dark:bg-dark-primary w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block dark:bg-dark-primary w-full pl-4 pr-3 py-2 
+                         border border-gray-300 rounded-md shadow-sm 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -261,12 +299,17 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
+
+                {/* Emergency Phone Number */}
                 <div className="w-full">
                   <label className="block font-medium">
                     Emergency Phone Number *
                   </label>
                   <input
-                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-my-primary focus:border-my-primary"
+                    className="block w-full pl-4 pr-3 py-2 border border-gray-300 
+                         rounded-md shadow-sm placeholder-gray-400 
+                         focus:outline-none focus:ring-2 
+                         focus:ring-my-primary focus:border-my-primary"
                     type="tel"
                     placeholder="+88018*********"
                     {...register("emergency_number", {
@@ -279,14 +322,20 @@ const Modal = ({ setIsOpen, isOpen, campDetails, refetch }) => {
                     </p>
                   )}
                 </div>
-                <div className="flex justify-end gap-3 col-span-2 mt-2">
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row justify-end gap-3 col-span-1 md:col-span-2 mt-2">
                   <button
+                    type="button"
                     onClick={() => setIsOpen(false)}
                     className="px-4 cursor-pointer py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700"
                   >
                     Cancel
                   </button>
-                  <button className="px-4 py-2 rounded-md cursor-pointer bg-my-primary  text-white">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 cursor-pointer rounded-md bg-my-primary text-white"
+                  >
                     Join Camp
                   </button>
                 </div>
